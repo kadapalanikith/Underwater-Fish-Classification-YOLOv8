@@ -1,13 +1,6 @@
-# Stage 1: Build the React Frontend
-FROM node:18-alpine AS frontend-builder
-WORKDIR /app/client
-COPY client/package*.json ./
-RUN npm install
-COPY client/ ./
-RUN npm run build
-
-# Stage 2: Build the FastAPI Backend
+# Build only the FastAPI Backend (Standalone AI API)
 FROM python:3.10-slim
+
 WORKDIR /app
 
 # Install system dependencies for OpenCV and YOLO
@@ -23,17 +16,15 @@ RUN pip install --no-cache-dir -r server/requirements.txt
 # Copy the trained model
 COPY models/ ./models/
 
-# Copy the built frontend from Stage 1
-COPY --from=frontend-builder /app/client/dist ./client/dist
-
 # Copy the server code
 COPY server/ ./server/
 
 # Environment variables
 ENV PYTHONUNBUFFERED=1
 ENV PORT=8000
-ENV STATIC_DIR=/app/client/dist
 ENV MODEL_PATH=/app/models/best.pt
+# We leave STATIC_DIR empty as we are hosting the frontend separately
+ENV STATIC_DIR=/tmp/null 
 
 EXPOSE 8000
 

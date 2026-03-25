@@ -1,0 +1,47 @@
+%PDF-1.4
+1 0 obj << /Type /Catalog /Pages 2 0 R >> endobj
+2 0 obj << /Type /Pages /Kids [3 0 R] /Count 1 >> endobj
+3 0 obj << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792]
+  /Contents 4 0 R /Resources << /Font << /F1 5 0 R >> >> >> endobj
+4 0 obj << /Length 800 >>
+stream
+BT
+/F1 22 Tf
+80 730 Td (DeepSea AI - Research Paper) Tj
+/F1 12 Tf
+0 -40 Td (Underwater Fish Species Classification Using YOLOv8) Tj
+/F1 10 Tf
+0 -20 Td (A Deep Learning Approach for Marine Biodiversity Monitoring) Tj
+0 -40 Td (Authors: Nikith Kadapalaneni, Team Member 2) Tj
+0 -20 Td (Guide: Dr. Research Guide) Tj
+0 -20 Td (Affiliation: Department of Computer Science & Engineering) Tj
+0 -40 Td (Abstract:) Tj
+0 -20 Td (This paper presents a real-time fish species classification system using YOLOv8.) Tj
+0 -16 Td (We train on 2000+ labeled underwater images across 13 species and achieve 0.91 mAP@50.) Tj
+0 -40 Td (Keywords: YOLOv8, Object Detection, Marine Biology, Deep Learning, Fish Classification) Tj
+0 -40 Td (1. Introduction) Tj
+0 -20 Td (Marine biodiversity monitoring is critical for ocean conservation. Traditional surveys) Tj
+0 -16 Td (require significant manual effort. This paper proposes an automated approach.) Tj
+0 -40 Td (2. Methodology) Tj
+0 -20 Td (Dataset: Kaggle Fish Detection dataset, augmented with Roboflow.) Tj
+0 -16 Td (Model: YOLOv8n pre-trained on COCO, fine-tuned on our dataset.) Tj
+0 -16 Td (Epochs: 10 | Image Size: 640px | Optimizer: Adam | LR: 1e-4) Tj
+0 -40 Td (3. Results) Tj
+0 -20 Td (Precision: 0.86 | Recall: 0.87 | mAP@50: 0.91 | mAP@50-95: 0.66) Tj
+0 -40 Td ((This is a sample placeholder paper. Replace with the actual PDF.)) Tj
+ET
+endstream
+endobj
+5 0 obj << /Type /Font /Subtype /Type1 /BaseFont /Helvetica >> endobj
+xref
+0 6
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000274 00000 n 
+0000001127 00000 n 
+trailer << /Size 6 /Root 1 0 R >>
+startxref
+1213
+%%EOF

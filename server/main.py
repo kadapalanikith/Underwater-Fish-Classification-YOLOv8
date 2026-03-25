@@ -24,8 +24,8 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Load model - ensures it looks in the current directory
-MODEL_PATH = "best.pt" 
+# Load model - ensures it looks in the models folder
+MODEL_PATH = os.getenv("MODEL_PATH", "../models/best.pt")
 model = None
 
 @app.on_event("startup")
@@ -73,5 +73,6 @@ async def predict(file: UploadFile = File(...)):
 
 if __name__ == "__main__":
     import uvicorn
-    # Hugging Face Spaces use port 7860
-    uvicorn.run(app, host="0.0.0.0", port=7860)
+    # Default to 8000 for local/Render, but respect environmental variable
+    port = int(os.getenv("PORT", 8000))
+    uvicorn.run(app, host="0.0.0.0", port=port)

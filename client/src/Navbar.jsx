@@ -6,11 +6,11 @@ export default function Navbar() {
 
   return (
     <nav>
-      <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', height: '70px' }}>
-        <Link to="/" className="nav-logo">
+      <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', height: '70px', gap: '2rem' }}>
+        <Link to="/" className="nav-logo" style={{ minWidth: 'max-content' }}>
           DeepSea <span>AI</span>
         </Link>
-        <div className="nav-links">
+        <div className="nav-links" style={{ display: 'flex', gap: '1.5rem', flexWrap: 'nowrap' }}>
           <Link to="/" className={`nav-link ${pathname === '/' ? 'active' : ''}`}>Home</Link>
           <Link to="/demo" className={`nav-link ${pathname === '/demo' ? 'active' : ''}`}>Demo</Link>
           <Link to="/research" className={`nav-link ${pathname === '/research' ? 'active' : ''}`}>Research</Link>

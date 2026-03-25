@@ -83,7 +83,7 @@ export default function DemoPage() {
         form.append('file', selectedImage);
         return axios.post(`${API_URL}/api/predict`, form, {
           headers: { 'Content-Type': 'multipart/form-data' },
-          timeout: 40000,
+          timeout: 90000,
         });
       })()
     ]);
@@ -95,7 +95,13 @@ export default function DemoPage() {
       setPipelineDone(true);
       setResult(apiRes.value.data);
     } else {
-      setError(apiRes.reason?.response?.data?.detail || 'Connection error. Is the backend running?');
+      let msg = 'Connection error. Is the backend running?';
+      if (apiRes.reason?.code === 'ECONNABORTED') {
+        msg = 'Request timed out. The model took too long to respond.';
+      } else if (apiRes.reason?.response?.data?.detail) {
+        msg = apiRes.reason.response.data.detail;
+      }
+      setError(msg);
       setPipelineDone(false);
       setPipelineStep(-1);
     }

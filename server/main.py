@@ -53,21 +53,33 @@ def health_check():
     return {"status": "healthy" if model else "unhealthy"}
 
 @app.post("/api/predict")
-async def predict(file: UploadFile = File(...)):
+def predict(file: UploadFile = File(...)):
     """API endpoint for YOLOv8 inference."""
+    import time
+    start_time = time.time()
+    
     if not model:
+        logger.error("Predict called but model not loaded.")
         raise HTTPException(status_code=503, detail="AI Service is currently unavailable.")
 
     if not file.content_type.startswith("image/"):
+        logger.warning(f"Invalid file type: {file.content_type}")
         raise HTTPException(status_code=400, detail="Invalid file type.")
 
     try:
-        contents = await file.read()
+        # Using sync read for sync function
+        contents = file.file.read()
+        logger.info(f"File received: {file.filename}, Size: {len(contents)} bytes")
+        
         image = Image.open(io.BytesIO(contents))
         if image.mode != "RGB":
             image = image.convert("RGB")
         
+        # Inference
+        predict_start = time.time()
         results = model.predict(image, conf=0.25, verbose=False)
+        predict_end = time.time()
+        logger.info(f"Inference completed in {predict_end - predict_start:.3f}s")
         
         detections = []
         img_str = ""
@@ -75,6 +87,7 @@ async def predict(file: UploadFile = File(...)):
         if results:
             res = results[0]
             # Process annotated image
+            render_start = time.time()
             im_array = res.plot()
             im_rgb = cv2.cvtColor(im_array, cv2.COLOR_BGR2RGB)
             im_pil = Image.fromarray(im_rgb)
@@ -82,6 +95,8 @@ async def predict(file: UploadFile = File(...)):
             buffered = io.BytesIO()
             im_pil.save(buffered, format="JPEG", quality=85)
             img_str = base64.b64encode(buffered.getvalue()).decode()
+            render_end = time.time()
+            logger.info(f"Image rendering/encoding completed in {render_end - render_start:.3f}s")
 
             # Process metadata
             for box in res.boxes:
@@ -89,6 +104,9 @@ async def predict(file: UploadFile = File(...)):
                     "species": res.names[int(box.cls[0])],
                     "confidence": float(box.conf[0])
                 })
+
+        total_time = time.time() - start_time
+        logger.info(f"Total prediction request time: {total_time:.3f}s")
 
         return {
             "success": True,
@@ -98,7 +116,7 @@ async def predict(file: UploadFile = File(...)):
 
     except Exception as e:
         logger.error(f"Prediction error: {e}")
-        raise HTTPException(status_code=500, detail="Inference failed.")
+        raise HTTPException(status_code=500, detail=f"Inference failed: {str(e)}")
 
 # Serve Frontend static files
 if os.path.exists(STATIC_DIR):

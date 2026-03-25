@@ -3,7 +3,7 @@ venv/
 env/
 .env
 .env.local
-notebooks/
+
 
 # Python
 __pycache__/

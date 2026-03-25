@@ -1,4 +1,12 @@
-# Build only the FastAPI Backend (Standalone AI API)
+# Stage 1: Build the React Frontend
+FROM node:20-alpine AS frontend-builder
+WORKDIR /app/client
+COPY client/package*.json ./
+RUN npm install
+COPY client/ ./
+RUN npm run build
+
+# Stage 2: Build the FastAPI Backend
 FROM python:3.10-slim
 
 WORKDIR /app
@@ -19,12 +27,14 @@ COPY models/ ./models/
 # Copy the server code
 COPY server/ ./server/
 
+# Copy built frontend assets from Stage 1
+COPY --from=frontend-builder /app/client/dist /app/client/dist
+
 # Environment variables
 ENV PYTHONUNBUFFERED=1
 ENV PORT=8000
 ENV MODEL_PATH=/app/models/best.pt
-# We leave STATIC_DIR empty as we are hosting the frontend separately
-ENV STATIC_DIR=/tmp/null 
+ENV STATIC_DIR=/app/client/dist
 
 EXPOSE 8000
 

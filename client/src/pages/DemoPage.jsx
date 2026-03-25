@@ -6,15 +6,15 @@ import {
   CheckCircle2, AlertCircle, ImagePlus, Zap, ScanLine, BarChart2
 } from 'lucide-react';
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+const API_URL = import.meta.env.PROD ? '' : 'http://localhost:8000';
 
 // Pipeline step definitions
 const STEPS = [
-  { id: 'input',      label: 'Input',      Icon: ImagePlus },
-  { id: 'preprocess', label: 'Preprocess', Icon: ScanLine  },
-  { id: 'cnn',        label: 'CNN Extract', Icon: Zap       },
-  { id: 'classify',   label: 'Classify',   Icon: BarChart2  },
-  { id: 'output',     label: 'Output',     Icon: CheckCircle2 },
+  { id: 'input', label: 'Input', Icon: ImagePlus },
+  { id: 'preprocess', label: 'Preprocess', Icon: ScanLine },
+  { id: 'cnn', label: 'CNN Extract', Icon: Zap },
+  { id: 'classify', label: 'Classify', Icon: BarChart2 },
+  { id: 'output', label: 'Output', Icon: CheckCircle2 },
 ];
 
 // State machine: which step is active/done during the pipeline
@@ -27,12 +27,12 @@ function getStepState(stepIdx, activeIdx, done) {
 
 export default function DemoPage() {
   const [selectedImage, setSelectedImage] = useState(null);
-  const [previewUrl, setPreviewUrl]       = useState(null);
-  const [result, setResult]               = useState(null);
-  const [loading, setLoading]             = useState(false);
-  const [error, setError]                 = useState(null);
-  const [pipelineStep, setPipelineStep]   = useState(-1); // -1 = not started
-  const [pipelineDone, setPipelineDone]   = useState(false);
+  const [previewUrl, setPreviewUrl] = useState(null);
+  const [result, setResult] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const [pipelineStep, setPipelineStep] = useState(-1); // -1 = not started
+  const [pipelineDone, setPipelineDone] = useState(false);
   const fileInputRef = useRef(null);
 
   const clearAll = () => {
@@ -90,7 +90,7 @@ export default function DemoPage() {
 
     // Ensure pipeline shows step 4 (output) regardless
     setPipelineStep(4);
-    
+
     if (apiRes.status === 'fulfilled') {
       setPipelineDone(true);
       setResult(apiRes.value.data);
@@ -213,8 +213,10 @@ export default function DemoPage() {
 
               {error && (
                 <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}
-                  style={{ padding: '0.9rem 1.2rem', background: 'rgba(239,68,68,0.07)', border: '1px solid rgba(239,68,68,0.2)',
-                    borderRadius: 14, display: 'flex', gap: '0.6rem', alignItems: 'flex-start', color: '#b91c1c', fontSize: '0.875rem' }}>
+                  style={{
+                    padding: '0.9rem 1.2rem', background: 'rgba(239,68,68,0.07)', border: '1px solid rgba(239,68,68,0.2)',
+                    borderRadius: 14, display: 'flex', gap: '0.6rem', alignItems: 'flex-start', color: '#b91c1c', fontSize: '0.875rem'
+                  }}>
                   <AlertCircle size={18} style={{ marginTop: 1, flexShrink: 0 }} />{error}
                 </motion.div>
               )}

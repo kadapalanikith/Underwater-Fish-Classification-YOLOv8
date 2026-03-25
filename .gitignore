@@ -1,6 +1,41 @@
+# Environments
 venv/
+env/
+.env
+.env.local
+
+# Python
 __pycache__/
 *.pyc
-.ipynb_checkpoints/
+*.pyo
+*.pyd
+.Python
+pip-log.txt
+pip-delete-this-directory.txt
+.tox/
+.coverage
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.log
+.mypy_cache/
+.pytest_cache/
+
+# Node
+node_modules/
+dist/
+dist-ssr
+*.local
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Project specific
 .streamlit/
 dataset/
+models/*.pt
+!models/best.pt

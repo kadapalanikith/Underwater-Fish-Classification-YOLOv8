@@ -1,5 +1,5 @@
 fastapi
-uvicorn
+uvicorn[standard]
 python-multipart
 ultralytics
 torch
@@ -7,3 +7,4 @@ pillow
 opencv-python-headless
 numpy
 python-dotenv
+huggingface_hub

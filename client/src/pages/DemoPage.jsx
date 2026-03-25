@@ -6,7 +6,7 @@ import {
   CheckCircle2, AlertCircle, ImagePlus, Zap, ScanLine, BarChart2
 } from 'lucide-react';
 
-const API_URL = import.meta.env.PROD ? '' : 'http://localhost:8000';
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
 
 // Pipeline step definitions
 const STEPS = [

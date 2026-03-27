@@ -4,29 +4,29 @@ import { Mail, Phone, MapPin, GitFork, GraduationCap, Users, BookOpen, Send } fr
 
 const TEAM = [
   {
-    initials: 'NK',
-    name: 'Nikith Kadapalaneni',
-    role: 'Team Member',
-    description: 'Computer Vision & Full-Stack Developer. Responsible for model training, FastAPI backend, and React frontend.',
-    contact: { email: 'nikith@example.com', linkedin: 'linkedin.com/in/nikith', github: 'github.com/kadapalanikith' },
-    isGuide: false,
-  },
-  {
-    initials: 'TS',
-    name: 'Team Member 2',
-    role: 'Team Member',
-    description: 'AI Researcher specializing in dataset curation, annotation, and benchmarking of deep learning models.',
-    contact: { email: 'member2@example.com', linkedin: 'linkedin.com/in/member2', github: 'github.com/member2' },
-    isGuide: false,
-  },
-  {
     initials: 'DR',
-    name: 'Dr. Research Guide',
+    name: 'Dr. Bhanumathi M',
     role: 'Project Guide',
     description: 'Associate Professor, Department of Computer Science. Mentor for AI research, faculty advisor for IEEE paper submission.',
-    contact: { email: 'guide@university.edu', linkedin: 'linkedin.com/in/drguide' },
+    contact: { email: 'bhanumam@srmist.edu.in' },
     isGuide: true,
   },
+  {
+    initials: 'SN',
+    name: 'Sai Nipunn',
+    role: 'Team Member',
+    description: 'AI Researcher specializing in dataset curation, annotation, and benchmarking of deep learning models.',
+    contact: { email: 'sainipunn@gmail.com', github: 'https://github.com/sai2005-prog' },
+    isGuide: false,
+  },
+  {
+    initials: 'NR',
+    name: 'Nikith Reddy',
+    role: 'Team Member',
+    description: 'Computer Vision & Full-Stack Developer. Responsible for model training, FastAPI backend, and React frontend.',
+    contact: { email: 'kadapalanikith@gmail.com', github: 'https://github.com/kadapalanikith' },
+    isGuide: false,
+  }
 ];
 
 const fadeIn = { hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0, transition: { duration: 0.55 } } };

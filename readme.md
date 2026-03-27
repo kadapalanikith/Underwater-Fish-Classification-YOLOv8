@@ -1,94 +1,242 @@
-# 🌊 DeepSea AI | Advanced YOLOv8 Full-Stack v3.0
+# 🌊 DeepSea AI — Underwater Fish Classification
+### YOLOv8 · FastAPI · React 19 · Docker
 
-[![Production Ready](https://img.shields.io/badge/Production-Ready-brightgreen.svg)](https://github.com/kadapalanikith/Underwater-Fish-Classification-YOLOv8)
 [![Model](https://img.shields.io/badge/YOLO-v8-blue.svg)](https://ultralytics.com)
 [![Frontend](https://img.shields.io/badge/React-19-61dafb.svg)](https://react.dev)
-[![Backend](https://img.shields.io/badge/FastAPI-v0.110-05998b.svg)](https://fastapi.tiangolo.com)
+[![Backend](https://img.shields.io/badge/FastAPI-0.110-05998b.svg)](https://fastapi.tiangolo.com)
+[![License](https://img.shields.io/badge/License-Academic-orange.svg)](#license)
 
-**DeepSea AI** is a professional, production-grade computer vision platform designed for real-time underwater fish species classification. It features a highly optimized YOLOv8 neural network integrated into a modern decoupled architecture.
-
----
-
-## 🏗️ Enterprise Architecture
-
-This project is engineered for high availability and decoupled scalability:
-
--   **Frontend (Vercel Optimized)**: A sleek, glassmorphism UI built with **React 19**, **Vite**, and **Framer Motion**. Optimized for global CDN delivery.
--   **Backend (Hugging Face / Render / Docker)**: A high-performance **FastAPI** inference service serving the YOLOv8 model.
--   **Neural Engine**: Custom-trained **YOLOv8** weights (`best.pt`) supporting 13 unique marine species with ultra-low latency.
--   **Inference Pipeline**: Real-time visual feedback with base64 encoded annotated frames and confidence metadata.
+**DeepSea AI** is an end-to-end computer vision web application that detects and classifies **13 underwater fish species** in real time using a custom-trained YOLOv8 model (`best.pt`).
 
 ---
 
-## 📂 Project Structure
+## 🗂️ Project Structure
 
-```text
+```
 fish_offline_app/
-├── client/              # React + Vite Frontend (Optimized for Vercel)
-│   ├── src/             # Core UI components & Pages
-│   └── public/          # Static assets
-├── server/              # FastAPI Backend (Optimized for HF/Render)
-│   ├── main.py          # Professional REST API with CORS & Logging
-│   └── requirements.txt # Enterprise-grade Python dependencies
-├── models/              # Neural Network weights
-│   └── best.pt          # YOLOv8 Weights (mAP@50: 0.91)
-├── Dockerfile           # Unified production build (Vite + FastAPI)
-├── Dockerfile.render    # Backend-only build optimized for Render.com
-├── Dockerfile.huggingface # Specific config for Hugging Face Spaces
-└── README.md            # System Documentation
+├── client/                  # React 19 + Vite Frontend
+│   ├── src/
+│   │   ├── App.jsx           # Router — Home | Demo | Research | Contact
+│   │   ├── pages/
+│   │   │   ├── DemoPage.jsx  ← AI inference UI (main feature)
+│   │   │   ├── HomePage.jsx  ← Landing page
+│   │   │   ├── ResearchPage.jsx ← Paper + metrics
+│   │   │   └── ContactPage.jsx  ← Team info
+│   │   └── index.css        # Design system
+│   ├── public/
+│   │   └── research/
+│   │       └── RE_Paper.pdf  # Research paper (served statically)
+│   └── .env                 # Frontend environment variables
+├── server/
+│   ├── main.py              # FastAPI inference server
+│   └── requirements.txt     # Python dependencies
+├── models/
+│   └── best.pt              # YOLOv8 trained weights (mAP@50: 0.91)
+├── Dockerfile               # Unified build (for self-hosted)
+├── Dockerfile.render        # Backend-only — Render.com
+├── Dockerfile.huggingface   # Backend-only — Hugging Face Spaces
+├── explanation.md           # Project explanation for review committee
+└── code_explanation.md      # Code walkthrough for review committee
 ```
 
 ---
 
-## 🚀 Deployment Guide (Production)
+## 🐟 Fish Species (13 Classes)
 
-### 1. Backend (The Engine)
-We recommend hosting the API on **Hugging Face Spaces** or **Render**:
--   **Hugging Face**: Use `Dockerfile.huggingface` (rename to `Dockerfile` on HF).
--   **Render**: Use `Dockerfile.render`. 
--   **Port**: The API matches the environment default (7860 for HF, 8000 for Render/Local).
-
-### 2. Frontend (The UI)
-Host on **Vercel** for optimal global speed:
-1.  Connect this GitHub repo to Vercel.
-2.  Add Environment Variable: `VITE_API_URL` = `YOUR_BACKEND_URL`.
-3.  Deploy.
+`AngelFish` · `BlueTang` · `ButterflyFish` · `ClownFish` · `GoldFish` · `Gourami` · `MorishIdol` · `PlatyFish` · `RibbonedSweetlips` · `ThreeStripedDamselfish` · `YellowCichlid` · `YellowTang` · `ZebraFish`
 
 ---
 
-## 💻 Local Developer Execution
+## 💻 How to Run Locally (Step-by-Step)
 
-### Option A: The "Direct" Way (Recommended for Dev)
-1.  **Start Backend**: 
-    ```bash
-    cd server && pip install -r requirements.txt && python main.py
-    ```
-2.  **Start Frontend**: 
-    ```bash
-    cd client && npm install && npm run dev
-    ```
+### Prerequisites
 
-### Option B: The Docker Way (Recommended for Testing)
-Ensure Docker Desktop is running, then:
+Make sure you have these installed before starting:
+
+| Tool | Version | Check with |
+|---|---|---|
+| Python | 3.10+ | `python --version` |
+| Node.js | 18+ | `node --version` |
+| npm | 9+ | `npm --version` |
+| Git | Any | `git --version` |
+
+---
+
+### Step 1 — Clone the Repository
+
 ```bash
+git clone https://github.com/kadapalanikith/Underwater-Fish-Classification-YOLOv8.git
+cd Underwater-Fish-Classification-YOLOv8
+```
+
+---
+
+### Step 2 — Start the Backend (Python / FastAPI)
+
+Open a terminal and run:
+
+```bash
+cd server
+pip install -r requirements.txt
+python main.py
+```
+
+> ✅ You should see:
+> ```
+> INFO:     Uvicorn running on http://0.0.0.0:8000
+> INFO:HF-Backend:✅ YOLOv8 Model Loaded
+> ```
+
+**The backend is now running at:** `http://localhost:8000`
+
+- Visit `http://localhost:8000` → should return `{"status":"running","model":"YOLOv8-Fish-Classifier"}`
+- Visit `http://localhost:8000/docs` → interactive API documentation
+
+> **Note:** First run may take a few minutes to download PyTorch and Ultralytics.
+
+---
+
+### Step 3 — Configure Frontend Environment
+
+The frontend needs to know where the backend is. Open `client/.env`:
+
+```env
+VITE_API_URL=http://localhost:8000
+```
+
+This is already set correctly for local development. ✅ No changes needed.
+
+---
+
+### Step 4 — Start the Frontend (React / Vite)
+
+Open a **new terminal** (keep the backend running):
+
+```bash
+cd client
+npm install
+npm run dev
+```
+
+> ✅ You should see:
+> ```
+>   VITE v5.x ready in 300ms
+>   ➜  Local:   http://localhost:5173/
+> ```
+
+**The frontend is now running at:** `http://localhost:5173`
+
+---
+
+### Step 5 — Use the App
+
+1. Open `http://localhost:5173` in your browser
+2. Click **"Try the Model"** or navigate to **Demo**
+3. Upload any underwater fish photo (JPEG/PNG, max 10 MB)
+4. Click **"Process with YOLOv8"**
+5. View annotated image with bounding boxes, species names, and confidence scores
+
+---
+
+## 🐳 Docker (All-in-One)
+
+If you have Docker Desktop installed:
+
+```bash
+# Build the unified image
 docker build -t deepsea-ai .
+
+# Run it
 docker run -p 8000:8000 deepsea-ai
 ```
-Access at `http://localhost:8000`.
+
+Open `http://localhost:8000` — the React build is served by FastAPI in this mode.
 
 ---
 
-## 📊 Model Intelligence
--   **Architecture**: YOLOv8 (Ultralytics)
--   **Confidence Threshold**: 0.25 (User Configurable)
--   **Classes**: AngelFish, BlueTang, ButterflyFish, ClownFish, GoldFish, Gourami, MorishIdol, PlatyFish, RibbonedSweetlips, ThreeStripedDamselfish, YellowCichlid, YellowTang, ZebraFish.
+## 🧪 Test the API Directly
+
+You can test the backend without the frontend using `curl`:
+
+```bash
+curl -X POST http://localhost:8000/api/predict \
+  -F "file=@/path/to/your/fish.jpg"
+```
+
+Or use the interactive docs at `http://localhost:8000/docs`.
 
 ---
 
-## 👨‍🔬 Research & Development
-DeepSea AI is maintained by **Nikith** with a focus on marine biodiversity monitoring through automated visual recognition.
+## 📊 Model Performance
+
+| Metric | Value |
+|---|---|
+| mAP@50 | **0.91** |
+| Precision | **0.86** |
+| Recall | **0.87** |
+| mAP@50–95 | **0.66** |
+| Inference Time | **≤ 45ms** (CPU) |
+| Input Size | 640 × 640 px |
+| Confidence Threshold | 0.25 (default) |
+
+---
+
+## 🚀 Production Deployment
+
+### Frontend → Vercel
+
+1. Push this repo to GitHub
+2. Connect repo to [vercel.com](https://vercel.com)
+3. Set **Root Directory** to `client`
+4. Add Environment Variable: `VITE_API_URL` → your backend URL
+5. Deploy ✅
+
+### Backend → Hugging Face Spaces
+
+1. Create a new Space at [huggingface.co/spaces](https://huggingface.co/spaces)
+2. Choose **Docker** as the SDK
+3. Upload `Dockerfile.huggingface` (rename to `Dockerfile`) and `server/` contents
+4. Upload `models/best.pt` to the Space files
+5. Space will build and run automatically ✅
+
+### Backend → Render.com
+
+1. Create a new **Web Service** at [render.com](https://render.com)
+2. Connect GitHub repo, set **Root Directory** to `.` (repo root)
+3. Set **Dockerfile Path** to `Dockerfile.render`
+4. Deploy ✅
+
+---
+
+## 🔧 Troubleshooting
+
+| Problem | Fix |
+|---|---|
+| `ModuleNotFoundError: ultralytics` | Run `pip install -r server/requirements.txt` |
+| Backend shows `❌ Failed to load model` | Check that `models/best.pt` exists |
+| Frontend shows "Connection error" | Make sure backend is running on port 8000 |
+| `CORS error` in browser | Backend allows `*` origins by default — check it's running |
+| `npm install` fails | Ensure Node.js 18+ is installed |
+| Port 8000 already in use | Kill the process: `npx kill-port 8000` |
+
+---
+
+## 📄 Documents
+
+| File | Purpose |
+|---|---|
+| [`explanation.md`](./explanation.md) | Project explanation for review committee (problem → solution → results) |
+| [`code_explanation.md`](./code_explanation.md) | Code walkthrough for review committee (architecture → functions → design decisions) |
+
+---
+
+## 👨‍🔬 Team
+
+**Nikith Kadapalaneni** — Computer Vision & Full-Stack Development
+GitHub: [kadapalanikith](https://github.com/kadapalanikith)
 
 ---
 
 ## 📜 License
-Standard academic/educational license applies. No unauthorized commercial redistribution.
+
+Academic/Educational use only. No unauthorized commercial redistribution.

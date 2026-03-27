@@ -52,10 +52,9 @@ async def predict(file: UploadFile = File(...)):
     results = model.predict(image, conf=0.25)
     res = results[0]
     
-    # Annotated Image
+    # Annotated Image (already in BGR from res.plot)
     im_array = res.plot()
-    im_rgb = cv2.cvtColor(im_array, cv2.COLOR_BGR2RGB)
-    _, buffer = cv2.imencode('.jpg', cv2.cvtColor(im_rgb, cv2.COLOR_RGB2BGR))
+    _, buffer = cv2.imencode('.jpg', im_array)
     img_str = base64.b64encode(buffer).decode()
     
     detections = []

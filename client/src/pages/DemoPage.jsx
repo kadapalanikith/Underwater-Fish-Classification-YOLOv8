@@ -10,16 +10,16 @@ const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
 
 // Pipeline step definitions
 const STEPS = [
-  { id: 'input', label: 'Input', Icon: ImagePlus },
+  { id: 'input',      label: 'Input',     Icon: ImagePlus },
   { id: 'preprocess', label: 'Preprocess', Icon: ScanLine },
-  { id: 'cnn', label: 'CNN Extract', Icon: Zap },
-  { id: 'classify', label: 'Classify', Icon: BarChart2 },
-  { id: 'output', label: 'Output', Icon: CheckCircle2 },
+  { id: 'yolov8',     label: 'YOLOv8',    Icon: Zap },
+  { id: 'detect',     label: 'Detect',     Icon: BarChart2 },
+  { id: 'output',     label: 'Output',     Icon: CheckCircle2 },
 ];
 
 // State machine: which step is active/done during the pipeline
 function getStepState(stepIdx, activeIdx, done) {
-  if (done) return stepIdx === 4 ? 'glow-output' : 'done';
+  if (done) return 'done'; // All steps should be green on success
   if (stepIdx < activeIdx) return 'done';
   if (stepIdx === activeIdx) return 'active';
   return 'idle';
@@ -70,9 +70,10 @@ export default function DemoPage() {
     // Animated pipeline sequence
     const delay = (ms) => new Promise(r => setTimeout(r, ms));
     const animate = async () => {
-      for (let i = 0; i <= 3; i++) {
+      // Start from 1 because step 0 (Input) is already lit after upload
+      for (let i = 1; i <= 3; i++) {
         setPipelineStep(i);
-        await delay(650);
+        await delay(500); // Slightly faster for better UX
       }
     };
 
@@ -88,8 +89,8 @@ export default function DemoPage() {
       })()
     ]);
 
-    // Ensure pipeline shows step 4 (output) regardless
-    setPipelineStep(4);
+    // Transition to final step Output
+    setPipelineStep(STEPS.length - 1);
 
     if (apiRes.status === 'fulfilled') {
       setPipelineDone(true);
@@ -103,12 +104,11 @@ export default function DemoPage() {
       }
       setError(msg);
       setPipelineDone(false);
-      setPipelineStep(-1);
+      setPipelineStep(0); // Reset to input stage on error, not -1
     }
     setLoading(false);
   };
 
-  const lineProgress = pipelineStep >= 0 ? Math.min((pipelineStep / 4) * 100, 100) : 0;
 
   return (
     <div style={{ paddingTop: '70px' }}>

@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { FileText, Download, BookOpen, ExternalLink } from 'lucide-react';
 
-const SAMPLE_PDF = '/research/sample_paper.pdf';
+const SAMPLE_PDF = '/research/RE_Paper.pdf';
 
 const PAPERS = [
   {

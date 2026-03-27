@@ -33,7 +33,7 @@ const FEATURES = [
 const HOW_TO = [
   { step: '01', title: 'Open the Demo', desc: 'Navigate to the Demo tab and you will see the AI inference pipeline.' },
   { step: '02', title: 'Upload an Image', desc: 'Click the upload zone or drag-and-drop any JPEG/PNG underwater fish photo. Max 10 MB.' },
-  { step: '03', title: 'Run Inference', desc: 'Click "Process with YOLOv8". The pipeline animates through Input → Preprocessing → CNN Extraction → Classification.' },
+  { step: '03', title: 'Run Inference', desc: 'Click "Process with YOLOv8". The pipeline animates through Input → Preprocessing → YOLOv8 Model → Detection & Output.' },
   { step: '04', title: 'Inspect Results', desc: 'The annotated image with bounding boxes appears on the right, with species names and confidence percentages.' },
 ];
 

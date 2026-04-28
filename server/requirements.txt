@@ -8,3 +8,4 @@ opencv-python-headless
 numpy
 python-dotenv
 huggingface_hub
+exceptiongroup

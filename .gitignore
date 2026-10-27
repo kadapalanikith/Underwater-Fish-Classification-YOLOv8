@@ -1,8 +1,30 @@
 # Environments
 venv/
 env/
+.venv/
+.venv-video/
+.uv-python-video/
 .env
 .env.local
+
+# Backups and Secrets
+*.bak
+kaggle.json
+*.key
+
+# Experiments & Data
+runs/
+datasets/
+data/
+outputs/
+/Dataset/
+/test_sample/
+/external_data/
+!/external_data/
+/external_data/*
+!/external_data/digi4eco/
+/external_data/digi4eco/*
+!/external_data/digi4eco/README.md
 
 
 # Python

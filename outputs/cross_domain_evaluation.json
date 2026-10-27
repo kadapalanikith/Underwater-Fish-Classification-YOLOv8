@@ -1,0 +1,303 @@
+{
+  "raw": {
+    "source_domain": "Kaggle/Roboflow Curated Tank & Aquarium Domain",
+    "target_domain": "Same-distribution test_sample images (Roboflow .rf. format - NOT an independent cross-domain dataset)",
+    "enhancement_applied": "raw",
+    "total_images_evaluated": 40,
+    "images_with_detections": 40,
+    "detection_hit_rate": 1.0,
+    "total_objects_detected": 60,
+    "average_confidence": 0.705,
+    "average_inference_latency_ms": 143.38,
+    "detected_species_distribution": {
+      "ThreeStripedDamselfish": 5,
+      "ClownFish": 17,
+      "AngelFish": 6,
+      "GoldFish": 4,
+      "PlatyFish": 1,
+      "BlueTang": 8,
+      "Gourami": 5,
+      "MorishIdol": 3,
+      "RibbonedSweetlips": 4,
+      "ZebraFish": 6,
+      "YellowTang": 1
+    },
+    "sample_detections": [
+      {
+        "image": "10_jpeg.rf.94951c0379fe621911e4e48a35dc44e1.jpg",
+        "num_detections": 1,
+        "detections": [
+          {
+            "species": "ThreeStripedDamselfish",
+            "confidence": 0.958
+          }
+        ]
+      },
+      {
+        "image": "13_jpeg.rf.e9aefe712874f442cb303ffecee5025e.jpg",
+        "num_detections": 1,
+        "detections": [
+          {
+            "species": "ThreeStripedDamselfish",
+            "confidence": 0.878
+          }
+        ]
+      },
+      {
+        "image": "3-stripe-damsel_jpeg.rf.0dbc05009e67e92d465df6537438cc8c.jpg",
+        "num_detections": 1,
+        "detections": [
+          {
+            "species": "ThreeStripedDamselfish",
+            "confidence": 0.932
+          }
+        ]
+      },
+      {
+        "image": "3-striped-damselfish_jpeg.rf.b98f0fb4295dfa60feb74b4062b65458.jpg",
+        "num_detections": 1,
+        "detections": [
+          {
+            "species": "ThreeStripedDamselfish",
+            "confidence": 0.943
+          }
+        ]
+      },
+      {
+        "image": "AmphiprionPercula-121-_jpg.rf.db393c029288707d38b91c64f54f5b76.jpg",
+        "num_detections": 1,
+        "detections": [
+          {
+            "species": "ClownFish",
+            "confidence": 0.93
+          }
+        ]
+      }
+    ]
+  },
+  "clahe": {
+    "source_domain": "Kaggle/Roboflow Curated Tank & Aquarium Domain",
+    "target_domain": "Same-distribution test_sample images (Roboflow .rf. format - NOT an independent cross-domain dataset)",
+    "enhancement_applied": "clahe",
+    "total_images_evaluated": 40,
+    "images_with_detections": 36,
+    "detection_hit_rate": 0.9,
+    "total_objects_detected": 53,
+    "average_confidence": 0.721,
+    "average_inference_latency_ms": 60.91,
+    "detected_species_distribution": {
+      "ThreeStripedDamselfish": 5,
+      "ClownFish": 11,
+      "AngelFish": 8,
+      "GoldFish": 1,
+      "BlueTang": 10,
+      "Gourami": 5,
+      "MorishIdol": 3,
+      "RibbonedSweetlips": 4,
+      "ZebraFish": 6
+    },
+    "sample_detections": [
+      {
+        "image": "10_jpeg.rf.94951c0379fe621911e4e48a35dc44e1.jpg",
+        "num_detections": 1,
+        "detections": [
+          {
+            "species": "ThreeStripedDamselfish",
+            "confidence": 0.952
+          }
+        ]
+      },
+      {
+        "image": "13_jpeg.rf.e9aefe712874f442cb303ffecee5025e.jpg",
+        "num_detections": 1,
+        "detections": [
+          {
+            "species": "ThreeStripedDamselfish",
+            "confidence": 0.888
+          }
+        ]
+      },
+      {
+        "image": "3-stripe-damsel_jpeg.rf.0dbc05009e67e92d465df6537438cc8c.jpg",
+        "num_detections": 1,
+        "detections": [
+          {
+            "species": "ThreeStripedDamselfish",
+            "confidence": 0.95
+          }
+        ]
+      },
+      {
+        "image": "3-striped-damselfish_jpeg.rf.b98f0fb4295dfa60feb74b4062b65458.jpg",
+        "num_detections": 1,
+        "detections": [
+          {
+            "species": "ThreeStripedDamselfish",
+            "confidence": 0.93
+          }
+        ]
+      },
+      {
+        "image": "AmphiprionPercula-121-_jpg.rf.db393c029288707d38b91c64f54f5b76.jpg",
+        "num_detections": 1,
+        "detections": [
+          {
+            "species": "ClownFish",
+            "confidence": 0.91
+          }
+        ]
+      }
+    ]
+  },
+  "gray_world": {
+    "source_domain": "Kaggle/Roboflow Curated Tank & Aquarium Domain",
+    "target_domain": "Same-distribution test_sample images (Roboflow .rf. format - NOT an independent cross-domain dataset)",
+    "enhancement_applied": "gray_world",
+    "total_images_evaluated": 40,
+    "images_with_detections": 39,
+    "detection_hit_rate": 0.975,
+    "total_objects_detected": 62,
+    "average_confidence": 0.689,
+    "average_inference_latency_ms": 53.6,
+    "detected_species_distribution": {
+      "ThreeStripedDamselfish": 6,
+      "ClownFish": 15,
+      "AngelFish": 7,
+      "GoldFish": 3,
+      "PlatyFish": 1,
+      "Gourami": 5,
+      "BlueTang": 10,
+      "ButterflyFish": 1,
+      "MorishIdol": 4,
+      "RibbonedSweetlips": 3,
+      "ZebraFish": 7
+    },
+    "sample_detections": [
+      {
+        "image": "10_jpeg.rf.94951c0379fe621911e4e48a35dc44e1.jpg",
+        "num_detections": 1,
+        "detections": [
+          {
+            "species": "ThreeStripedDamselfish",
+            "confidence": 0.696
+          }
+        ]
+      },
+      {
+        "image": "13_jpeg.rf.e9aefe712874f442cb303ffecee5025e.jpg",
+        "num_detections": 1,
+        "detections": [
+          {
+            "species": "ThreeStripedDamselfish",
+            "confidence": 0.887
+          }
+        ]
+      },
+      {
+        "image": "3-stripe-damsel_jpeg.rf.0dbc05009e67e92d465df6537438cc8c.jpg",
+        "num_detections": 1,
+        "detections": [
+          {
+            "species": "ThreeStripedDamselfish",
+            "confidence": 0.929
+          }
+        ]
+      },
+      {
+        "image": "3-striped-damselfish_jpeg.rf.b98f0fb4295dfa60feb74b4062b65458.jpg",
+        "num_detections": 1,
+        "detections": [
+          {
+            "species": "ThreeStripedDamselfish",
+            "confidence": 0.943
+          }
+        ]
+      },
+      {
+        "image": "AmphiprionPercula-121-_jpg.rf.db393c029288707d38b91c64f54f5b76.jpg",
+        "num_detections": 1,
+        "detections": [
+          {
+            "species": "ClownFish",
+            "confidence": 0.919
+          }
+        ]
+      }
+    ]
+  },
+  "fusion": {
+    "source_domain": "Kaggle/Roboflow Curated Tank & Aquarium Domain",
+    "target_domain": "Same-distribution test_sample images (Roboflow .rf. format - NOT an independent cross-domain dataset)",
+    "enhancement_applied": "fusion",
+    "total_images_evaluated": 40,
+    "images_with_detections": 40,
+    "detection_hit_rate": 1.0,
+    "total_objects_detected": 61,
+    "average_confidence": 0.666,
+    "average_inference_latency_ms": 54.1,
+    "detected_species_distribution": {
+      "ThreeStripedDamselfish": 5,
+      "ClownFish": 14,
+      "AngelFish": 7,
+      "GoldFish": 1,
+      "Gourami": 6,
+      "BlueTang": 11,
+      "ButterflyFish": 1,
+      "MorishIdol": 5,
+      "RibbonedSweetlips": 4,
+      "ZebraFish": 7
+    },
+    "sample_detections": [
+      {
+        "image": "10_jpeg.rf.94951c0379fe621911e4e48a35dc44e1.jpg",
+        "num_detections": 1,
+        "detections": [
+          {
+            "species": "ThreeStripedDamselfish",
+            "confidence": 0.662
+          }
+        ]
+      },
+      {
+        "image": "13_jpeg.rf.e9aefe712874f442cb303ffecee5025e.jpg",
+        "num_detections": 1,
+        "detections": [
+          {
+            "species": "ThreeStripedDamselfish",
+            "confidence": 0.881
+          }
+        ]
+      },
+      {
+        "image": "3-stripe-damsel_jpeg.rf.0dbc05009e67e92d465df6537438cc8c.jpg",
+        "num_detections": 1,
+        "detections": [
+          {
+            "species": "ThreeStripedDamselfish",
+            "confidence": 0.948
+          }
+        ]
+      },
+      {
+        "image": "3-striped-damselfish_jpeg.rf.b98f0fb4295dfa60feb74b4062b65458.jpg",
+        "num_detections": 1,
+        "detections": [
+          {
+            "species": "ThreeStripedDamselfish",
+            "confidence": 0.951
+          }
+        ]
+      },
+      {
+        "image": "AmphiprionPercula-121-_jpg.rf.db393c029288707d38b91c64f54f5b76.jpg",
+        "num_detections": 1,
+        "detections": [
+          {
+            "species": "ClownFish",
+            "confidence": 0.928
+          }
+        ]
+      }
+    ]
+  }
+}

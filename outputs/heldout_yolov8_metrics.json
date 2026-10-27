@@ -1,0 +1,953 @@
+{
+  "_metadata": {
+    "timestamp": "2026-10-27T22:25:43",
+    "script": "scratch/run_heldout_evaluation.py",
+    "checkpoint": "D:\\Underwater-Fish-Classification-YOLOv8-master\\Underwater-Fish-Classification-YOLOv8-master\\models\\best.pt",
+    "checkpoint_sha256": "af229161766094f3f002ff301b68001f6bec84492fe4f43c41c9f0838d1a5d23",
+    "checkpoint_size_mb": 5.96,
+    "dataset_root": "D:\\Underwater-Fish-Classification-YOLOv8-master\\Underwater-Fish-Classification-YOLOv8-master\\Dataset",
+    "class_names": [
+      "AngelFish",
+      "BlueTang",
+      "ButterflyFish",
+      "ClownFish",
+      "GoldFish",
+      "Gourami",
+      "MorishIdol",
+      "PlatyFish",
+      "RibbonedSweetlips",
+      "ThreeStripedDamselfish",
+      "YellowCichlid",
+      "YellowTang",
+      "ZebraFish"
+    ],
+    "evaluation_protocol": {
+      "framework": "Ultralytics YOLO.val",
+      "split_requested": {
+        "test_full": "test",
+        "test_clean": "test",
+        "valid_full": "val"
+      },
+      "imgsz": 640,
+      "conf": 0.001,
+      "iou": 0.6,
+      "device": "cpu",
+      "workers": 0,
+      "plots": false
+    },
+    "leakage_filter": {
+      "test_images": 697,
+      "clean_images": 399,
+      "excluded_images": 298,
+      "excluded_by_reason": {
+        "exact_duplicate_train": 34,
+        "exact_duplicate_valid": 0,
+        "source_prefix_train": 212,
+        "source_prefix_valid": 70
+      },
+      "excluded_examples": [
+        {
+          "file": "10_jpeg.rf.94951c0379fe621911e4e48a35dc44e1.jpg",
+          "reasons": [
+            "source_prefix_train"
+          ]
+        },
+        {
+          "file": "27810124356_df827be192_b_jpg.rf.f00300dea06207e8a40f4bc3de9dd277.jpg",
+          "reasons": [
+            "source_prefix_train"
+          ]
+        },
+        {
+          "file": "AngelFish_image_13_jpg.rf.ca64f0168ac171c893555712df9b2c37.jpg",
+          "reasons": [
+            "exact_duplicate_train"
+          ]
+        },
+        {
+          "file": "AngelFish_image_151_jpg.rf.6d5ca0a07fa4950e3f9981d731bd1520.jpg",
+          "reasons": [
+            "exact_duplicate_train"
+          ]
+        },
+        {
+          "file": "AngelFish_image_164_jpg.rf.3e365ba7f289db0acc8dfddf41dc755c.jpg",
+          "reasons": [
+            "exact_duplicate_train"
+          ]
+        },
+        {
+          "file": "AngelFish_image_180_jpg.rf.902e7ec04f4e28123af1e21d284ad4b0.jpg",
+          "reasons": [
+            "exact_duplicate_train"
+          ]
+        },
+        {
+          "file": "AngelFish_image_206_jpg.rf.d3ea56b5031823409e6cf7f1bd1a90f1.jpg",
+          "reasons": [
+            "exact_duplicate_train"
+          ]
+        },
+        {
+          "file": "AngelFish_image_215_jpg.rf.c9fe5d0353fef7a5582c0e37e29a156d.jpg",
+          "reasons": [
+            "exact_duplicate_train"
+          ]
+        },
+        {
+          "file": "AngelFish_image_216_jpg.rf.dee80c558cd44e37e60db78af0bfef2b.jpg",
+          "reasons": [
+            "exact_duplicate_train"
+          ]
+        },
+        {
+          "file": "AngelFish_image_233_jpg.rf.b43a63b5247f9b9ecb6dfd271780e490.jpg",
+          "reasons": [
+            "exact_duplicate_train"
+          ]
+        },
+        {
+          "file": "AngelFish_image_250_jpg.rf.66595748cafe9b72f742d829d39182e9.jpg",
+          "reasons": [
+            "exact_duplicate_train"
+          ]
+        },
+        {
+          "file": "AngelFish_image_272_jpg.rf.be77b19f32fb06736fca14f697b562c0.jpg",
+          "reasons": [
+            "source_prefix_train"
+          ]
+        },
+        {
+          "file": "AngelFish_image_301_jpg.rf.d43f058f9652a69cd14b223216975ec6.jpg",
+          "reasons": [
+            "exact_duplicate_train"
+          ]
+        },
+        {
+          "file": "AngelFish_image_305_jpg.rf.c69babd02b887d14565df96e28e7aa78.jpg",
+          "reasons": [
+            "exact_duplicate_train"
+          ]
+        },
+        {
+          "file": "AngelFish_image_306_jpg.rf.996eb9e44de17c53246b92cecef8ba49.jpg",
+          "reasons": [
+            "exact_duplicate_train"
+          ]
+        },
+        {
+          "file": "AngelFish_image_309_jpg.rf.9ca74d3ed4c9a6d1a877c69363dc7be8.jpg",
+          "reasons": [
+            "exact_duplicate_train"
+          ]
+        },
+        {
+          "file": "AngelFish_image_316_jpg.rf.cbdde08bf46aecd9692d16a296f9d3b0.jpg",
+          "reasons": [
+            "exact_duplicate_train"
+          ]
+        },
+        {
+          "file": "AngelFish_image_317_jpg.rf.62f25e2e461926fbc08092b5840dcc47.jpg",
+          "reasons": [
+            "exact_duplicate_train"
+          ]
+        },
+        {
+          "file": "AngelFish_image_320_jpg.rf.83e7e32ae0e4000d2e13a2e8f4161dc2.jpg",
+          "reasons": [
+            "exact_duplicate_train"
+          ]
+        },
+        {
+          "file": "AngelFish_image_334_jpg.rf.5f518584f58420c13cd44915748ae1a0.jpg",
+          "reasons": [
+            "exact_duplicate_train"
+          ]
+        },
+        {
+          "file": "AngelFish_image_335_jpg.rf.ac3e1b7c0f88e9ff6137def7ebffac46.jpg",
+          "reasons": [
+            "exact_duplicate_train"
+          ]
+        },
+        {
+          "file": "AngelFish_image_352_jpg.rf.a57062020dd3e1aaf43a1bc5b1ff4fd0.jpg",
+          "reasons": [
+            "exact_duplicate_train"
+          ]
+        },
+        {
+          "file": "AngelFish_image_371_jpg.rf.de810babffdb94f0e15904bb32a10c51.jpg",
+          "reasons": [
+            "exact_duplicate_train"
+          ]
+        },
+        {
+          "file": "AngelFish_image_42_jpg.rf.68c2a77989e5775e18aa5c25e2d19e46.jpg",
+          "reasons": [
+            "exact_duplicate_train"
+          ]
+        },
+        {
+          "file": "AngelFish_image_46_jpg.rf.6c91e8ce5c0570427616480a9b9eb5ff.jpg",
+          "reasons": [
+            "exact_duplicate_train"
+          ]
+        },
+        {
+          "file": "AngelFish_image_47_jpg.rf.83b77241689b6c7efef5bc937151e7d9.jpg",
+          "reasons": [
+            "exact_duplicate_train"
+          ]
+        },
+        {
+          "file": "AngelFish_image_49_jpg.rf.05a8f8fa0e10da7f1226348d19b0fefd.jpg",
+          "reasons": [
+            "exact_duplicate_train"
+          ]
+        },
+        {
+          "file": "AngelFish_image_55_jpg.rf.3f99b3e1d51f6c5551248fa027751c85.jpg",
+          "reasons": [
+            "exact_duplicate_train"
+          ]
+        },
+        {
+          "file": "AngelFish_image_56_jpg.rf.df8c5083ed06b3d800c3f7b5548fb06c.jpg",
+          "reasons": [
+            "exact_duplicate_train"
+          ]
+        },
+        {
+          "file": "AngelFish_image_57_jpg.rf.eddfb07436b191a0153a88c9b7b5d8cd.jpg",
+          "reasons": [
+            "exact_duplicate_train"
+          ]
+        }
+      ]
+    },
+    "environment": {
+      "python": "3.11.9",
+      "platform": "Windows-10-10.0.26300-SP0",
+      "torch": "2.14.1+cu126",
+      "ultralytics": "8.4.190",
+      "opencv": "5.0.0",
+      "cuda_available": true,
+      "device_used": "cpu"
+    },
+    "warnings": [
+      "The local Dataset/data.yaml split paths are invalid in the current layout; derived YAML files under outputs/derived were used instead.",
+      "Local labels mix 5-field detection rows and >5-field polygon rows. Evaluation labels convert polygons to bounding boxes; 29 test polygons and 84 validation polygons were converted.",
+      "The test split has 33 exact image duplicates with train and 202 source-prefix overlaps with train; test_full is not a fully independent held-out set.",
+      "test_clean excludes 298 test images whose exact hash or Roboflow source stem appears in train/valid; it is a conservative leakage-filtered subset, not proof of source independence.",
+      "The validation split was used during training/model selection; valid_full is not an independent test result. AngelFish has no validation instances.",
+      "Metrics were produced by Ultralytics validation on CPU with conf=0.001, iou=0.6, imgsz=640. They are not comparable to the original notebook's validation logs without rerunning the original training pipeline."
+    ],
+    "audit_summary": {
+      "path": "D:\\Underwater-Fish-Classification-YOLOv8-master\\Underwater-Fish-Classification-YOLOv8-master\\outputs\\dataset_audit.json",
+      "splits": {
+        "train": {
+          "images": 6834,
+          "box_rows": 13610,
+          "polygon_rows": 534,
+          "converted_instances": 14144,
+          "classes_without_instances": []
+        },
+        "valid": {
+          "images": 698,
+          "box_rows": 1109,
+          "polygon_rows": 84,
+          "converted_instances": 1193,
+          "classes_without_instances": [
+            "AngelFish"
+          ]
+        },
+        "test": {
+          "images": 697,
+          "box_rows": 1100,
+          "polygon_rows": 29,
+          "converted_instances": 1129,
+          "classes_without_instances": []
+        }
+      },
+      "data_yaml_paths_valid": {
+        "train": false,
+        "val": false,
+        "test": false
+      },
+      "exact_duplicate_counts": {
+        "train_vs_valid": 1,
+        "train_vs_test": 33,
+        "valid_vs_test": 0
+      },
+      "source_prefix_overlap_counts": {
+        "train_vs_valid": 308,
+        "train_vs_test": 202,
+        "valid_vs_test": 69
+      },
+      "test_sample": {
+        "path": "D:\\Underwater-Fish-Classification-YOLOv8-master\\Underwater-Fish-Classification-YOLOv8-master\\test_sample",
+        "images": 40,
+        "labels": 0,
+        "labels_directory_exists": false,
+        "exact_duplicate_with_dataset": 39,
+        "exact_duplicate_examples": [
+          "10_jpeg.rf.94951c0379fe621911e4e48a35dc44e1.jpg",
+          "13_jpeg.rf.e9aefe712874f442cb303ffecee5025e.jpg",
+          "3-stripe-damsel_jpeg.rf.0dbc05009e67e92d465df6537438cc8c.jpg",
+          "3-striped-damselfish_jpeg.rf.b98f0fb4295dfa60feb74b4062b65458.jpg",
+          "Amphiprion_percula_jpeg_jpg.rf.a905a41dc435727a27f36b1ce0adb5bf.jpg",
+          "AmphiprionPercula-121-_jpg.rf.db393c029288707d38b91c64f54f5b76.jpg",
+          "AngelFish_image_12_jpg.rf.2890871d4666df04bfd6dfcd6ca77ce7.jpg",
+          "AngelFish_image_13_jpg.rf.ca64f0168ac171c893555712df9b2c37.jpg",
+          "batch_1_34_goldfish_16_jpg.rf.73d3b54fcd78397e84ddf0279b677a85.jpg",
+          "batch_1_34_goldfish_20_jpg.rf.23c0122b0663b999cd86d97a8c3b879e.jpg",
+          "batch_1_34_goldfish_24_jpg.rf.be51dc4fca15814ee94d540f4a6357bf.jpg",
+          "ClownFish_image_14_jpg.rf.d241b23b0003683c6b3024be645044f1.jpg",
+          "ClownFish_image_16_jpg.rf.91c3882da1eeb4490a477042216d71b1.jpg",
+          "ClownFish_image_17_jpg.rf.30526e374dfff969c7190dbf40ceb23b.jpg",
+          "Dwarf-Gourami_original_6-png_a4d546cd-f507-44b9-943e-2c46c6f38ac5_png_jpg.rf.8dd538d39ac6f93105e2f0fa4dd639d3.jpg",
+          "Dwarf-Gourami_original_8-png_73b8d52e-2133-4d11-8251-0a6f0bc554d2_png_jpg.rf.afafc76f78dea628a0016569eacfb84a.jpg",
+          "iStock_91240281_SMALL_jpg.rf.0ffce9d63425690f897b1d62c29d6bff.jpg",
+          "iStock_91240281_SMALL_jpg.rf.4e7ce2b89ae7b466e0266871db7070af.jpg",
+          "istockphoto-953181086-612x612_jpeg.rf.cf89b35e5f62362099339c034b25d146.jpg",
+          "moorish_idol_16_jpg.rf.1f2e66058c1cfeb848c2ffb0b10e10ba.jpg"
+        ],
+        "source_prefix_overlap_with_dataset": 39,
+        "source_prefix_overlap_examples": [
+          {
+            "file": "10_jpeg.rf.94951c0379fe621911e4e48a35dc44e1.jpg",
+            "prefix": "10"
+          },
+          {
+            "file": "13_jpeg.rf.e9aefe712874f442cb303ffecee5025e.jpg",
+            "prefix": "13"
+          },
+          {
+            "file": "3-stripe-damsel_jpeg.rf.0dbc05009e67e92d465df6537438cc8c.jpg",
+            "prefix": "3-stripe-damsel"
+          },
+          {
+            "file": "3-striped-damselfish_jpeg.rf.b98f0fb4295dfa60feb74b4062b65458.jpg",
+            "prefix": "3-striped-damselfish"
+          },
+          {
+            "file": "Amphiprion_percula_jpeg_jpg.rf.a905a41dc435727a27f36b1ce0adb5bf.jpg",
+            "prefix": "Amphiprion_percula_jpeg"
+          },
+          {
+            "file": "AmphiprionPercula-121-_jpg.rf.db393c029288707d38b91c64f54f5b76.jpg",
+            "prefix": "AmphiprionPercula-121-"
+          },
+          {
+            "file": "AngelFish_image_12_jpg.rf.2890871d4666df04bfd6dfcd6ca77ce7.jpg",
+            "prefix": "AngelFish_image_12"
+          },
+          {
+            "file": "AngelFish_image_13_jpg.rf.ca64f0168ac171c893555712df9b2c37.jpg",
+            "prefix": "AngelFish_image_13"
+          },
+          {
+            "file": "batch_1_34_goldfish_16_jpg.rf.73d3b54fcd78397e84ddf0279b677a85.jpg",
+            "prefix": "batch_1_34_goldfish_16"
+          },
+          {
+            "file": "batch_1_34_goldfish_20_jpg.rf.23c0122b0663b999cd86d97a8c3b879e.jpg",
+            "prefix": "batch_1_34_goldfish_20"
+          },
+          {
+            "file": "batch_1_34_goldfish_24_jpg.rf.be51dc4fca15814ee94d540f4a6357bf.jpg",
+            "prefix": "batch_1_34_goldfish_24"
+          },
+          {
+            "file": "ClownFish_image_14_jpg.rf.d241b23b0003683c6b3024be645044f1.jpg",
+            "prefix": "ClownFish_image_14"
+          },
+          {
+            "file": "ClownFish_image_16_jpg.rf.91c3882da1eeb4490a477042216d71b1.jpg",
+            "prefix": "ClownFish_image_16"
+          },
+          {
+            "file": "ClownFish_image_17_jpg.rf.30526e374dfff969c7190dbf40ceb23b.jpg",
+            "prefix": "ClownFish_image_17"
+          },
+          {
+            "file": "Dwarf-Gourami_original_6-png_a4d546cd-f507-44b9-943e-2c46c6f38ac5_png_jpg.rf.8dd538d39ac6f93105e2f0fa4dd639d3.jpg",
+            "prefix": "Dwarf-Gourami_original_6-png_a4d546cd-f507-44b9-943e-2c46c6f38ac5_png"
+          },
+          {
+            "file": "Dwarf-Gourami_original_8-png_73b8d52e-2133-4d11-8251-0a6f0bc554d2_png_jpg.rf.afafc76f78dea628a0016569eacfb84a.jpg",
+            "prefix": "Dwarf-Gourami_original_8-png_73b8d52e-2133-4d11-8251-0a6f0bc554d2_png"
+          },
+          {
+            "file": "iStock_91240281_SMALL_jpg.rf.0ffce9d63425690f897b1d62c29d6bff.jpg",
+            "prefix": "iStock_91240281_SMALL"
+          },
+          {
+            "file": "iStock_91240281_SMALL_jpg.rf.4e7ce2b89ae7b466e0266871db7070af.jpg",
+            "prefix": "iStock_91240281_SMALL"
+          },
+          {
+            "file": "istockphoto-953181086-612x612_jpeg.rf.cf89b35e5f62362099339c034b25d146.jpg",
+            "prefix": "istockphoto-953181086-612x612"
+          },
+          {
+            "file": "moorish_idol_16_jpg.rf.1f2e66058c1cfeb848c2ffb0b10e10ba.jpg",
+            "prefix": "moorish_idol_16"
+          }
+        ],
+        "is_independent_annotated_dataset": false
+      },
+      "videos": {
+        "video_files_found": [],
+        "real_fish_video_available": false
+      }
+    }
+  },
+  "results": {
+    "test_full": {
+      "split": "test",
+      "images_evaluated": 697,
+      "instances_evaluated": 1129,
+      "overall": {
+        "precision": 0.81611,
+        "recall": 0.803827,
+        "mAP50": 0.839601,
+        "mAP50_95": 0.621548,
+        "mAP75": 0.686011
+      },
+      "per_class": {
+        "AngelFish": {
+          "class_id": 0,
+          "instances": 227,
+          "precision": 0.989988,
+          "recall": 0.87122,
+          "ap50": 0.953265,
+          "ap50_95": 0.733957
+        },
+        "BlueTang": {
+          "class_id": 1,
+          "instances": 164,
+          "precision": 0.933396,
+          "recall": 0.871951,
+          "ap50": 0.939853,
+          "ap50_95": 0.702692
+        },
+        "ButterflyFish": {
+          "class_id": 2,
+          "instances": 3,
+          "precision": 0.0,
+          "recall": 0.0,
+          "ap50": 0.005429,
+          "ap50_95": 0.004616
+        },
+        "ClownFish": {
+          "class_id": 3,
+          "instances": 136,
+          "precision": 0.959934,
+          "recall": 0.941176,
+          "ap50": 0.984744,
+          "ap50_95": 0.783159
+        },
+        "GoldFish": {
+          "class_id": 4,
+          "instances": 83,
+          "precision": 0.823472,
+          "recall": 0.927711,
+          "ap50": 0.94218,
+          "ap50_95": 0.706325
+        },
+        "Gourami": {
+          "class_id": 5,
+          "instances": 102,
+          "precision": 0.959144,
+          "recall": 1.0,
+          "ap50": 0.991638,
+          "ap50_95": 0.904096
+        },
+        "MorishIdol": {
+          "class_id": 6,
+          "instances": 14,
+          "precision": 0.907118,
+          "recall": 0.857143,
+          "ap50": 0.849615,
+          "ap50_95": 0.45237
+        },
+        "PlatyFish": {
+          "class_id": 7,
+          "instances": 76,
+          "precision": 0.746916,
+          "recall": 0.605263,
+          "ap50": 0.770789,
+          "ap50_95": 0.525836
+        },
+        "RibbonedSweetlips": {
+          "class_id": 8,
+          "instances": 8,
+          "precision": 0.816181,
+          "recall": 1.0,
+          "ap50": 0.995,
+          "ap50_95": 0.816886
+        },
+        "ThreeStripedDamselfish": {
+          "class_id": 9,
+          "instances": 42,
+          "precision": 0.953635,
+          "recall": 0.979484,
+          "ap50": 0.983005,
+          "ap50_95": 0.800032
+        },
+        "YellowCichlid": {
+          "class_id": 10,
+          "instances": 86,
+          "precision": 0.765583,
+          "recall": 0.511628,
+          "ap50": 0.67159,
+          "ap50_95": 0.282148
+        },
+        "YellowTang": {
+          "class_id": 11,
+          "instances": 65,
+          "precision": 0.814432,
+          "recall": 0.892308,
+          "ap50": 0.836598,
+          "ap50_95": 0.561882
+        },
+        "ZebraFish": {
+          "class_id": 12,
+          "instances": 123,
+          "precision": 0.939629,
+          "recall": 0.99187,
+          "ap50": 0.991108,
+          "ap50_95": 0.806126
+        }
+      },
+      "classes_without_ground_truth": [],
+      "low_support_classes": [
+        {
+          "name": "ButterflyFish",
+          "instances": 3
+        },
+        {
+          "name": "RibbonedSweetlips",
+          "instances": 8
+        }
+      ],
+      "speed_ms_per_image": {
+        "preprocess": 2.026,
+        "inference": 44.783,
+        "loss": 0.0,
+        "postprocess": 0.398
+      },
+      "run_dir": "C:\\Users\\NIKITH\\AppData\\Local\\Temp\\opencode\\ultralytics_runs\\yolov8_test_full",
+      "settings": {
+        "checkpoint": "D:\\Underwater-Fish-Classification-YOLOv8-master\\Underwater-Fish-Classification-YOLOv8-master\\models\\best.pt",
+        "checkpoint_sha256": "af229161766094f3f002ff301b68001f6bec84492fe4f43c41c9f0838d1a5d23",
+        "checkpoint_size_mb": 5.96,
+        "imgsz": 640,
+        "conf": 0.001,
+        "iou": 0.6,
+        "device": "cpu",
+        "workers": 0,
+        "plots": false
+      },
+      "dataset_stats": {
+        "source_split": "test",
+        "source_images": 697,
+        "included_images": 697,
+        "excluded_images": 0,
+        "images_linked": 697,
+        "images_copied": 0,
+        "box_rows": 1100,
+        "polygon_rows": 29,
+        "converted_polygon_boxes": 29,
+        "invalid_rows": 0,
+        "invalid_row_examples": [],
+        "out_of_range_polygon_rows": 0,
+        "images_with_polygon_rows": 26,
+        "images_with_mixed_rows": 0,
+        "empty_label_files": 0,
+        "duplicate_box_rows": 0,
+        "instances_per_class": {
+          "AngelFish": 227,
+          "BlueTang": 164,
+          "ButterflyFish": 3,
+          "ClownFish": 136,
+          "GoldFish": 83,
+          "Gourami": 102,
+          "MorishIdol": 14,
+          "PlatyFish": 76,
+          "RibbonedSweetlips": 8,
+          "ThreeStripedDamselfish": 42,
+          "YellowCichlid": 86,
+          "YellowTang": 65,
+          "ZebraFish": 123
+        },
+        "instances_total": 1129,
+        "dataset_dir": "D:\\Underwater-Fish-Classification-YOLOv8-master\\Underwater-Fish-Classification-YOLOv8-master\\outputs\\derived\\test_full",
+        "data_yaml": "D:\\Underwater-Fish-Classification-YOLOv8-master\\Underwater-Fish-Classification-YOLOv8-master\\outputs\\derived\\test_full\\data.yaml"
+      }
+    },
+    "test_clean": {
+      "split": "test",
+      "images_evaluated": 399,
+      "instances_evaluated": 639,
+      "overall": {
+        "precision": 0.8088,
+        "recall": 0.803306,
+        "mAP50": 0.841436,
+        "mAP50_95": 0.636062,
+        "mAP75": 0.693749
+      },
+      "per_class": {
+        "AngelFish": {
+          "class_id": 0,
+          "instances": 173,
+          "precision": 0.986776,
+          "recall": 0.862666,
+          "ap50": 0.951028,
+          "ap50_95": 0.741433
+        },
+        "BlueTang": {
+          "class_id": 1,
+          "instances": 50,
+          "precision": 0.926874,
+          "recall": 0.92,
+          "ap50": 0.938731,
+          "ap50_95": 0.723902
+        },
+        "ButterflyFish": {
+          "class_id": 2,
+          "instances": 2,
+          "precision": 0.0,
+          "recall": 0.0,
+          "ap50": 0.002676,
+          "ap50_95": 0.002141
+        },
+        "ClownFish": {
+          "class_id": 3,
+          "instances": 128,
+          "precision": 0.969979,
+          "recall": 0.9375,
+          "ap50": 0.986052,
+          "ap50_95": 0.796261
+        },
+        "GoldFish": {
+          "class_id": 4,
+          "instances": 20,
+          "precision": 0.904735,
+          "recall": 0.949713,
+          "ap50": 0.959725,
+          "ap50_95": 0.719846
+        },
+        "Gourami": {
+          "class_id": 5,
+          "instances": 10,
+          "precision": 0.818432,
+          "recall": 1.0,
+          "ap50": 0.995,
+          "ap50_95": 0.933
+        },
+        "MorishIdol": {
+          "class_id": 6,
+          "instances": 14,
+          "precision": 0.911493,
+          "recall": 0.857143,
+          "ap50": 0.849615,
+          "ap50_95": 0.45237
+        },
+        "PlatyFish": {
+          "class_id": 7,
+          "instances": 43,
+          "precision": 0.713622,
+          "recall": 0.55814,
+          "ap50": 0.728875,
+          "ap50_95": 0.511678
+        },
+        "RibbonedSweetlips": {
+          "class_id": 8,
+          "instances": 8,
+          "precision": 0.821072,
+          "recall": 1.0,
+          "ap50": 0.995,
+          "ap50_95": 0.816886
+        },
+        "ThreeStripedDamselfish": {
+          "class_id": 9,
+          "instances": 36,
+          "precision": 0.945965,
+          "recall": 0.972586,
+          "ap50": 0.983031,
+          "ap50_95": 0.790563
+        },
+        "YellowCichlid": {
+          "class_id": 10,
+          "instances": 86,
+          "precision": 0.781424,
+          "recall": 0.5,
+          "ap50": 0.671876,
+          "ap50_95": 0.282287
+        },
+        "YellowTang": {
+          "class_id": 11,
+          "instances": 65,
+          "precision": 0.851931,
+          "recall": 0.885225,
+          "ap50": 0.882061,
+          "ap50_95": 0.596819
+        },
+        "ZebraFish": {
+          "class_id": 12,
+          "instances": 4,
+          "precision": 0.882096,
+          "recall": 1.0,
+          "ap50": 0.995,
+          "ap50_95": 0.901625
+        }
+      },
+      "classes_without_ground_truth": [],
+      "low_support_classes": [
+        {
+          "name": "ButterflyFish",
+          "instances": 2
+        },
+        {
+          "name": "ZebraFish",
+          "instances": 4
+        },
+        {
+          "name": "RibbonedSweetlips",
+          "instances": 8
+        }
+      ],
+      "speed_ms_per_image": {
+        "preprocess": 1.847,
+        "inference": 44.776,
+        "loss": 0.0,
+        "postprocess": 0.421
+      },
+      "run_dir": "C:\\Users\\NIKITH\\AppData\\Local\\Temp\\opencode\\ultralytics_runs\\yolov8_test_clean",
+      "settings": {
+        "checkpoint": "D:\\Underwater-Fish-Classification-YOLOv8-master\\Underwater-Fish-Classification-YOLOv8-master\\models\\best.pt",
+        "checkpoint_sha256": "af229161766094f3f002ff301b68001f6bec84492fe4f43c41c9f0838d1a5d23",
+        "checkpoint_size_mb": 5.96,
+        "imgsz": 640,
+        "conf": 0.001,
+        "iou": 0.6,
+        "device": "cpu",
+        "workers": 0,
+        "plots": false
+      },
+      "dataset_stats": {
+        "source_split": "test",
+        "source_images": 697,
+        "included_images": 399,
+        "excluded_images": 298,
+        "images_linked": 399,
+        "images_copied": 0,
+        "box_rows": 616,
+        "polygon_rows": 23,
+        "converted_polygon_boxes": 23,
+        "invalid_rows": 0,
+        "invalid_row_examples": [],
+        "out_of_range_polygon_rows": 0,
+        "images_with_polygon_rows": 21,
+        "images_with_mixed_rows": 0,
+        "empty_label_files": 0,
+        "duplicate_box_rows": 0,
+        "instances_per_class": {
+          "AngelFish": 173,
+          "BlueTang": 50,
+          "ButterflyFish": 2,
+          "ClownFish": 128,
+          "GoldFish": 20,
+          "Gourami": 10,
+          "MorishIdol": 14,
+          "PlatyFish": 43,
+          "RibbonedSweetlips": 8,
+          "ThreeStripedDamselfish": 36,
+          "YellowCichlid": 86,
+          "YellowTang": 65,
+          "ZebraFish": 4
+        },
+        "instances_total": 639,
+        "dataset_dir": "D:\\Underwater-Fish-Classification-YOLOv8-master\\Underwater-Fish-Classification-YOLOv8-master\\outputs\\derived\\test_clean",
+        "data_yaml": "D:\\Underwater-Fish-Classification-YOLOv8-master\\Underwater-Fish-Classification-YOLOv8-master\\outputs\\derived\\test_clean\\data.yaml"
+      }
+    },
+    "valid_full": {
+      "split": "val",
+      "images_evaluated": 698,
+      "instances_evaluated": 1193,
+      "overall": {
+        "precision": 0.879898,
+        "recall": 0.875441,
+        "mAP50": 0.909792,
+        "mAP50_95": 0.657718,
+        "mAP75": 0.72172
+      },
+      "per_class": {
+        "BlueTang": {
+          "class_id": 1,
+          "instances": 20,
+          "precision": 0.882913,
+          "recall": 0.9,
+          "ap50": 0.893362,
+          "ap50_95": 0.78557
+        },
+        "ButterflyFish": {
+          "class_id": 2,
+          "instances": 47,
+          "precision": 0.855158,
+          "recall": 0.879426,
+          "ap50": 0.90188,
+          "ap50_95": 0.489663
+        },
+        "ClownFish": {
+          "class_id": 3,
+          "instances": 40,
+          "precision": 0.860278,
+          "recall": 0.9,
+          "ap50": 0.952699,
+          "ap50_95": 0.671339
+        },
+        "GoldFish": {
+          "class_id": 4,
+          "instances": 134,
+          "precision": 0.813886,
+          "recall": 0.947761,
+          "ap50": 0.92576,
+          "ap50_95": 0.658971
+        },
+        "Gourami": {
+          "class_id": 5,
+          "instances": 210,
+          "precision": 0.968452,
+          "recall": 1.0,
+          "ap50": 0.993893,
+          "ap50_95": 0.893313
+        },
+        "MorishIdol": {
+          "class_id": 6,
+          "instances": 31,
+          "precision": 1.0,
+          "recall": 0.879528,
+          "ap50": 0.959714,
+          "ap50_95": 0.658957
+        },
+        "PlatyFish": {
+          "class_id": 7,
+          "instances": 102,
+          "precision": 0.750992,
+          "recall": 0.739225,
+          "ap50": 0.841189,
+          "ap50_95": 0.576508
+        },
+        "RibbonedSweetlips": {
+          "class_id": 8,
+          "instances": 67,
+          "precision": 0.833056,
+          "recall": 0.850746,
+          "ap50": 0.884932,
+          "ap50_95": 0.640451
+        },
+        "ThreeStripedDamselfish": {
+          "class_id": 9,
+          "instances": 108,
+          "precision": 0.937449,
+          "recall": 0.971382,
+          "ap50": 0.985749,
+          "ap50_95": 0.78636
+        },
+        "YellowCichlid": {
+          "class_id": 10,
+          "instances": 95,
+          "precision": 0.893754,
+          "recall": 0.531338,
+          "ap50": 0.682719,
+          "ap50_95": 0.351049
+        },
+        "YellowTang": {
+          "class_id": 11,
+          "instances": 80,
+          "precision": 0.801714,
+          "recall": 0.909748,
+          "ap50": 0.901031,
+          "ap50_95": 0.568731
+        },
+        "ZebraFish": {
+          "class_id": 12,
+          "instances": 259,
+          "precision": 0.96113,
+          "recall": 0.996139,
+          "ap50": 0.994576,
+          "ap50_95": 0.811701
+        }
+      },
+      "classes_without_ground_truth": [
+        {
+          "class_id": 0,
+          "name": "AngelFish",
+          "instances": 0
+        }
+      ],
+      "low_support_classes": [],
+      "speed_ms_per_image": {
+        "preprocess": 1.814,
+        "inference": 44.799,
+        "loss": 0.0,
+        "postprocess": 0.528
+      },
+      "run_dir": "C:\\Users\\NIKITH\\AppData\\Local\\Temp\\opencode\\ultralytics_runs\\yolov8_valid_full",
+      "settings": {
+        "checkpoint": "D:\\Underwater-Fish-Classification-YOLOv8-master\\Underwater-Fish-Classification-YOLOv8-master\\models\\best.pt",
+        "checkpoint_sha256": "af229161766094f3f002ff301b68001f6bec84492fe4f43c41c9f0838d1a5d23",
+        "checkpoint_size_mb": 5.96,
+        "imgsz": 640,
+        "conf": 0.001,
+        "iou": 0.6,
+        "device": "cpu",
+        "workers": 0,
+        "plots": false
+      },
+      "dataset_stats": {
+        "source_split": "valid",
+        "source_images": 698,
+        "included_images": 698,
+        "excluded_images": 0,
+        "images_linked": 698,
+        "images_copied": 0,
+        "box_rows": 1109,
+        "polygon_rows": 84,
+        "converted_polygon_boxes": 84,
+        "invalid_rows": 0,
+        "invalid_row_examples": [],
+        "out_of_range_polygon_rows": 0,
+        "images_with_polygon_rows": 58,
+        "images_with_mixed_rows": 0,
+        "empty_label_files": 0,
+        "duplicate_box_rows": 0,
+        "instances_per_class": {
+          "AngelFish": 0,
+          "BlueTang": 20,
+          "ButterflyFish": 47,
+          "ClownFish": 40,
+          "GoldFish": 134,
+          "Gourami": 210,
+          "MorishIdol": 31,
+          "PlatyFish": 102,
+          "RibbonedSweetlips": 67,
+          "ThreeStripedDamselfish": 108,
+          "YellowCichlid": 95,
+          "YellowTang": 80,
+          "ZebraFish": 259
+        },
+        "instances_total": 1193,
+        "dataset_dir": "D:\\Underwater-Fish-Classification-YOLOv8-master\\Underwater-Fish-Classification-YOLOv8-master\\outputs\\derived\\valid_full",
+        "data_yaml": "D:\\Underwater-Fish-Classification-YOLOv8-master\\Underwater-Fish-Classification-YOLOv8-master\\outputs\\derived\\valid_full\\data.yaml"
+      }
+    }
+  }
+}

@@ -1,0 +1,1091 @@
+{
+  "timestamp": "2026-10-27T22:32:50",
+  "environment": {
+    "python": "3.11.9",
+    "platform": "Windows-10-10.0.26300-SP0",
+    "torch": "2.14.1+cu126",
+    "ultralytics": "8.4.190",
+    "opencv": "5.0.0",
+    "cuda_available": true,
+    "device_used": "cpu"
+  },
+  "checkpoint": {
+    "path": "D:\\Underwater-Fish-Classification-YOLOv8-master\\Underwater-Fish-Classification-YOLOv8-master\\models\\best.pt",
+    "sha256": "af229161766094f3f002ff301b68001f6bec84492fe4f43c41c9f0838d1a5d23"
+  },
+  "dataset": {
+    "source": "outputs/derived/test_clean",
+    "images": 399,
+    "instances": 639,
+    "leakage_filter": {
+      "test_images": 697,
+      "clean_images": 399,
+      "excluded_images": 298,
+      "excluded_by_reason": {
+        "exact_duplicate_train": 34,
+        "exact_duplicate_valid": 0,
+        "source_prefix_train": 212,
+        "source_prefix_valid": 70
+      },
+      "excluded_examples": [
+        {
+          "file": "10_jpeg.rf.94951c0379fe621911e4e48a35dc44e1.jpg",
+          "reasons": [
+            "source_prefix_train"
+          ]
+        },
+        {
+          "file": "27810124356_df827be192_b_jpg.rf.f00300dea06207e8a40f4bc3de9dd277.jpg",
+          "reasons": [
+            "source_prefix_train"
+          ]
+        },
+        {
+          "file": "AngelFish_image_13_jpg.rf.ca64f0168ac171c893555712df9b2c37.jpg",
+          "reasons": [
+            "exact_duplicate_train"
+          ]
+        },
+        {
+          "file": "AngelFish_image_151_jpg.rf.6d5ca0a07fa4950e3f9981d731bd1520.jpg",
+          "reasons": [
+            "exact_duplicate_train"
+          ]
+        },
+        {
+          "file": "AngelFish_image_164_jpg.rf.3e365ba7f289db0acc8dfddf41dc755c.jpg",
+          "reasons": [
+            "exact_duplicate_train"
+          ]
+        },
+        {
+          "file": "AngelFish_image_180_jpg.rf.902e7ec04f4e28123af1e21d284ad4b0.jpg",
+          "reasons": [
+            "exact_duplicate_train"
+          ]
+        },
+        {
+          "file": "AngelFish_image_206_jpg.rf.d3ea56b5031823409e6cf7f1bd1a90f1.jpg",
+          "reasons": [
+            "exact_duplicate_train"
+          ]
+        },
+        {
+          "file": "AngelFish_image_215_jpg.rf.c9fe5d0353fef7a5582c0e37e29a156d.jpg",
+          "reasons": [
+            "exact_duplicate_train"
+          ]
+        },
+        {
+          "file": "AngelFish_image_216_jpg.rf.dee80c558cd44e37e60db78af0bfef2b.jpg",
+          "reasons": [
+            "exact_duplicate_train"
+          ]
+        },
+        {
+          "file": "AngelFish_image_233_jpg.rf.b43a63b5247f9b9ecb6dfd271780e490.jpg",
+          "reasons": [
+            "exact_duplicate_train"
+          ]
+        },
+        {
+          "file": "AngelFish_image_250_jpg.rf.66595748cafe9b72f742d829d39182e9.jpg",
+          "reasons": [
+            "exact_duplicate_train"
+          ]
+        },
+        {
+          "file": "AngelFish_image_272_jpg.rf.be77b19f32fb06736fca14f697b562c0.jpg",
+          "reasons": [
+            "source_prefix_train"
+          ]
+        },
+        {
+          "file": "AngelFish_image_301_jpg.rf.d43f058f9652a69cd14b223216975ec6.jpg",
+          "reasons": [
+            "exact_duplicate_train"
+          ]
+        },
+        {
+          "file": "AngelFish_image_305_jpg.rf.c69babd02b887d14565df96e28e7aa78.jpg",
+          "reasons": [
+            "exact_duplicate_train"
+          ]
+        },
+        {
+          "file": "AngelFish_image_306_jpg.rf.996eb9e44de17c53246b92cecef8ba49.jpg",
+          "reasons": [
+            "exact_duplicate_train"
+          ]
+        },
+        {
+          "file": "AngelFish_image_309_jpg.rf.9ca74d3ed4c9a6d1a877c69363dc7be8.jpg",
+          "reasons": [
+            "exact_duplicate_train"
+          ]
+        },
+        {
+          "file": "AngelFish_image_316_jpg.rf.cbdde08bf46aecd9692d16a296f9d3b0.jpg",
+          "reasons": [
+            "exact_duplicate_train"
+          ]
+        },
+        {
+          "file": "AngelFish_image_317_jpg.rf.62f25e2e461926fbc08092b5840dcc47.jpg",
+          "reasons": [
+            "exact_duplicate_train"
+          ]
+        },
+        {
+          "file": "AngelFish_image_320_jpg.rf.83e7e32ae0e4000d2e13a2e8f4161dc2.jpg",
+          "reasons": [
+            "exact_duplicate_train"
+          ]
+        },
+        {
+          "file": "AngelFish_image_334_jpg.rf.5f518584f58420c13cd44915748ae1a0.jpg",
+          "reasons": [
+            "exact_duplicate_train"
+          ]
+        },
+        {
+          "file": "AngelFish_image_335_jpg.rf.ac3e1b7c0f88e9ff6137def7ebffac46.jpg",
+          "reasons": [
+            "exact_duplicate_train"
+          ]
+        },
+        {
+          "file": "AngelFish_image_352_jpg.rf.a57062020dd3e1aaf43a1bc5b1ff4fd0.jpg",
+          "reasons": [
+            "exact_duplicate_train"
+          ]
+        },
+        {
+          "file": "AngelFish_image_371_jpg.rf.de810babffdb94f0e15904bb32a10c51.jpg",
+          "reasons": [
+            "exact_duplicate_train"
+          ]
+        },
+        {
+          "file": "AngelFish_image_42_jpg.rf.68c2a77989e5775e18aa5c25e2d19e46.jpg",
+          "reasons": [
+            "exact_duplicate_train"
+          ]
+        },
+        {
+          "file": "AngelFish_image_46_jpg.rf.6c91e8ce5c0570427616480a9b9eb5ff.jpg",
+          "reasons": [
+            "exact_duplicate_train"
+          ]
+        },
+        {
+          "file": "AngelFish_image_47_jpg.rf.83b77241689b6c7efef5bc937151e7d9.jpg",
+          "reasons": [
+            "exact_duplicate_train"
+          ]
+        },
+        {
+          "file": "AngelFish_image_49_jpg.rf.05a8f8fa0e10da7f1226348d19b0fefd.jpg",
+          "reasons": [
+            "exact_duplicate_train"
+          ]
+        },
+        {
+          "file": "AngelFish_image_55_jpg.rf.3f99b3e1d51f6c5551248fa027751c85.jpg",
+          "reasons": [
+            "exact_duplicate_train"
+          ]
+        },
+        {
+          "file": "AngelFish_image_56_jpg.rf.df8c5083ed06b3d800c3f7b5548fb06c.jpg",
+          "reasons": [
+            "exact_duplicate_train"
+          ]
+        },
+        {
+          "file": "AngelFish_image_57_jpg.rf.eddfb07436b191a0153a88c9b7b5d8cd.jpg",
+          "reasons": [
+            "exact_duplicate_train"
+          ]
+        }
+      ]
+    },
+    "labels": "converted box labels (polygons converted to enclosing boxes)",
+    "heldout_baseline_overall": {
+      "precision": 0.8088,
+      "recall": 0.803306,
+      "mAP50": 0.841436,
+      "mAP50_95": 0.636062,
+      "mAP75": 0.693749
+    }
+  },
+  "protocol": {
+    "imgsz": 640,
+    "conf": 0.001,
+    "iou": 0.6,
+    "device": "cpu",
+    "workers": 0,
+    "plots": false,
+    "jpeg_quality_for_enhanced_images": 95,
+    "note": "raw_original is hardlinked from the clean test set and should match the held-out baseline. raw_jpeg95 controls for re-encoding. Enhancement methods are compared against raw_jpeg95, not raw_original."
+  },
+  "results": {
+    "raw_original": {
+      "split": "val",
+      "images_evaluated": 399,
+      "instances_evaluated": 639,
+      "overall": {
+        "precision": 0.8088,
+        "recall": 0.803306,
+        "mAP50": 0.841436,
+        "mAP50_95": 0.636062,
+        "mAP75": 0.693749
+      },
+      "per_class": {
+        "AngelFish": {
+          "class_id": 0,
+          "instances": 173,
+          "precision": 0.986776,
+          "recall": 0.862666,
+          "ap50": 0.951028,
+          "ap50_95": 0.741433
+        },
+        "BlueTang": {
+          "class_id": 1,
+          "instances": 50,
+          "precision": 0.926874,
+          "recall": 0.92,
+          "ap50": 0.938731,
+          "ap50_95": 0.723902
+        },
+        "ButterflyFish": {
+          "class_id": 2,
+          "instances": 2,
+          "precision": 0.0,
+          "recall": 0.0,
+          "ap50": 0.002676,
+          "ap50_95": 0.002141
+        },
+        "ClownFish": {
+          "class_id": 3,
+          "instances": 128,
+          "precision": 0.969979,
+          "recall": 0.9375,
+          "ap50": 0.986052,
+          "ap50_95": 0.796261
+        },
+        "GoldFish": {
+          "class_id": 4,
+          "instances": 20,
+          "precision": 0.904735,
+          "recall": 0.949713,
+          "ap50": 0.959725,
+          "ap50_95": 0.719846
+        },
+        "Gourami": {
+          "class_id": 5,
+          "instances": 10,
+          "precision": 0.818432,
+          "recall": 1.0,
+          "ap50": 0.995,
+          "ap50_95": 0.933
+        },
+        "MorishIdol": {
+          "class_id": 6,
+          "instances": 14,
+          "precision": 0.911493,
+          "recall": 0.857143,
+          "ap50": 0.849615,
+          "ap50_95": 0.45237
+        },
+        "PlatyFish": {
+          "class_id": 7,
+          "instances": 43,
+          "precision": 0.713622,
+          "recall": 0.55814,
+          "ap50": 0.728875,
+          "ap50_95": 0.511678
+        },
+        "RibbonedSweetlips": {
+          "class_id": 8,
+          "instances": 8,
+          "precision": 0.821072,
+          "recall": 1.0,
+          "ap50": 0.995,
+          "ap50_95": 0.816886
+        },
+        "ThreeStripedDamselfish": {
+          "class_id": 9,
+          "instances": 36,
+          "precision": 0.945965,
+          "recall": 0.972586,
+          "ap50": 0.983031,
+          "ap50_95": 0.790563
+        },
+        "YellowCichlid": {
+          "class_id": 10,
+          "instances": 86,
+          "precision": 0.781424,
+          "recall": 0.5,
+          "ap50": 0.671876,
+          "ap50_95": 0.282287
+        },
+        "YellowTang": {
+          "class_id": 11,
+          "instances": 65,
+          "precision": 0.851931,
+          "recall": 0.885225,
+          "ap50": 0.882061,
+          "ap50_95": 0.596819
+        },
+        "ZebraFish": {
+          "class_id": 12,
+          "instances": 4,
+          "precision": 0.882096,
+          "recall": 1.0,
+          "ap50": 0.995,
+          "ap50_95": 0.901625
+        }
+      },
+      "classes_without_ground_truth": [],
+      "low_support_classes": [
+        {
+          "name": "ButterflyFish",
+          "instances": 2
+        },
+        {
+          "name": "ZebraFish",
+          "instances": 4
+        },
+        {
+          "name": "RibbonedSweetlips",
+          "instances": 8
+        }
+      ],
+      "speed_ms_per_image": {
+        "preprocess": 1.797,
+        "inference": 44.068,
+        "loss": 0.0,
+        "postprocess": 0.41
+      },
+      "run_dir": "C:\\Users\\NIKITH\\AppData\\Local\\Temp\\opencode\\ultralytics_runs\\enhancement_raw_original",
+      "settings": {
+        "checkpoint": "D:\\Underwater-Fish-Classification-YOLOv8-master\\Underwater-Fish-Classification-YOLOv8-master\\models\\best.pt",
+        "checkpoint_sha256": "af229161766094f3f002ff301b68001f6bec84492fe4f43c41c9f0838d1a5d23",
+        "checkpoint_size_mb": 5.96,
+        "imgsz": 640,
+        "conf": 0.001,
+        "iou": 0.6,
+        "device": "cpu",
+        "workers": 0,
+        "plots": false
+      },
+      "preprocessing": {
+        "method": "raw_original",
+        "jpeg_quality": null,
+        "enhancement_latency": null,
+        "mean_rgb_channels": null,
+        "dataset_dir": "D:\\Underwater-Fish-Classification-YOLOv8-master\\Underwater-Fish-Classification-YOLOv8-master\\outputs\\derived\\enhancement_raw_original"
+      },
+      "delta_vs_raw_original": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "mAP50": 0.0,
+        "mAP50_95": 0.0
+      }
+    },
+    "raw_jpeg95": {
+      "split": "val",
+      "images_evaluated": 399,
+      "instances_evaluated": 639,
+      "overall": {
+        "precision": 0.79179,
+        "recall": 0.808705,
+        "mAP50": 0.840866,
+        "mAP50_95": 0.635861,
+        "mAP75": 0.707231
+      },
+      "per_class": {
+        "AngelFish": {
+          "class_id": 0,
+          "instances": 173,
+          "precision": 0.980386,
+          "recall": 0.866758,
+          "ap50": 0.950042,
+          "ap50_95": 0.742511
+        },
+        "BlueTang": {
+          "class_id": 1,
+          "instances": 50,
+          "precision": 0.920958,
+          "recall": 0.92,
+          "ap50": 0.942283,
+          "ap50_95": 0.72935
+        },
+        "ButterflyFish": {
+          "class_id": 2,
+          "instances": 2,
+          "precision": 0.0,
+          "recall": 0.0,
+          "ap50": 0.002438,
+          "ap50_95": 0.001951
+        },
+        "ClownFish": {
+          "class_id": 3,
+          "instances": 128,
+          "precision": 0.962328,
+          "recall": 0.945312,
+          "ap50": 0.98601,
+          "ap50_95": 0.79633
+        },
+        "GoldFish": {
+          "class_id": 4,
+          "instances": 20,
+          "precision": 0.816643,
+          "recall": 0.95,
+          "ap50": 0.95672,
+          "ap50_95": 0.717498
+        },
+        "Gourami": {
+          "class_id": 5,
+          "instances": 10,
+          "precision": 0.798898,
+          "recall": 1.0,
+          "ap50": 0.995,
+          "ap50_95": 0.933
+        },
+        "MorishIdol": {
+          "class_id": 6,
+          "instances": 14,
+          "precision": 0.901741,
+          "recall": 0.857143,
+          "ap50": 0.849615,
+          "ap50_95": 0.459769
+        },
+        "PlatyFish": {
+          "class_id": 7,
+          "instances": 43,
+          "precision": 0.687144,
+          "recall": 0.561948,
+          "ap50": 0.7263,
+          "ap50_95": 0.509619
+        },
+        "RibbonedSweetlips": {
+          "class_id": 8,
+          "instances": 8,
+          "precision": 0.812595,
+          "recall": 1.0,
+          "ap50": 0.995,
+          "ap50_95": 0.812886
+        },
+        "ThreeStripedDamselfish": {
+          "class_id": 9,
+          "instances": 36,
+          "precision": 0.946398,
+          "recall": 0.981055,
+          "ap50": 0.983031,
+          "ap50_95": 0.78464
+        },
+        "YellowCichlid": {
+          "class_id": 10,
+          "instances": 86,
+          "precision": 0.75206,
+          "recall": 0.523256,
+          "ap50": 0.668357,
+          "ap50_95": 0.281055
+        },
+        "YellowTang": {
+          "class_id": 11,
+          "instances": 65,
+          "precision": 0.842733,
+          "recall": 0.907692,
+          "ap50": 0.881461,
+          "ap50_95": 0.595962
+        },
+        "ZebraFish": {
+          "class_id": 12,
+          "instances": 4,
+          "precision": 0.871385,
+          "recall": 1.0,
+          "ap50": 0.995,
+          "ap50_95": 0.901625
+        }
+      },
+      "classes_without_ground_truth": [],
+      "low_support_classes": [
+        {
+          "name": "ButterflyFish",
+          "instances": 2
+        },
+        {
+          "name": "ZebraFish",
+          "instances": 4
+        },
+        {
+          "name": "RibbonedSweetlips",
+          "instances": 8
+        }
+      ],
+      "speed_ms_per_image": {
+        "preprocess": 1.503,
+        "inference": 47.516,
+        "loss": 0.0,
+        "postprocess": 0.594
+      },
+      "run_dir": "C:\\Users\\NIKITH\\AppData\\Local\\Temp\\opencode\\ultralytics_runs\\enhancement_raw_jpeg95",
+      "settings": {
+        "checkpoint": "D:\\Underwater-Fish-Classification-YOLOv8-master\\Underwater-Fish-Classification-YOLOv8-master\\models\\best.pt",
+        "checkpoint_sha256": "af229161766094f3f002ff301b68001f6bec84492fe4f43c41c9f0838d1a5d23",
+        "checkpoint_size_mb": 5.96,
+        "imgsz": 640,
+        "conf": 0.001,
+        "iou": 0.6,
+        "device": "cpu",
+        "workers": 0,
+        "plots": false
+      },
+      "preprocessing": {
+        "method": "raw_jpeg95",
+        "jpeg_quality": 95,
+        "enhancement_latency": null,
+        "mean_rgb_channels": [
+          86.716,
+          92.062,
+          84.349
+        ],
+        "dataset_dir": "D:\\Underwater-Fish-Classification-YOLOv8-master\\Underwater-Fish-Classification-YOLOv8-master\\outputs\\derived\\enhancement_raw_jpeg95"
+      },
+      "delta_vs_raw_original": {
+        "precision": -0.01701,
+        "recall": 0.005399,
+        "mAP50": -0.00057,
+        "mAP50_95": -0.000201
+      }
+    },
+    "clahe": {
+      "split": "val",
+      "images_evaluated": 399,
+      "instances_evaluated": 639,
+      "overall": {
+        "precision": 0.792422,
+        "recall": 0.813249,
+        "mAP50": 0.846055,
+        "mAP50_95": 0.633761,
+        "mAP75": 0.691615
+      },
+      "per_class": {
+        "AngelFish": {
+          "class_id": 0,
+          "instances": 173,
+          "precision": 0.96624,
+          "recall": 0.895954,
+          "ap50": 0.95177,
+          "ap50_95": 0.738338
+        },
+        "BlueTang": {
+          "class_id": 1,
+          "instances": 50,
+          "precision": 0.904417,
+          "recall": 0.9,
+          "ap50": 0.938482,
+          "ap50_95": 0.708699
+        },
+        "ButterflyFish": {
+          "class_id": 2,
+          "instances": 2,
+          "precision": 0.0,
+          "recall": 0.0,
+          "ap50": 0.003235,
+          "ap50_95": 0.002588
+        },
+        "ClownFish": {
+          "class_id": 3,
+          "instances": 128,
+          "precision": 0.957538,
+          "recall": 0.945312,
+          "ap50": 0.985014,
+          "ap50_95": 0.786802
+        },
+        "GoldFish": {
+          "class_id": 4,
+          "instances": 20,
+          "precision": 0.804548,
+          "recall": 0.95,
+          "ap50": 0.949995,
+          "ap50_95": 0.710392
+        },
+        "Gourami": {
+          "class_id": 5,
+          "instances": 10,
+          "precision": 0.800642,
+          "recall": 1.0,
+          "ap50": 0.995,
+          "ap50_95": 0.927143
+        },
+        "MorishIdol": {
+          "class_id": 6,
+          "instances": 14,
+          "precision": 0.955619,
+          "recall": 0.857143,
+          "ap50": 0.92,
+          "ap50_95": 0.49043
+        },
+        "PlatyFish": {
+          "class_id": 7,
+          "instances": 43,
+          "precision": 0.65678,
+          "recall": 0.627907,
+          "ap50": 0.714748,
+          "ap50_95": 0.505085
+        },
+        "RibbonedSweetlips": {
+          "class_id": 8,
+          "instances": 8,
+          "precision": 0.824911,
+          "recall": 1.0,
+          "ap50": 0.995,
+          "ap50_95": 0.783986
+        },
+        "ThreeStripedDamselfish": {
+          "class_id": 9,
+          "instances": 36,
+          "precision": 0.944053,
+          "recall": 0.937596,
+          "ap50": 0.985263,
+          "ap50_95": 0.81054
+        },
+        "YellowCichlid": {
+          "class_id": 10,
+          "instances": 86,
+          "precision": 0.777561,
+          "recall": 0.581395,
+          "ap50": 0.688178,
+          "ap50_95": 0.284078
+        },
+        "YellowTang": {
+          "class_id": 11,
+          "instances": 65,
+          "precision": 0.829814,
+          "recall": 0.876923,
+          "ap50": 0.877029,
+          "ap50_95": 0.587146
+        },
+        "ZebraFish": {
+          "class_id": 12,
+          "instances": 4,
+          "precision": 0.879356,
+          "recall": 1.0,
+          "ap50": 0.995,
+          "ap50_95": 0.903667
+        }
+      },
+      "classes_without_ground_truth": [],
+      "low_support_classes": [
+        {
+          "name": "ButterflyFish",
+          "instances": 2
+        },
+        {
+          "name": "ZebraFish",
+          "instances": 4
+        },
+        {
+          "name": "RibbonedSweetlips",
+          "instances": 8
+        }
+      ],
+      "speed_ms_per_image": {
+        "preprocess": 1.402,
+        "inference": 51.66,
+        "loss": 0.0,
+        "postprocess": 0.559
+      },
+      "run_dir": "C:\\Users\\NIKITH\\AppData\\Local\\Temp\\opencode\\ultralytics_runs\\enhancement_clahe",
+      "settings": {
+        "checkpoint": "D:\\Underwater-Fish-Classification-YOLOv8-master\\Underwater-Fish-Classification-YOLOv8-master\\models\\best.pt",
+        "checkpoint_sha256": "af229161766094f3f002ff301b68001f6bec84492fe4f43c41c9f0838d1a5d23",
+        "checkpoint_size_mb": 5.96,
+        "imgsz": 640,
+        "conf": 0.001,
+        "iou": 0.6,
+        "device": "cpu",
+        "workers": 0,
+        "plots": false
+      },
+      "preprocessing": {
+        "method": "clahe",
+        "jpeg_quality": 95,
+        "enhancement_latency": {
+          "samples": 399,
+          "mean_ms": 11.853,
+          "median_ms": 11.507,
+          "p95_ms": 14.795,
+          "min_ms": 8.804,
+          "max_ms": 23.206
+        },
+        "mean_rgb_channels": [
+          97.258,
+          101.557,
+          94.162
+        ],
+        "dataset_dir": "D:\\Underwater-Fish-Classification-YOLOv8-master\\Underwater-Fish-Classification-YOLOv8-master\\outputs\\derived\\enhancement_clahe"
+      },
+      "delta_vs_raw_original": {
+        "precision": -0.016378,
+        "recall": 0.009943,
+        "mAP50": 0.004619,
+        "mAP50_95": -0.002301
+      }
+    },
+    "gray_world": {
+      "split": "val",
+      "images_evaluated": 399,
+      "instances_evaluated": 639,
+      "overall": {
+        "precision": 0.796051,
+        "recall": 0.745175,
+        "mAP50": 0.812488,
+        "mAP50_95": 0.612943,
+        "mAP75": 0.671647
+      },
+      "per_class": {
+        "AngelFish": {
+          "class_id": 0,
+          "instances": 173,
+          "precision": 0.960333,
+          "recall": 0.839657,
+          "ap50": 0.946575,
+          "ap50_95": 0.731856
+        },
+        "BlueTang": {
+          "class_id": 1,
+          "instances": 50,
+          "precision": 0.923495,
+          "recall": 0.9,
+          "ap50": 0.946017,
+          "ap50_95": 0.711818
+        },
+        "ButterflyFish": {
+          "class_id": 2,
+          "instances": 2,
+          "precision": 0.0,
+          "recall": 0.0,
+          "ap50": 0.002475,
+          "ap50_95": 0.00198
+        },
+        "ClownFish": {
+          "class_id": 3,
+          "instances": 128,
+          "precision": 0.945684,
+          "recall": 0.953125,
+          "ap50": 0.973825,
+          "ap50_95": 0.778983
+        },
+        "GoldFish": {
+          "class_id": 4,
+          "instances": 20,
+          "precision": 0.662885,
+          "recall": 0.95,
+          "ap50": 0.898519,
+          "ap50_95": 0.687441
+        },
+        "Gourami": {
+          "class_id": 5,
+          "instances": 10,
+          "precision": 0.856105,
+          "recall": 1.0,
+          "ap50": 0.976818,
+          "ap50_95": 0.915227
+        },
+        "MorishIdol": {
+          "class_id": 6,
+          "instances": 14,
+          "precision": 0.869088,
+          "recall": 0.476354,
+          "ap50": 0.631533,
+          "ap50_95": 0.335785
+        },
+        "PlatyFish": {
+          "class_id": 7,
+          "instances": 43,
+          "precision": 0.715922,
+          "recall": 0.468978,
+          "ap50": 0.664269,
+          "ap50_95": 0.457404
+        },
+        "RibbonedSweetlips": {
+          "class_id": 8,
+          "instances": 8,
+          "precision": 0.835794,
+          "recall": 0.875,
+          "ap50": 0.971,
+          "ap50_95": 0.75864
+        },
+        "ThreeStripedDamselfish": {
+          "class_id": 9,
+          "instances": 36,
+          "precision": 0.967797,
+          "recall": 0.834843,
+          "ap50": 0.963254,
+          "ap50_95": 0.76386
+        },
+        "YellowCichlid": {
+          "class_id": 10,
+          "instances": 86,
+          "precision": 0.823228,
+          "recall": 0.546512,
+          "ap50": 0.693594,
+          "ap50_95": 0.279511
+        },
+        "YellowTang": {
+          "class_id": 11,
+          "instances": 65,
+          "precision": 0.91636,
+          "recall": 0.842813,
+          "ap50": 0.899468,
+          "ap50_95": 0.642086
+        },
+        "ZebraFish": {
+          "class_id": 12,
+          "instances": 4,
+          "precision": 0.871969,
+          "recall": 1.0,
+          "ap50": 0.995,
+          "ap50_95": 0.903667
+        }
+      },
+      "classes_without_ground_truth": [],
+      "low_support_classes": [
+        {
+          "name": "ButterflyFish",
+          "instances": 2
+        },
+        {
+          "name": "ZebraFish",
+          "instances": 4
+        },
+        {
+          "name": "RibbonedSweetlips",
+          "instances": 8
+        }
+      ],
+      "speed_ms_per_image": {
+        "preprocess": 1.604,
+        "inference": 49.919,
+        "loss": 0.0,
+        "postprocess": 0.51
+      },
+      "run_dir": "C:\\Users\\NIKITH\\AppData\\Local\\Temp\\opencode\\ultralytics_runs\\enhancement_gray_world",
+      "settings": {
+        "checkpoint": "D:\\Underwater-Fish-Classification-YOLOv8-master\\Underwater-Fish-Classification-YOLOv8-master\\models\\best.pt",
+        "checkpoint_sha256": "af229161766094f3f002ff301b68001f6bec84492fe4f43c41c9f0838d1a5d23",
+        "checkpoint_size_mb": 5.96,
+        "imgsz": 640,
+        "conf": 0.001,
+        "iou": 0.6,
+        "device": "cpu",
+        "workers": 0,
+        "plots": false
+      },
+      "preprocessing": {
+        "method": "gray_world",
+        "jpeg_quality": 95,
+        "enhancement_latency": {
+          "samples": 399,
+          "mean_ms": 10.527,
+          "median_ms": 10.311,
+          "p95_ms": 14.125,
+          "min_ms": 7.532,
+          "max_ms": 25.205
+        },
+        "mean_rgb_channels": [
+          85.561,
+          86.942,
+          85.362
+        ],
+        "dataset_dir": "D:\\Underwater-Fish-Classification-YOLOv8-master\\Underwater-Fish-Classification-YOLOv8-master\\outputs\\derived\\enhancement_gray_world"
+      },
+      "delta_vs_raw_original": {
+        "precision": -0.012749,
+        "recall": -0.058131,
+        "mAP50": -0.028948,
+        "mAP50_95": -0.023119
+      }
+    },
+    "fusion": {
+      "split": "val",
+      "images_evaluated": 399,
+      "instances_evaluated": 639,
+      "overall": {
+        "precision": 0.790827,
+        "recall": 0.760067,
+        "mAP50": 0.815319,
+        "mAP50_95": 0.610761,
+        "mAP75": 0.671177
+      },
+      "per_class": {
+        "AngelFish": {
+          "class_id": 0,
+          "instances": 173,
+          "precision": 0.954801,
+          "recall": 0.854745,
+          "ap50": 0.940093,
+          "ap50_95": 0.719335
+        },
+        "BlueTang": {
+          "class_id": 1,
+          "instances": 50,
+          "precision": 0.897923,
+          "recall": 0.86,
+          "ap50": 0.947883,
+          "ap50_95": 0.703965
+        },
+        "ButterflyFish": {
+          "class_id": 2,
+          "instances": 2,
+          "precision": 0.0,
+          "recall": 0.0,
+          "ap50": 0.002946,
+          "ap50_95": 0.002357
+        },
+        "ClownFish": {
+          "class_id": 3,
+          "instances": 128,
+          "precision": 0.944559,
+          "recall": 0.931733,
+          "ap50": 0.974232,
+          "ap50_95": 0.767328
+        },
+        "GoldFish": {
+          "class_id": 4,
+          "instances": 20,
+          "precision": 0.607835,
+          "recall": 0.95,
+          "ap50": 0.875978,
+          "ap50_95": 0.664186
+        },
+        "Gourami": {
+          "class_id": 5,
+          "instances": 10,
+          "precision": 0.81455,
+          "recall": 1.0,
+          "ap50": 0.958636,
+          "ap50_95": 0.899545
+        },
+        "MorishIdol": {
+          "class_id": 6,
+          "instances": 14,
+          "precision": 0.868526,
+          "recall": 0.474103,
+          "ap50": 0.698685,
+          "ap50_95": 0.401347
+        },
+        "PlatyFish": {
+          "class_id": 7,
+          "instances": 43,
+          "precision": 0.730237,
+          "recall": 0.581395,
+          "ap50": 0.670697,
+          "ap50_95": 0.463762
+        },
+        "RibbonedSweetlips": {
+          "class_id": 8,
+          "instances": 8,
+          "precision": 0.841719,
+          "recall": 1.0,
+          "ap50": 0.981667,
+          "ap50_95": 0.736629
+        },
+        "ThreeStripedDamselfish": {
+          "class_id": 9,
+          "instances": 36,
+          "precision": 0.967016,
+          "recall": 0.814576,
+          "ap50": 0.953222,
+          "ap50_95": 0.754129
+        },
+        "YellowCichlid": {
+          "class_id": 10,
+          "instances": 86,
+          "precision": 0.840914,
+          "recall": 0.614664,
+          "ap50": 0.711054,
+          "ap50_95": 0.285557
+        },
+        "YellowTang": {
+          "class_id": 11,
+          "instances": 65,
+          "precision": 0.945432,
+          "recall": 0.799657,
+          "ap50": 0.889058,
+          "ap50_95": 0.638084
+        },
+        "ZebraFish": {
+          "class_id": 12,
+          "instances": 4,
+          "precision": 0.867238,
+          "recall": 1.0,
+          "ap50": 0.995,
+          "ap50_95": 0.903667
+        }
+      },
+      "classes_without_ground_truth": [],
+      "low_support_classes": [
+        {
+          "name": "ButterflyFish",
+          "instances": 2
+        },
+        {
+          "name": "ZebraFish",
+          "instances": 4
+        },
+        {
+          "name": "RibbonedSweetlips",
+          "instances": 8
+        }
+      ],
+      "speed_ms_per_image": {
+        "preprocess": 1.937,
+        "inference": 43.062,
+        "loss": 0.0,
+        "postprocess": 0.443
+      },
+      "run_dir": "C:\\Users\\NIKITH\\AppData\\Local\\Temp\\opencode\\ultralytics_runs\\enhancement_fusion",
+      "settings": {
+        "checkpoint": "D:\\Underwater-Fish-Classification-YOLOv8-master\\Underwater-Fish-Classification-YOLOv8-master\\models\\best.pt",
+        "checkpoint_sha256": "af229161766094f3f002ff301b68001f6bec84492fe4f43c41c9f0838d1a5d23",
+        "checkpoint_size_mb": 5.96,
+        "imgsz": 640,
+        "conf": 0.001,
+        "iou": 0.6,
+        "device": "cpu",
+        "workers": 0,
+        "plots": false
+      },
+      "preprocessing": {
+        "method": "fusion",
+        "jpeg_quality": 95,
+        "enhancement_latency": {
+          "samples": 399,
+          "mean_ms": 15.099,
+          "median_ms": 14.6,
+          "p95_ms": 19.342,
+          "min_ms": 11.986,
+          "max_ms": 34.967
+        },
+        "mean_rgb_channels": [
+          97.848,
+          98.588,
+          96.845
+        ],
+        "dataset_dir": "D:\\Underwater-Fish-Classification-YOLOv8-master\\Underwater-Fish-Classification-YOLOv8-master\\outputs\\derived\\enhancement_fusion"
+      },
+      "delta_vs_raw_original": {
+        "precision": -0.017973,
+        "recall": -0.043239,
+        "mAP50": -0.026117,
+        "mAP50_95": -0.025301
+      }
+    }
+  }
+}

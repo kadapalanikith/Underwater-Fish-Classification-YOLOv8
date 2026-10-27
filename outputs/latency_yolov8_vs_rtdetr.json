@@ -1,0 +1,592 @@
+{
+  "timestamp": "2026-10-27T22:34:02",
+  "environment": {
+    "python": "3.11.9",
+    "platform": "Windows-10-10.0.26300-SP0",
+    "torch": "2.14.1+cu126",
+    "ultralytics": "8.4.190",
+    "opencv": "5.0.0",
+    "cuda_available": true,
+    "device_used": "cpu"
+  },
+  "protocol": {
+    "images": 30,
+    "warmup_images": 3,
+    "imgsz": 640,
+    "conf": 0.25,
+    "device": "cpu",
+    "batch_size": 1,
+    "api": "ultralytics predict",
+    "note": "Timing only. RT-DETR-L is a pretrained COCO checkpoint, not a fish-fine-tuned model. Do not interpret detection counts or classes as fish-species accuracy."
+  },
+  "checkpoints": {
+    "yolov8_fish": {
+      "path": "D:\\Underwater-Fish-Classification-YOLOv8-master\\Underwater-Fish-Classification-YOLOv8-master\\models\\best.pt",
+      "sha256": "af229161766094f3f002ff301b68001f6bec84492fe4f43c41c9f0838d1a5d23",
+      "classes": 13
+    },
+    "rtdetr_l_coco_pretrained": {
+      "path": "D:\\Underwater-Fish-Classification-YOLOv8-master\\Underwater-Fish-Classification-YOLOv8-master\\models\\rtdetr-l.pt",
+      "sha256": "6de60b10d4bc566f00cda0f5b4d64afe4b66d48dc9695d2171effb7859d8e73f",
+      "classes": 80
+    }
+  },
+  "results": {
+    "yolov8_fish": {
+      "label": "yolov8_fish",
+      "wall": {
+        "samples": 30,
+        "mean_ms": 68.653,
+        "median_ms": 67.441,
+        "p95_ms": 77.858,
+        "min_ms": 61.357,
+        "max_ms": 78.576
+      },
+      "preprocess": {
+        "samples": 30,
+        "mean_ms": 2.274,
+        "median_ms": 1.986,
+        "p95_ms": 4.169,
+        "min_ms": 1.495,
+        "max_ms": 4.63
+      },
+      "inference": {
+        "samples": 30,
+        "mean_ms": 60.736,
+        "median_ms": 59.874,
+        "p95_ms": 70.632,
+        "min_ms": 54.857,
+        "max_ms": 71.196
+      },
+      "postprocess": {
+        "samples": 30,
+        "mean_ms": 1.087,
+        "median_ms": 1.059,
+        "p95_ms": 1.588,
+        "min_ms": 0.726,
+        "max_ms": 1.709
+      },
+      "mean_detections": 1.167,
+      "records": [
+        {
+          "image": "13_jpeg.rf.e9aefe712874f442cb303ffecee5025e.jpg",
+          "wall_ms": 66.96290000036242,
+          "preprocess_ms": 1.684999999270076,
+          "inference_ms": 59.54259999998612,
+          "postprocess_ms": 0.8959000006143469,
+          "detections": 1
+        },
+        {
+          "image": "3-stripe-damsel_jpeg.rf.0dbc05009e67e92d465df6537438cc8c.jpg",
+          "wall_ms": 65.17950000124983,
+          "preprocess_ms": 1.4948999996704515,
+          "inference_ms": 58.49649999800022,
+          "postprocess_ms": 1.5883999985817354,
+          "detections": 1
+        },
+        {
+          "image": "3-striped-damselfish-in-the-marine-aquarium_mp4-2_jpg.rf.9a0c6d65e8a78d13c3d7f77772e74ce9.jpg",
+          "wall_ms": 65.1190000025963,
+          "preprocess_ms": 3.0384000019694213,
+          "inference_ms": 54.85650000264286,
+          "postprocess_ms": 0.9838999976636842,
+          "detections": 1
+        },
+        {
+          "image": "3-striped-damselfish_jpeg.rf.b98f0fb4295dfa60feb74b4062b65458.jpg",
+          "wall_ms": 71.1847000020498,
+          "preprocess_ms": 2.1616000012727454,
+          "inference_ms": 64.17920000239974,
+          "postprocess_ms": 0.9877999982563779,
+          "detections": 1
+        },
+        {
+          "image": "41_jpeg.rf.d39a0eba7f9929a4e81a89463c537fe8.jpg",
+          "wall_ms": 69.5157999980438,
+          "preprocess_ms": 2.1180999974603765,
+          "inference_ms": 61.99369999740156,
+          "postprocess_ms": 1.0665999980119523,
+          "detections": 1
+        },
+        {
+          "image": "9becb8b1699ad10ea12b30afe9275791_jpg.rf.05b9a7da4472947843b4d3a702490380.jpg",
+          "wall_ms": 61.35749999884865,
+          "preprocess_ms": 1.834200000303099,
+          "inference_ms": 54.93610000121407,
+          "postprocess_ms": 0.7255999989865813,
+          "detections": 1
+        },
+        {
+          "image": "amphiprion-percula-picasso-a2-picasso-percula-clownfish-1-_jpg.rf.fcb11d671fcd7a75a73b7d89100031aa.jpg",
+          "wall_ms": 64.8222000017995,
+          "preprocess_ms": 1.7010000010486692,
+          "inference_ms": 57.35139999887906,
+          "postprocess_ms": 1.3533999990613665,
+          "detections": 2
+        },
+        {
+          "image": "Amphiprion_percula_jpeg_jpg.rf.a905a41dc435727a27f36b1ce0adb5bf.jpg",
+          "wall_ms": 66.98669999968843,
+          "preprocess_ms": 1.92090000200551,
+          "inference_ms": 58.330399999249494,
+          "postprocess_ms": 1.174400000309106,
+          "detections": 1
+        },
+        {
+          "image": "AmphiprionPercula-121-_jpg.rf.db393c029288707d38b91c64f54f5b76.jpg",
+          "wall_ms": 72.40350000211038,
+          "preprocess_ms": 2.8128999983891845,
+          "inference_ms": 62.48029999915161,
+          "postprocess_ms": 1.2674999998125713,
+          "detections": 1
+        },
+        {
+          "image": "AmphiprionPercula-218-_jpg.rf.1da6d7faab76e42c4cd21b5f2b0e7c80.jpg",
+          "wall_ms": 76.95669999884558,
+          "preprocess_ms": 4.168999999819789,
+          "inference_ms": 65.85260000065318,
+          "postprocess_ms": 1.1439000008977018,
+          "detections": 1
+        },
+        {
+          "image": "AmphiprionPercula-351-_jpg.rf.75e5cd84e8dcc15add1ddbfd4ac73d3f.jpg",
+          "wall_ms": 71.01130000228295,
+          "preprocess_ms": 2.7751000015996397,
+          "inference_ms": 62.344099998881575,
+          "postprocess_ms": 1.0853999992832541,
+          "detections": 1
+        },
+        {
+          "image": "AmphiprionPercula-366-_jpg.rf.6f26b9e2be77a1f59e4d3cfb75bc0d86.jpg",
+          "wall_ms": 75.92559999829973,
+          "preprocess_ms": 1.7809000019042287,
+          "inference_ms": 68.53449999834993,
+          "postprocess_ms": 0.9403000003658235,
+          "detections": 3
+        },
+        {
+          "image": "AmphiprionPercula-391-_jpg.rf.ed4f56e2f2cab0bcf06726890b79849e.jpg",
+          "wall_ms": 69.78769999841461,
+          "preprocess_ms": 4.629799997928785,
+          "inference_ms": 59.193900000536814,
+          "postprocess_ms": 1.0615999999572523,
+          "detections": 1
+        },
+        {
+          "image": "AmphiprionPercula-467-_jpg.rf.7c3fe7748533f72e5ae76cf4860bad66.jpg",
+          "wall_ms": 64.57210000007763,
+          "preprocess_ms": 1.8286000013176817,
+          "inference_ms": 57.635500001197215,
+          "postprocess_ms": 0.9915999980876222,
+          "detections": 1
+        },
+        {
+          "image": "AmphiprionPercula-553-_jpg.rf.d93d48648c20807a1783f272c7f40427.jpg",
+          "wall_ms": 67.36459999956423,
+          "preprocess_ms": 2.0106000010855496,
+          "inference_ms": 60.20580000040354,
+          "postprocess_ms": 0.95099999816739,
+          "detections": 1
+        },
+        {
+          "image": "AngelFish_image_100_jpg.rf.230725c2c1461c888cf919b86b1629ed.jpg",
+          "wall_ms": 71.88829999722657,
+          "preprocess_ms": 3.8205999990168493,
+          "inference_ms": 61.93400000120164,
+          "postprocess_ms": 1.2941999993927311,
+          "detections": 1
+        },
+        {
+          "image": "AngelFish_image_102_jpg.rf.0ea01520ebac96b0e4bf439984c43e8d.jpg",
+          "wall_ms": 78.57590000276105,
+          "preprocess_ms": 1.7900999991979916,
+          "inference_ms": 71.19590000002063,
+          "postprocess_ms": 1.2371000011626165,
+          "detections": 1
+        },
+        {
+          "image": "AngelFish_image_105_jpg.rf.b0e8ca38fa0eb4634a0639ed7f53afb2.jpg",
+          "wall_ms": 75.14609999998356,
+          "preprocess_ms": 2.882300002966076,
+          "inference_ms": 65.8430999974371,
+          "postprocess_ms": 1.123800000641495,
+          "detections": 3
+        },
+        {
+          "image": "AngelFish_image_108_jpg.rf.8f23142f9562d1117d065988cc96d28a.jpg",
+          "wall_ms": 77.85769999827608,
+          "preprocess_ms": 1.984699996683048,
+          "inference_ms": 70.63209999978426,
+          "postprocess_ms": 1.7090000001189765,
+          "detections": 1
+        },
+        {
+          "image": "AngelFish_image_118_jpg.rf.0822f9ab76c3c9fe3a3ea169af07c557.jpg",
+          "wall_ms": 70.73600000148872,
+          "preprocess_ms": 2.151400000002468,
+          "inference_ms": 60.72860000131186,
+          "postprocess_ms": 1.1831000010715798,
+          "detections": 1
+        },
+        {
+          "image": "AngelFish_image_122_jpg.rf.0af357063d526cdc3702f32791b9d76d.jpg",
+          "wall_ms": 68.14589999703458,
+          "preprocess_ms": 1.6728000009607058,
+          "inference_ms": 61.608299998624716,
+          "postprocess_ms": 0.9164000002783723,
+          "detections": 1
+        },
+        {
+          "image": "AngelFish_image_123_jpg.rf.1df4a1d0562e2cc2c966e2624a9145a6.jpg",
+          "wall_ms": 64.43649999710033,
+          "preprocess_ms": 1.6796000018075574,
+          "inference_ms": 57.487900001433445,
+          "postprocess_ms": 1.1015000018232968,
+          "detections": 1
+        },
+        {
+          "image": "AngelFish_image_125_jpg.rf.b14e32df9e1ec42db8701793eaca489a.jpg",
+          "wall_ms": 66.05370000033872,
+          "preprocess_ms": 2.620899998873938,
+          "inference_ms": 57.459100000414765,
+          "postprocess_ms": 0.9782000015547965,
+          "detections": 1
+        },
+        {
+          "image": "AngelFish_image_128_jpg.rf.8ca6fd04dd1b82de5d9fd49423c21ea4.jpg",
+          "wall_ms": 67.51660000008997,
+          "preprocess_ms": 1.7975000009755604,
+          "inference_ms": 61.199399999168236,
+          "postprocess_ms": 0.9089999985008035,
+          "detections": 1
+        },
+        {
+          "image": "AngelFish_image_129_jpg.rf.d755038cb80d2a9faee0e629d52e34c8.jpg",
+          "wall_ms": 63.78960000074585,
+          "preprocess_ms": 1.7702000004646834,
+          "inference_ms": 56.70219999956316,
+          "postprocess_ms": 1.0951000003842637,
+          "detections": 1
+        },
+        {
+          "image": "AngelFish_image_12_jpg.rf.2890871d4666df04bfd6dfcd6ca77ce7.jpg",
+          "wall_ms": 62.59049999789568,
+          "preprocess_ms": 1.6528000014659483,
+          "inference_ms": 55.88500000158092,
+          "postprocess_ms": 1.0569000005489215,
+          "detections": 1
+        },
+        {
+          "image": "AngelFish_image_135_jpg.rf.998ed6f26ddb1b05802f9c0467502cf9.jpg",
+          "wall_ms": 62.40629999956582,
+          "preprocess_ms": 1.7154000015580095,
+          "inference_ms": 55.886699999973644,
+          "postprocess_ms": 0.9626999999454711,
+          "detections": 1
+        },
+        {
+          "image": "AngelFish_image_138_jpg.rf.e5eef90df0890c9830413977876ab953.jpg",
+          "wall_ms": 66.2832999987586,
+          "preprocess_ms": 2.617300000565592,
+          "inference_ms": 57.97259999962989,
+          "postprocess_ms": 0.9411999999429099,
+          "detections": 1
+        },
+        {
+          "image": "AngelFish_image_139_jpg.rf.d6539094e48ed69185462df8db337473.jpg",
+          "wall_ms": 70.93069999973522,
+          "preprocess_ms": 2.1135999995749444,
+          "inference_ms": 64.2891999996209,
+          "postprocess_ms": 0.9251000010408461,
+          "detections": 1
+        },
+        {
+          "image": "AngelFish_image_141_jpg.rf.d6a6113e0917ea96ccfbb28bc0acb43c.jpg",
+          "wall_ms": 64.07330000001821,
+          "preprocess_ms": 1.9868000017595477,
+          "inference_ms": 57.323899996845284,
+          "postprocess_ms": 0.970599998254329,
+          "detections": 1
+        }
+      ]
+    },
+    "rtdetr_l_coco_pretrained": {
+      "label": "rtdetr_l_coco_pretrained",
+      "wall": {
+        "samples": 30,
+        "mean_ms": 715.272,
+        "median_ms": 696.193,
+        "p95_ms": 853.023,
+        "min_ms": 628.877,
+        "max_ms": 908.414
+      },
+      "preprocess": {
+        "samples": 30,
+        "mean_ms": 3.132,
+        "median_ms": 2.161,
+        "p95_ms": 8.344,
+        "min_ms": 1.644,
+        "max_ms": 15.645
+      },
+      "inference": {
+        "samples": 30,
+        "mean_ms": 706.322,
+        "median_ms": 687.623,
+        "p95_ms": 844.429,
+        "min_ms": 619.618,
+        "max_ms": 898.739
+      },
+      "postprocess": {
+        "samples": 30,
+        "mean_ms": 0.635,
+        "median_ms": 0.489,
+        "p95_ms": 1.383,
+        "min_ms": 0.359,
+        "max_ms": 1.895
+      },
+      "mean_detections": 3.333,
+      "records": [
+        {
+          "image": "13_jpeg.rf.e9aefe712874f442cb303ffecee5025e.jpg",
+          "wall_ms": 628.8767000005464,
+          "preprocess_ms": 2.55259999903501,
+          "inference_ms": 619.6175999975821,
+          "postprocess_ms": 0.5535999989660922,
+          "detections": 1
+        },
+        {
+          "image": "3-stripe-damsel_jpeg.rf.0dbc05009e67e92d465df6537438cc8c.jpg",
+          "wall_ms": 775.2141999990272,
+          "preprocess_ms": 2.142399996955646,
+          "inference_ms": 765.4062000001431,
+          "postprocess_ms": 1.8952999998873565,
+          "detections": 4
+        },
+        {
+          "image": "3-striped-damselfish-in-the-marine-aquarium_mp4-2_jpg.rf.9a0c6d65e8a78d13c3d7f77772e74ce9.jpg",
+          "wall_ms": 692.4212000012631,
+          "preprocess_ms": 2.089200002956204,
+          "inference_ms": 685.1719000005687,
+          "postprocess_ms": 0.8312999998452142,
+          "detections": 4
+        },
+        {
+          "image": "3-striped-damselfish_jpeg.rf.b98f0fb4295dfa60feb74b4062b65458.jpg",
+          "wall_ms": 853.0231000004278,
+          "preprocess_ms": 2.426999999443069,
+          "inference_ms": 844.4285000005038,
+          "postprocess_ms": 1.2575000000651926,
+          "detections": 1
+        },
+        {
+          "image": "41_jpeg.rf.d39a0eba7f9929a4e81a89463c537fe8.jpg",
+          "wall_ms": 908.414300000004,
+          "preprocess_ms": 3.6108000022068154,
+          "inference_ms": 898.7390000002051,
+          "postprocess_ms": 0.5119999987073243,
+          "detections": 3
+        },
+        {
+          "image": "9becb8b1699ad10ea12b30afe9275791_jpg.rf.05b9a7da4472947843b4d3a702490380.jpg",
+          "wall_ms": 813.4719000008772,
+          "preprocess_ms": 5.346600002667401,
+          "inference_ms": 802.9041000008874,
+          "postprocess_ms": 0.3586999991966877,
+          "detections": 3
+        },
+        {
+          "image": "amphiprion-percula-picasso-a2-picasso-percula-clownfish-1-_jpg.rf.fcb11d671fcd7a75a73b7d89100031aa.jpg",
+          "wall_ms": 810.1869999991322,
+          "preprocess_ms": 2.0698999978776556,
+          "inference_ms": 803.3355999978085,
+          "postprocess_ms": 0.8229000013670884,
+          "detections": 11
+        },
+        {
+          "image": "Amphiprion_percula_jpeg_jpg.rf.a905a41dc435727a27f36b1ce0adb5bf.jpg",
+          "wall_ms": 662.6020000003336,
+          "preprocess_ms": 1.7471999999543186,
+          "inference_ms": 653.9259000019229,
+          "postprocess_ms": 0.41599999894970097,
+          "detections": 3
+        },
+        {
+          "image": "AmphiprionPercula-121-_jpg.rf.db393c029288707d38b91c64f54f5b76.jpg",
+          "wall_ms": 671.12989999805,
+          "preprocess_ms": 1.9554999998945277,
+          "inference_ms": 660.4824999994889,
+          "postprocess_ms": 0.6959000020287931,
+          "detections": 2
+        },
+        {
+          "image": "AmphiprionPercula-218-_jpg.rf.1da6d7faab76e42c4cd21b5f2b0e7c80.jpg",
+          "wall_ms": 692.1603000009782,
+          "preprocess_ms": 2.099899997119792,
+          "inference_ms": 684.3603000015719,
+          "postprocess_ms": 0.8324000009451993,
+          "detections": 3
+        },
+        {
+          "image": "AmphiprionPercula-351-_jpg.rf.75e5cd84e8dcc15add1ddbfd4ac73d3f.jpg",
+          "wall_ms": 715.0480000018433,
+          "preprocess_ms": 15.644600000086939,
+          "inference_ms": 693.6300999986997,
+          "postprocess_ms": 0.46830000064801425,
+          "detections": 3
+        },
+        {
+          "image": "AmphiprionPercula-366-_jpg.rf.6f26b9e2be77a1f59e4d3cfb75bc0d86.jpg",
+          "wall_ms": 748.2062999988557,
+          "preprocess_ms": 1.9171999992977362,
+          "inference_ms": 741.1546000003,
+          "postprocess_ms": 0.4789000013261102,
+          "detections": 3
+        },
+        {
+          "image": "AmphiprionPercula-391-_jpg.rf.ed4f56e2f2cab0bcf06726890b79849e.jpg",
+          "wall_ms": 683.0337999999756,
+          "preprocess_ms": 1.8932000020868145,
+          "inference_ms": 676.5784999988682,
+          "postprocess_ms": 0.44329999946057796,
+          "detections": 2
+        },
+        {
+          "image": "AmphiprionPercula-467-_jpg.rf.7c3fe7748533f72e5ae76cf4860bad66.jpg",
+          "wall_ms": 678.3469999973022,
+          "preprocess_ms": 2.0575000016833656,
+          "inference_ms": 671.1333999992348,
+          "postprocess_ms": 0.45840000166208483,
+          "detections": 4
+        },
+        {
+          "image": "AmphiprionPercula-553-_jpg.rf.d93d48648c20807a1783f272c7f40427.jpg",
+          "wall_ms": 670.6924999998591,
+          "preprocess_ms": 1.9234000028518494,
+          "inference_ms": 660.7347999997728,
+          "postprocess_ms": 0.378099997760728,
+          "detections": 4
+        },
+        {
+          "image": "AngelFish_image_100_jpg.rf.230725c2c1461c888cf919b86b1629ed.jpg",
+          "wall_ms": 733.9536999970733,
+          "preprocess_ms": 1.6436000005342066,
+          "inference_ms": 726.2169999994512,
+          "postprocess_ms": 1.3830999996571336,
+          "detections": 4
+        },
+        {
+          "image": "AngelFish_image_102_jpg.rf.0ea01520ebac96b0e4bf439984c43e8d.jpg",
+          "wall_ms": 673.7185999991198,
+          "preprocess_ms": 2.2251999980653636,
+          "inference_ms": 664.6966999978758,
+          "postprocess_ms": 0.43250000089756213,
+          "detections": 8
+        },
+        {
+          "image": "AngelFish_image_105_jpg.rf.b0e8ca38fa0eb4634a0639ed7f53afb2.jpg",
+          "wall_ms": 673.6773999982688,
+          "preprocess_ms": 3.549199998815311,
+          "inference_ms": 664.9863999991794,
+          "postprocess_ms": 0.44659999912255444,
+          "detections": 2
+        },
+        {
+          "image": "AngelFish_image_108_jpg.rf.8f23142f9562d1117d065988cc96d28a.jpg",
+          "wall_ms": 739.5995999977458,
+          "preprocess_ms": 8.344399997440632,
+          "inference_ms": 726.1693000000378,
+          "postprocess_ms": 0.5573000016738661,
+          "detections": 7
+        },
+        {
+          "image": "AngelFish_image_118_jpg.rf.0822f9ab76c3c9fe3a3ea169af07c557.jpg",
+          "wall_ms": 696.2093000001914,
+          "preprocess_ms": 5.274700000882149,
+          "inference_ms": 685.9144999980344,
+          "postprocess_ms": 0.42070000199601054,
+          "detections": 5
+        },
+        {
+          "image": "AngelFish_image_122_jpg.rf.0af357063d526cdc3702f32791b9d76d.jpg",
+          "wall_ms": 696.1759000005259,
+          "preprocess_ms": 2.1802000010211486,
+          "inference_ms": 689.3316999994568,
+          "postprocess_ms": 0.39900000047055073,
+          "detections": 2
+        },
+        {
+          "image": "AngelFish_image_123_jpg.rf.1df4a1d0562e2cc2c966e2624a9145a6.jpg",
+          "wall_ms": 703.5929000012402,
+          "preprocess_ms": 2.5093000003835186,
+          "inference_ms": 696.3437999984308,
+          "postprocess_ms": 0.3989000033470802,
+          "detections": 2
+        },
+        {
+          "image": "AngelFish_image_125_jpg.rf.b14e32df9e1ec42db8701793eaca489a.jpg",
+          "wall_ms": 721.4381999983743,
+          "preprocess_ms": 3.1779000019014347,
+          "inference_ms": 711.755100001028,
+          "postprocess_ms": 0.9845999993558507,
+          "detections": 5
+        },
+        {
+          "image": "AngelFish_image_128_jpg.rf.8ca6fd04dd1b82de5d9fd49423c21ea4.jpg",
+          "wall_ms": 701.851899997564,
+          "preprocess_ms": 2.944199997727992,
+          "inference_ms": 692.803099998855,
+          "postprocess_ms": 0.7296999974641949,
+          "detections": 4
+        },
+        {
+          "image": "AngelFish_image_129_jpg.rf.d755038cb80d2a9faee0e629d52e34c8.jpg",
+          "wall_ms": 656.6472999984398,
+          "preprocess_ms": 1.6643000017211307,
+          "inference_ms": 649.4587000015599,
+          "postprocess_ms": 0.4986000021744985,
+          "detections": 2
+        },
+        {
+          "image": "AngelFish_image_12_jpg.rf.2890871d4666df04bfd6dfcd6ca77ce7.jpg",
+          "wall_ms": 729.591100000107,
+          "preprocess_ms": 1.834999999118736,
+          "inference_ms": 723.1502000031469,
+          "postprocess_ms": 0.43370000275899656,
+          "detections": 2
+        },
+        {
+          "image": "AngelFish_image_135_jpg.rf.998ed6f26ddb1b05802f9c0467502cf9.jpg",
+          "wall_ms": 676.6845000020112,
+          "preprocess_ms": 2.6475999984540977,
+          "inference_ms": 670.2167000003101,
+          "postprocess_ms": 0.40919999810284935,
+          "detections": 3
+        },
+        {
+          "image": "AngelFish_image_138_jpg.rf.e5eef90df0890c9830413977876ab953.jpg",
+          "wall_ms": 688.3517999995092,
+          "preprocess_ms": 2.9788000028929673,
+          "inference_ms": 679.2715000010503,
+          "postprocess_ms": 0.6269999976211693,
+          "detections": 1
+        },
+        {
+          "image": "AngelFish_image_139_jpg.rf.d6539094e48ed69185462df8db337473.jpg",
+          "wall_ms": 648.9713999981177,
+          "preprocess_ms": 1.8086999989463948,
+          "inference_ms": 640.193300001556,
+          "postprocess_ms": 0.42979999852832407,
+          "detections": 1
+        },
+        {
+          "image": "AngelFish_image_141_jpg.rf.d6a6113e0917ea96ccfbb28bc0acb43c.jpg",
+          "wall_ms": 714.8560000023281,
+          "preprocess_ms": 1.6875000001164153,
+          "inference_ms": 707.5404999995953,
+          "postprocess_ms": 0.5111000027682167,
+          "detections": 1
+        }
+      ]
+    }
+  }
+}

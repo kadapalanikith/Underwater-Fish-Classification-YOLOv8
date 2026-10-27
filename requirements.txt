@@ -1,0 +1,25 @@
+# DeepSea AI - Major Project Dependencies
+# Deep Learning & Vision
+torch>=2.0.0
+torchvision>=0.15.0
+ultralytics>=8.1.0
+opencv-python>=4.8.0
+pillow>=9.5.0
+numpy>=1.24.0
+
+# Backend & API
+fastapi>=0.100.0
+uvicorn[standard]>=0.23.0
+python-multipart>=0.0.6
+python-dotenv>=1.0.0
+pydantic>=2.0.0
+
+# Scientific & Evaluation
+matplotlib>=3.7.0
+pandas>=2.0.0
+seaborn>=0.12.0
+scipy>=1.10.0
+
+# Testing & Quality
+pytest>=7.4.0
+httpx>=0.24.0

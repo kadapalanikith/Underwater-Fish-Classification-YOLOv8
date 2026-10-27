@@ -12,11 +12,11 @@
 
 - Current API endpoints include `/api/health`, `/api/models`, `/api/metrics`, `/api/predict`, and `/api/track`.
 - `/api/metrics` exposes `baseline`, `heldout_evaluation`, `bootstrap_uncertainty`, `obsea_evaluation`, `enhancement_accuracy`, `latency_benchmark`, `enhancement_audit`, and `enhancement_benchmark`, with provenance notes.
-- Current verification: 57 tests passed in 11.30 s. `npm run build` and `npm run check:routes` passed. Tests and route rendering are code-path checks, not fish-accuracy or browser E2E validation.
+- Historical OpenCode verification: 57 tests passed in 11.30 s. Latest release-branch check: 52 non-API tests passed in 7.05 s; the API suite was not collected because FastAPI is absent from the isolated video environment. `npm run build` and `npm run check:routes` passed. Tests and route rendering are code-path checks, not fish-accuracy or browser E2E validation.
 - Held-out `test_clean`: mAP@50 0.841 (95% CI 0.823-0.880), mAP@50-95 0.636 (95% CI 0.615-0.694). Bootstrap intervals are conditional on all fixed classes being present and do not fix leakage.
 - OBSEA external check: class-agnostic zero-shot mAP@50 0.036, mAP@50-95 0.017. This is not 13-class species accuracy.
 - RT-DETR is COCO-pretrained, not fish fine-tuned. Its saved result is timing-only. See `docs/rtdetr-finetune-plan.md`; no training was run.
-- Video tracking uses synthetic test frames. Real-footage tracking and counting are unvalidated.
+- Synthetic tracking tests validate code paths only. A real DIGI4ECO clip was evaluated; the current model produced no IDs or counts and missed all six annotated crossings. See `docs/video-tracking-validation.md`.
 
 ## 1. High-Level Code Overview
 

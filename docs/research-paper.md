@@ -45,7 +45,7 @@ The external evaluation used the test split of the [OBSEA fish detection dataset
 
 ### 2.5 Software and evidence boundaries
 
-The project includes a FastAPI API, a React/Vite client, image enhancement code, a timing benchmark, and a video tracker. The saved RT-DETR checkpoint is COCO-pretrained and has not been fine-tuned on the fish data. The video tracking script's existing smoke test creates synthetic rectangles rather than fish footage. The current workspace has no Git metadata. These facts limit the claims made here.
+The project includes a FastAPI API, a React/Vite client, image enhancement code, a timing benchmark, and a video tracker. The saved RT-DETR checkpoint is COCO-pretrained and has not been fine-tuned on the fish data. The video tracking script's smoke test creates synthetic rectangles rather than fish footage; a separate real-video run is reported below and yielded zero predicted tracks. The original source export lacked Git metadata; the audited changes were later published to a separate branch. These facts limit the claims made here.
 
 ## 3. Results
 
@@ -96,7 +96,7 @@ The RT-DETR timing numbers compare inference runtimes for checkpoints trained fo
 3. A fair RT-DETR accuracy study requires fish fine-tuning, a verified compatible GPU environment, and a matched evaluation protocol. No such training has been run.
 4. The DIGI4ECO clip is from the same OBSEA domain as the external image evaluation. The video decodes to 148 frames although annotations cover 150; 14 boxes beyond the clip were excluded. The tested model produced no track IDs and missed all six crossings. Threshold or tracker tuning must use separate development footage before a new held-out video is used for evaluation.
 5. The environment lacks a Python lock file; exact dependency recreation is not guaranteed.
-6. No Git metadata is present in this workspace, preventing a tracked-history or Git-history secret audit.
+6. A heuristic credential-pattern scan of the release branch's staged files and available Git history found no matches. This is not an exhaustive audit for every secret format or every remote history state.
 7. Existing metrics are saved artifacts described by their provenance. They have not all been rerun in this manuscript preparation pass.
 
 ## 6. Conclusion

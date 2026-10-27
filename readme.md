@@ -8,7 +8,7 @@ Project guidance is centralized in [`AGENTS.md`](AGENTS.md). Codex and Antigravi
 
 See [`docs/project-map.md`](docs/project-map.md) for the folder map, file-naming conventions, and rules for preserving experiment artifacts. The evidence-based manuscript draft is [`docs/research-paper.md`](docs/research-paper.md); it is not peer reviewed or published.
 
-Multiple agents can work on the project, but this local workspace has no `.git` metadata, so Git worktrees and branch-based isolation are unavailable. Coordinate file ownership and avoid simultaneous edits. Reopen the project from a valid Git clone to use worktrees safely.
+Multiple agents can work on the project. The original source-export folder lacked `.git`; this audit was published from a separate Git clone on `audit/research-validation-release`. In any checkout, verify Git status and coordinate file ownership before parallel edits.
 
 ## Current verification (2026-10-28)
 
@@ -19,7 +19,7 @@ Multiple agents can work on the project, but this local workspace has no `.git` 
 - The current system-Python attempt `python -m pytest tests -v` collected 14 items but stopped with 2 collection errors (`ModuleNotFoundError: No module named 'cv2'`); no tests ran in that attempt. This is separate from, and does not erase, the recorded OpenCode pass above.
 - GPU probe: `torch.cuda.is_available()` is `True` for the RTX 5050 Laptop GPU (8,151 MiB, compute capability 12.0, driver 610.74), but `torch 2.14.1+cu126` has no sm_120 kernels. A minimal GPU tensor operation fails with `cudaErrorNoKernelImageForDevice`, so `get_optimal_device()` falls back to CPU. The installed build suggests CUDA 13.0/13.2/13.4 wheels. No GPU inference, training, or PyTorch reinstall was performed.
 - An earlier attempt to launch the configured Python 3.11 executable failed; system Python 3.14.7 stopped collection because `cv2` was missing. The current `.venv` result above supersedes those failures.
-- No `.git` directory is present, so Git status/history and tracked-file provenance cannot be established here.
+- The original source export had no `.git`; the separate release clone has Git history. A heuristic credential-pattern scan of the release branch and available history found no matches, but it is not exhaustive.
 - The approved CC BY 4.0 OBSEA image dataset and DIGI4ECO tracking dataset are present. DIGI4ECO was downloaded with user approval, checksum-verified, and only its OBSEA video and annotations were extracted. An isolated CPU environment was approved for the real-video run; the tested checkpoint produced no track IDs. No model was trained.
 
 ## Dataset and evaluation protocol
@@ -167,7 +167,7 @@ Timings are from the saved CPU run and may vary with machine load/cache. Higher 
 - **Video:** real video and ground-truth annotations were processed, but the checkpoint produced zero track IDs at confidence 0.25 and 0.001. It missed all six reference crossings. No successful persistent-ID result or MOTA/IDF1/HOTA score is available. Current evidence and failure interpretation are in `docs/video-tracking-validation.md`.
 - **Universal independent-domain validation:** OBSEA is one external Mediterranean dataset. No second labeled domain, habitat, or geography was evaluated. Do not describe OBSEA as proof of universal generalization.
 - **Source independence:** `test_clean` is leakage-filtered but still shares source-level provenance with training data. The source-stem cluster bootstrap is a sensitivity analysis, not proof of independence.
-- **Git/secrets:** this workspace has no `.git` directory, so `git status`, tracked-file checks, and history inspection could not be performed. No secret values were printed in this pass, but the absence of secrets in tracked history is not established. If a credential was ever exposed, revoke it and inspect the actual clone separately.
+- **Git/secrets:** the original source export lacked `.git`; the audited changes were pushed on `audit/research-validation-release`. A heuristic credential-pattern scan of staged files and available history found no matches, but this is not an exhaustive guarantee for every secret format or remote history state.
 - **Research PDFs:** `client/public/research/RE_Paper.pdf`, `client/public/research/sample_paper.pdf`, and `client/src/assets/RE_Paper.pdf` are preserved artifacts. No evidence in this workspace establishes peer review or publication.
 - **Environment reproducibility:** root and server dependency files use broad lower bounds and do not pin a reproducible environment. No Python lockfile is present.
 - **Statistical scope:** confidence intervals are implemented for the saved local evaluations, but not for OBSEA, RT-DETR, real-video tracking, or enhancement latency. No multiple-comparison correction was applied outside the enhancement mAP comparisons.
@@ -200,7 +200,7 @@ From the repository root:
 .\.venv\Scripts\python.exe -m pytest tests -v
 ```
 
-Current result: 57 passed in 11.30 s. The suite includes API integration tests; the video test uses synthetic frames.
+Historical OpenCode result: 57 passed in 11.30 s. Latest branch check in the isolated video environment: 52 passed, 1 warning, using `--ignore=tests/test_api.py`; the full suite could not collect because FastAPI is absent from that environment. The focused API tests therefore need a complete project environment. The suite's synthetic tracking tests validate code paths, not fish accuracy.
 
 From `client/`:
 

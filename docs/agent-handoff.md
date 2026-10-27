@@ -4,12 +4,20 @@ This is a short orientation for any agent joining the project. Read [`AGENTS.md`
 
 ## State at handoff (2026-10-28)
 
+### Latest release-branch validation
+
+- Branch `audit/research-validation-release` contains the audited implementation, docs, tests, and compact JSON evidence artifacts; it was pushed to the project GitHub repository. Datasets, videos, checkpoints, environments, and build output were excluded.
+- `npm run build` passed with Vite 8.0.2 in 778 ms. `npm run check:routes` rendered `/`, `/demo`, `/research`, and `/contact`.
+- In the isolated `.venv-video`, with a project-local Ultralytics config directory, `python -m pytest tests -v --ignore=tests/test_api.py` passed 52 tests in 7.05 s. The full suite could not collect because FastAPI is missing from this video-only environment; no extra dependency was installed.
+- A heuristic credential-pattern scan of staged files and available Git history found no matches. This is not a guarantee that every possible secret format is absent.
+- The real-video tracker processed 148 decoded frames; confidence 0.25 yielded zero detections and IDs. Confidence 0.001 yielded 450 raw boxes, all below ByteTrack's 0.1 low threshold. Both settings missed all six annotated crossings.
+
 - Existing implementation preserved: FastAPI, React/Vite, YOLOv8 fish checkpoint, preprocessing methods, an RT-DETR timing benchmark, cross-domain helper, and video tracking code.
 - Current verification: `.venv` Python 3.11.9; `python -m pytest tests -v` passed **57 tests in 11.30 s**. Warnings: Starlette/httpx deprecation, pytest class-fixture deprecation, and PyTorch sm_120. Tests validate code paths/schemas, not fish accuracy.
 - The current Codex audit shell could not reproduce that result: configured `.venv\Scripts\python.exe` targets a missing Python 3.11 executable. System `python -m pytest tests -v` (Python 3.14.7) collected 14 items and stopped with 2 collection errors because `cv2` is missing; no tests ran. No dependencies were installed.
 - Frontend: `npm run build` passed with Vite 8.0.2 in 715 ms; `npm run check:routes` rendered `/`, `/demo`, `/research`, and `/contact`. The route check is an SSR smoke test, not browser E2E.
 - GPU: RTX 5050 Laptop, 8,151 MiB, compute capability 12.0, driver 610.74. Installed `torch 2.14.1+cu126` has no sm_120 kernels; a minimal GPU tensor op fails with `cudaErrorNoKernelImageForDevice`; `get_optimal_device()` falls back to CPU. No GPU training, inference, or reinstall was performed.
-- `.git` metadata is absent; do not claim Git status/history or worktree isolation.
+- The original source-export folder had no `.git`; this release branch was pushed from a separate clone at `.github-push-checkout`.
 
 ## Local evaluation
 

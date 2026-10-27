@@ -13,28 +13,28 @@ const CLASSES = [
 ];
 
 const STATS = [
-  { val: '0.91', key: 'mAP@50' },
-  { val: '0.86', key: 'Precision' },
-  { val: '0.87', key: 'Recall' },
-  { val: '13',   key: 'Fish Classes' },
-  { val: '≤45ms', key: 'Latency' },
-  { val: '640px', key: 'Input Size' },
+  { val: '0.841', key: 'Held-out test mAP@50* (95% CI 0.823–0.880)' },
+  { val: '0.636', key: 'Held-out test mAP@50–95* (95% CI 0.615–0.694)' },
+  { val: '0.036', key: 'OBSEA zero-shot mAP@50‡ (class-agnostic)' },
+  { val: '0.017', key: 'OBSEA zero-shot mAP@50–95‡' },
+  { val: '0.908', key: 'Historical validation mAP@50†' },
+  { val: '13/13', key: 'Classes present in test labels*' },
 ];
 
 const FEATURES = [
-  { icon: <Eye size={22} />,      title: 'Real-Time Detection',     desc: 'YOLOv8 processes each uploaded image in milliseconds, marking every identified fish with a bounding box.' },
-  { icon: <Database size={22} />, title: 'Open Dataset Trained',    desc: 'Model trained on curated Roboflow/Kaggle underwater frames — 2,000+ labeled instances across 13 classes.' },
-  { icon: <Cpu size={22} />,      title: 'Edge-Ready Architecture', desc: 'YOLOv8 Nano backbone allows deployment on low-power CPUs and ARM-based research hardware.' },
+  { icon: <Eye size={22} />,      title: 'Fast CPU Inference',     desc: 'A 30-image CPU run measured 60.7 ms mean YOLOv8 inference per image at 640 px; the validation protocol reported 44.8 ms. Timings vary with hardware and load and are not accuracy claims.' },
+  { icon: <Database size={22} />, title: 'Dataset Baseline',    desc: 'The local dataset has 8,229 images (13 classes) from the Kaggle/Roboflow fish source; the saved baseline was trained on that dataset family. The test split shares exact duplicates and source stems with training data; the audit reports a 399-image leakage-filtered subset.' },
+  { icon: <Cpu size={22} />,      title: 'CPU-Friendly Architecture', desc: 'YOLOv8 Nano is small enough for CPU inference. ARM or other edge deployments have not been tested in this workspace.' },
   { icon: <Code size={22} />,     title: 'Open API',                desc: 'A fully documented FastAPI backend with a /api/predict endpoint you can integrate with any client.' },
-  { icon: <Award size={22} />,    title: 'Academic Research',       desc: 'Developed as a minor academic project, targeting IEEE publication in marine AI.' },
+  { icon: <Award size={22} />,    title: 'Research Status',       desc: 'Held-out test evaluation is recorded (mAP@50 0.841, 95% CI 0.823–0.880 on the leakage-filtered subset). A zero-shot OBSEA check reached class-agnostic mAP@50 0.036, showing substantial domain shift. No publication is verified, and RT-DETR is not yet fish fine-tuned.' },
   { icon: <Activity size={22} />, title: 'Confidence Filtering',    desc: 'Adjust detection confidence threshold (default 25%) to trade off precision vs recall for your use case.' },
 ];
 
 const HOW_TO = [
-  { step: '01', title: 'Open the Demo', desc: 'Navigate to the Demo tab and you will see the AI inference pipeline.' },
-  { step: '02', title: 'Upload an Image', desc: 'Click the upload zone or drag-and-drop any JPEG/PNG underwater fish photo. Max 10 MB.' },
-  { step: '03', title: 'Run Inference', desc: 'Click "Process with YOLOv8". The pipeline animates through Input → Preprocessing → YOLOv8 Model → Detection & Output.' },
-  { step: '04', title: 'Inspect Results', desc: 'The annotated image with bounding boxes appears on the right, with species names and confidence percentages.' },
+  { step: '01', title: 'Open the Demo', desc: 'Navigate to the Demo tab and choose image or video mode.' },
+  { step: '02', title: 'Upload a File', desc: 'Click the upload zone or drag-and-drop an image (JPG/PNG, up to 25 MB) or a video (up to 100 MB).' },
+  { step: '03', title: 'Run Inference', desc: 'Click "Detect Fish" for images or "Track & Count" for video. The pipeline animates through Input → Enhance → Detect → Output.' },
+  { step: '04', title: 'Inspect Results', desc: 'The annotated image or tracked video appears on the right, with species names and confidence values where detections exist.' },
 ];
 
 const fadeIn = {
@@ -55,7 +55,7 @@ export default function HomePage() {
               Intelligent Underwater<br />Fish Classification
             </h1>
             <p style={{ fontSize: '1.2rem', color: '#6b7f9e', maxWidth: '600px', margin: '0 auto 2.5rem', lineHeight: 1.7 }}>
-              Upload any underwater photo and our production-grade YOLOv8 model instantly detects and classifies 13 marine fish species with bounding-box precision.
+              Upload an image for YOLOv8 fish detection. Predictions are model outputs and have not been independently validated on every image or domain.
             </p>
             <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
               <Link to="/demo" className="btn btn-primary" style={{ padding: '1rem 2.25rem', fontSize: '1.05rem' }}>
@@ -85,6 +85,9 @@ export default function HomePage() {
                 </div>
               ))}
             </div>
+            <p style={{ color: '#6b7f9e', fontSize: '0.8rem', textAlign: 'center', marginTop: '1rem' }}>
+              * Re-evaluated saved checkpoint on 399 leakage-filtered test images / 639 instances; polygons were converted to boxes and some classes have low support. Confidence intervals are image-level percentile intervals (2,000 resamples) conditional on all 13 classes being present; they do not fix leakage. † Original notebook validation log; 12 of 13 classes had validation instances. ‡ OBSEA is one external Mediterranean dataset; Diver and Octopus annotations were excluded, all fish taxa were collapsed to one class, and the checkpoint was not tuned on OBSEA. It is not 13-class species accuracy. The local test split still shares duplicates/source overlaps with training data.
+            </p>
           </motion.div>
         </div>
       </section>
@@ -104,8 +107,7 @@ export default function HomePage() {
                 enabling scalable monitoring for researchers, aquaculture operators, and conservationists.
               </p>
               <p style={{ color: '#6b7f9e', lineHeight: 1.8, marginBottom: '2rem' }}>
-                Our custom-trained YOLOv8 model achieves state-of-the-art accuracy on 13 tropical
-                freshwater and marine species while remaining lightweight enough to run on CPU.
+                The saved checkpoint was re-evaluated on the local test split: mAP@50 0.840 on 697 images and 0.841 on a 399-image leakage-filtered subset, with mAP@50–95 of 0.622 and 0.636. Image-level 95% intervals for the filtered subset were 0.823–0.880 and 0.615–0.694. Validation re-evaluation was mAP@50 0.910, close to the historical notebook log. The test split shares duplicates/source stems with training data, so these are not fully independent results; low-support classes and YellowCichlid remain weak. A separate zero-shot OBSEA test reached class-agnostic mAP@50 0.036, which is preliminary evidence of domain shift rather than a species result.
               </p>
               <Link to="/research" className="btn btn-outline">Read the Research →</Link>
             </motion.div>

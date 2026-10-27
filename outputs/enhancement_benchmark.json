@@ -1,0 +1,83 @@
+{
+  "raw": {
+    "method": "raw",
+    "images_tested": 40,
+    "total_detections": 61,
+    "images_with_detections": 40,
+    "avg_confidence": 0.6995,
+    "avg_end_to_end_latency_ms": 555.32,
+    "species_breakdown": {
+      "ThreeStripedDamselfish": 5,
+      "ClownFish": 17,
+      "AngelFish": 6,
+      "BlueTang": 9,
+      "Gourami": 5,
+      "GoldFish": 4,
+      "ZebraFish": 6,
+      "YellowTang": 1,
+      "PlatyFish": 1,
+      "MorishIdol": 3,
+      "RibbonedSweetlips": 4
+    }
+  },
+  "clahe": {
+    "method": "clahe",
+    "images_tested": 40,
+    "total_detections": 54,
+    "images_with_detections": 36,
+    "avg_confidence": 0.7151,
+    "avg_end_to_end_latency_ms": 104.46,
+    "species_breakdown": {
+      "ThreeStripedDamselfish": 5,
+      "ClownFish": 11,
+      "AngelFish": 8,
+      "BlueTang": 11,
+      "Gourami": 5,
+      "ZebraFish": 6,
+      "GoldFish": 1,
+      "MorishIdol": 3,
+      "RibbonedSweetlips": 4
+    }
+  },
+  "gray_world": {
+    "method": "gray_world",
+    "images_tested": 40,
+    "total_detections": 65,
+    "images_with_detections": 39,
+    "avg_confidence": 0.6823,
+    "avg_end_to_end_latency_ms": 106.59,
+    "species_breakdown": {
+      "ThreeStripedDamselfish": 6,
+      "ClownFish": 16,
+      "AngelFish": 7,
+      "Gourami": 5,
+      "BlueTang": 11,
+      "MorishIdol": 5,
+      "ZebraFish": 7,
+      "GoldFish": 3,
+      "PlatyFish": 1,
+      "ButterflyFish": 1,
+      "RibbonedSweetlips": 3
+    }
+  },
+  "fusion": {
+    "method": "fusion",
+    "images_tested": 40,
+    "total_detections": 63,
+    "images_with_detections": 40,
+    "avg_confidence": 0.6602,
+    "avg_end_to_end_latency_ms": 118.71,
+    "species_breakdown": {
+      "ThreeStripedDamselfish": 5,
+      "ClownFish": 15,
+      "AngelFish": 7,
+      "Gourami": 6,
+      "BlueTang": 12,
+      "MorishIdol": 5,
+      "ZebraFish": 7,
+      "GoldFish": 1,
+      "ButterflyFish": 1,
+      "RibbonedSweetlips": 4
+    }
+  }
+}

@@ -1,0 +1,1582 @@
+{
+  "_metadata": {
+    "timestamp": "2026-10-27T16:44:05",
+    "image_set": "test_sample (40 fixed images, sorted alphabetically)",
+    "image_set_source": "Roboflow .rf. naming \u2014 same Kaggle/Roboflow distribution as training data",
+    "model": "models/best.pt (YOLOv8n, trained on this dataset)",
+    "ground_truth_labels_available": false,
+    "experiment_type": "Qualitative inference benchmark \u2014 no accuracy claims possible without ground truth",
+    "device": "cpu",
+    "warning": "Detection count differences between methods do NOT confirm accuracy improvement. A method finding more boxes may be producing false positives. Ground-truth annotations are required to compute precision/recall/mAP."
+  },
+  "raw": {
+    "method": "raw",
+    "images_evaluated": 40,
+    "total_detections": 61,
+    "images_with_at_least_1_detection": 40,
+    "avg_confidence_all_boxes": 0.6995,
+    "median_confidence": 0.7419,
+    "avg_preproc_ms": 7.55,
+    "avg_infer_ms": 150.06,
+    "avg_total_ms": 157.61,
+    "per_image": [
+      {
+        "image": "10_jpeg.rf.94951c0379fe621911e4e48a35dc44e1.jpg",
+        "detections": 1,
+        "confidences": [
+          0.9579
+        ],
+        "preproc_ms": 6.12,
+        "infer_ms": 3424.66
+      },
+      {
+        "image": "13_jpeg.rf.e9aefe712874f442cb303ffecee5025e.jpg",
+        "detections": 1,
+        "confidences": [
+          0.8783
+        ],
+        "preproc_ms": 139.07,
+        "infer_ms": 64.3
+      },
+      {
+        "image": "3-stripe-damsel_jpeg.rf.0dbc05009e67e92d465df6537438cc8c.jpg",
+        "detections": 1,
+        "confidences": [
+          0.932
+        ],
+        "preproc_ms": 3.62,
+        "infer_ms": 56.98
+      },
+      {
+        "image": "3-striped-damselfish_jpeg.rf.b98f0fb4295dfa60feb74b4062b65458.jpg",
+        "detections": 1,
+        "confidences": [
+          0.9432
+        ],
+        "preproc_ms": 3.92,
+        "infer_ms": 63.3
+      },
+      {
+        "image": "AmphiprionPercula-121-_jpg.rf.db393c029288707d38b91c64f54f5b76.jpg",
+        "detections": 1,
+        "confidences": [
+          0.93
+        ],
+        "preproc_ms": 4.16,
+        "infer_ms": 64.62
+      },
+      {
+        "image": "Amphiprion_percula_jpeg_jpg.rf.a905a41dc435727a27f36b1ce0adb5bf.jpg",
+        "detections": 1,
+        "confidences": [
+          0.654
+        ],
+        "preproc_ms": 3.39,
+        "infer_ms": 57.32
+      },
+      {
+        "image": "AngelFish_image_12_jpg.rf.2890871d4666df04bfd6dfcd6ca77ce7.jpg",
+        "detections": 1,
+        "confidences": [
+          0.906
+        ],
+        "preproc_ms": 4.18,
+        "infer_ms": 51.77
+      },
+      {
+        "image": "AngelFish_image_13_jpg.rf.ca64f0168ac171c893555712df9b2c37.jpg",
+        "detections": 2,
+        "confidences": [
+          0.9546,
+          0.5385
+        ],
+        "preproc_ms": 3.6,
+        "infer_ms": 57.41
+      },
+      {
+        "image": "ClownFish_image_14_jpg.rf.d241b23b0003683c6b3024be645044f1.jpg",
+        "detections": 2,
+        "confidences": [
+          0.75,
+          0.3108
+        ],
+        "preproc_ms": 3.53,
+        "infer_ms": 58.95
+      },
+      {
+        "image": "ClownFish_image_16_jpg.rf.91c3882da1eeb4490a477042216d71b1.jpg",
+        "detections": 3,
+        "confidences": [
+          0.8892,
+          0.8214,
+          0.6679
+        ],
+        "preproc_ms": 4.32,
+        "infer_ms": 59.07
+      },
+      {
+        "image": "ClownFish_image_17_jpg.rf.30526e374dfff969c7190dbf40ceb23b.jpg",
+        "detections": 2,
+        "confidences": [
+          0.856,
+          0.8036
+        ],
+        "preproc_ms": 3.96,
+        "infer_ms": 54.96
+      },
+      {
+        "image": "Dwarf-Gourami_original_6-png_a4d546cd-f507-44b9-943e-2c46c6f38ac5_png_jpg.rf.8dd538d39ac6f93105e2f0fa4dd639d3.jpg",
+        "detections": 1,
+        "confidences": [
+          0.9609
+        ],
+        "preproc_ms": 3.88,
+        "infer_ms": 54.81
+      },
+      {
+        "image": "Dwarf-Gourami_original_8-png_73b8d52e-2133-4d11-8251-0a6f0bc554d2_png_jpg.rf.afafc76f78dea628a0016569eacfb84a.jpg",
+        "detections": 1,
+        "confidences": [
+          0.877
+        ],
+        "preproc_ms": 3.48,
+        "infer_ms": 60.41
+      },
+      {
+        "image": "Paracanthurus-hepatus_jpg.rf.0a6a721d43f03664867dbf55f69b9401.jpg",
+        "detections": 3,
+        "confidences": [
+          0.8307,
+          0.7627,
+          0.4304
+        ],
+        "preproc_ms": 5.06,
+        "infer_ms": 66.41
+      },
+      {
+        "image": "Paracanthurus-hepatus_jpg.rf.862a7d259be0ad3c2b7329038b85da05.jpg",
+        "detections": 1,
+        "confidences": [
+          0.265
+        ],
+        "preproc_ms": 3.63,
+        "infer_ms": 55.15
+      },
+      {
+        "image": "Paracanthurus_hepatus_Prague_2011_2_jpg.rf.aaa3046f7f650e32315e7f650d1dbdec.jpg",
+        "detections": 2,
+        "confidences": [
+          0.5682,
+          0.486
+        ],
+        "preproc_ms": 4.09,
+        "infer_ms": 52.99
+      },
+      {
+        "image": "TANG-HIPPO-YELLOW-BELLY-Paracanthurus-hepatus_jpg.rf.004620fa15735560031d60741b3a4664.jpg",
+        "detections": 1,
+        "confidences": [
+          0.5306
+        ],
+        "preproc_ms": 4.13,
+        "infer_ms": 59.98
+      },
+      {
+        "image": "TANG-HIPPO-YELLOW-BELLY-Paracanthurus-hepatus_jpg.rf.d8cdc4f0675210d392817e01f391b11a.jpg",
+        "detections": 3,
+        "confidences": [
+          0.7419,
+          0.5463,
+          0.3699
+        ],
+        "preproc_ms": 4.26,
+        "infer_ms": 62.57
+      },
+      {
+        "image": "Tang-Blue-Hippo-Paracanthurus-hepatus-1_jpg.rf.022608fcaa4722976e8a105c06e67e86.jpg",
+        "detections": 1,
+        "confidences": [
+          0.8699
+        ],
+        "preproc_ms": 3.87,
+        "infer_ms": 74.56
+      },
+      {
+        "image": "Zebrafish-Not-Green-155-_png_jpg.rf.a27f0152c5dccee80159eb377462bfd0.jpg",
+        "detections": 1,
+        "confidences": [
+          0.9152
+        ],
+        "preproc_ms": 3.4,
+        "infer_ms": 67.79
+      },
+      {
+        "image": "Zebrafish-Not-Green-156-_png_jpg.rf.6b2c930a650de42fb45edfc31497f5a7.jpg",
+        "detections": 1,
+        "confidences": [
+          0.939
+        ],
+        "preproc_ms": 3.83,
+        "infer_ms": 71.89
+      },
+      {
+        "image": "Zebrafish-Not-Green-170-_png_jpg.rf.95e8d55f762ea9de1451a5d4adebd790.jpg",
+        "detections": 3,
+        "confidences": [
+          0.8979,
+          0.8202,
+          0.7062
+        ],
+        "preproc_ms": 5.44,
+        "infer_ms": 82.44
+      },
+      {
+        "image": "Zebrafish-Not-Green-84-_png_jpg.rf.d7b3f19759fc1426e10671c06c8bb7f3.jpg",
+        "detections": 1,
+        "confidences": [
+          0.9102
+        ],
+        "preproc_ms": 3.87,
+        "infer_ms": 65.03
+      },
+      {
+        "image": "ZebrasomaFlavescens-489-_jpg.rf.fa30a9ee8f640ec4072010102628877a.jpg",
+        "detections": 2,
+        "confidences": [
+          0.6406,
+          0.3008
+        ],
+        "preproc_ms": 4.68,
+        "infer_ms": 69.47
+      },
+      {
+        "image": "ZebrasomaFlavescens-492-_jpg.rf.86f8989d40cc05d4ecabd8f16e635961.jpg",
+        "detections": 1,
+        "confidences": [
+          0.8342
+        ],
+        "preproc_ms": 3.27,
+        "infer_ms": 73.29
+      },
+      {
+        "image": "ZebrasomaFlavescens-499-_jpg.rf.ee7376faf1f286c5ed668fa09c0a1347.jpg",
+        "detections": 2,
+        "confidences": [
+          0.7062,
+          0.3754
+        ],
+        "preproc_ms": 5.45,
+        "infer_ms": 145.81
+      },
+      {
+        "image": "batch_1_34_goldfish_16_jpg.rf.73d3b54fcd78397e84ddf0279b677a85.jpg",
+        "detections": 2,
+        "confidences": [
+          0.6835,
+          0.5573
+        ],
+        "preproc_ms": 4.57,
+        "infer_ms": 135.53
+      },
+      {
+        "image": "batch_1_34_goldfish_20_jpg.rf.23c0122b0663b999cd86d97a8c3b879e.jpg",
+        "detections": 2,
+        "confidences": [
+          0.6955,
+          0.3683
+        ],
+        "preproc_ms": 5.11,
+        "infer_ms": 80.98
+      },
+      {
+        "image": "batch_1_34_goldfish_24_jpg.rf.be51dc4fca15814ee94d540f4a6357bf.jpg",
+        "detections": 1,
+        "confidences": [
+          0.8611
+        ],
+        "preproc_ms": 4.76,
+        "infer_ms": 62.57
+      },
+      {
+        "image": "iStock_91240281_SMALL_jpg.rf.0ffce9d63425690f897b1d62c29d6bff.jpg",
+        "detections": 3,
+        "confidences": [
+          0.6294,
+          0.4443,
+          0.282
+        ],
+        "preproc_ms": 4.93,
+        "infer_ms": 63.98
+      },
+      {
+        "image": "iStock_91240281_SMALL_jpg.rf.4e7ce2b89ae7b466e0266871db7070af.jpg",
+        "detections": 2,
+        "confidences": [
+          0.7048,
+          0.6224
+        ],
+        "preproc_ms": 4.32,
+        "infer_ms": 61.02
+      },
+      {
+        "image": "istockphoto-953181086-612x612_jpeg.rf.cf89b35e5f62362099339c034b25d146.jpg",
+        "detections": 2,
+        "confidences": [
+          0.6064,
+          0.2633
+        ],
+        "preproc_ms": 4.36,
+        "infer_ms": 58.12
+      },
+      {
+        "image": "moorish_idol_16_jpg.rf.1f2e66058c1cfeb848c2ffb0b10e10ba.jpg",
+        "detections": 1,
+        "confidences": [
+          0.8989
+        ],
+        "preproc_ms": 3.57,
+        "infer_ms": 62.09
+      },
+      {
+        "image": "moorish_idol_22_jpg.rf.04d80678e350fb62d793d33de69a8135.jpg",
+        "detections": 1,
+        "confidences": [
+          0.8541
+        ],
+        "preproc_ms": 4.44,
+        "infer_ms": 67.17
+      },
+      {
+        "image": "moorish_idol_40_jpg.rf.5d04fc8d009e09ed92c06fa67c2be7c1.jpg",
+        "detections": 1,
+        "confidences": [
+          0.8243
+        ],
+        "preproc_ms": 4.14,
+        "infer_ms": 55.68
+      },
+      {
+        "image": "ribboned_sweetlips_120_jpg.rf.b0d8c985ede286dae840225148cb1735.jpg",
+        "detections": 1,
+        "confidences": [
+          0.719
+        ],
+        "preproc_ms": 3.76,
+        "infer_ms": 53.81
+      },
+      {
+        "image": "ribboned_sweetlips_140_jpg.rf.10c707e9434ec1e61ed3385e81befdfb.jpg",
+        "detections": 1,
+        "confidences": [
+          0.8691
+        ],
+        "preproc_ms": 4.11,
+        "infer_ms": 54.12
+      },
+      {
+        "image": "ribboned_sweetlips_73_jpg.rf.53449fd1d172dc7ea2c8d30be55da627.jpg",
+        "detections": 2,
+        "confidences": [
+          0.8864,
+          0.3378
+        ],
+        "preproc_ms": 4.37,
+        "infer_ms": 60.91
+      },
+      {
+        "image": "shutterstock_humbug-damsel4_jpeg.rf.12196da8c19df82cc484de4c8460d30b.jpg",
+        "detections": 1,
+        "confidences": [
+          0.8184
+        ],
+        "preproc_ms": 3.33,
+        "infer_ms": 52.59
+      },
+      {
+        "image": "stock-photo-fish-blue-surgeonfish-paracanthurus-hepatus-or-blue-tang-regal-tang-palette-surgeonfish-1024717213_jpg.rf.46a4240a414373eeaa42ede2ff95e67c.jpg",
+        "detections": 1,
+        "confidences": [
+          0.6625
+        ],
+        "preproc_ms": 4.18,
+        "infer_ms": 57.94
+      }
+    ]
+  },
+  "clahe": {
+    "method": "clahe",
+    "images_evaluated": 40,
+    "total_detections": 54,
+    "images_with_at_least_1_detection": 36,
+    "avg_confidence_all_boxes": 0.7151,
+    "median_confidence": 0.8151,
+    "avg_preproc_ms": 20.66,
+    "avg_infer_ms": 56.93,
+    "avg_total_ms": 77.6,
+    "per_image": [
+      {
+        "image": "10_jpeg.rf.94951c0379fe621911e4e48a35dc44e1.jpg",
+        "detections": 1,
+        "confidences": [
+          0.9525
+        ],
+        "preproc_ms": 207.63,
+        "infer_ms": 58.78
+      },
+      {
+        "image": "13_jpeg.rf.e9aefe712874f442cb303ffecee5025e.jpg",
+        "detections": 1,
+        "confidences": [
+          0.8884
+        ],
+        "preproc_ms": 14.79,
+        "infer_ms": 54.29
+      },
+      {
+        "image": "3-stripe-damsel_jpeg.rf.0dbc05009e67e92d465df6537438cc8c.jpg",
+        "detections": 1,
+        "confidences": [
+          0.9497
+        ],
+        "preproc_ms": 17.31,
+        "infer_ms": 59.04
+      },
+      {
+        "image": "3-striped-damselfish_jpeg.rf.b98f0fb4295dfa60feb74b4062b65458.jpg",
+        "detections": 1,
+        "confidences": [
+          0.9296
+        ],
+        "preproc_ms": 14.4,
+        "infer_ms": 58.45
+      },
+      {
+        "image": "AmphiprionPercula-121-_jpg.rf.db393c029288707d38b91c64f54f5b76.jpg",
+        "detections": 1,
+        "confidences": [
+          0.91
+        ],
+        "preproc_ms": 16.02,
+        "infer_ms": 60.64
+      },
+      {
+        "image": "Amphiprion_percula_jpeg_jpg.rf.a905a41dc435727a27f36b1ce0adb5bf.jpg",
+        "detections": 1,
+        "confidences": [
+          0.5726
+        ],
+        "preproc_ms": 17.59,
+        "infer_ms": 59.79
+      },
+      {
+        "image": "AngelFish_image_12_jpg.rf.2890871d4666df04bfd6dfcd6ca77ce7.jpg",
+        "detections": 1,
+        "confidences": [
+          0.9178
+        ],
+        "preproc_ms": 20.22,
+        "infer_ms": 62.48
+      },
+      {
+        "image": "AngelFish_image_13_jpg.rf.ca64f0168ac171c893555712df9b2c37.jpg",
+        "detections": 2,
+        "confidences": [
+          0.9514,
+          0.3007
+        ],
+        "preproc_ms": 15.67,
+        "infer_ms": 57.67
+      },
+      {
+        "image": "ClownFish_image_14_jpg.rf.d241b23b0003683c6b3024be645044f1.jpg",
+        "detections": 2,
+        "confidences": [
+          0.6811,
+          0.3599
+        ],
+        "preproc_ms": 16.67,
+        "infer_ms": 56.57
+      },
+      {
+        "image": "ClownFish_image_16_jpg.rf.91c3882da1eeb4490a477042216d71b1.jpg",
+        "detections": 3,
+        "confidences": [
+          0.8567,
+          0.8112,
+          0.6894
+        ],
+        "preproc_ms": 14.71,
+        "infer_ms": 55.18
+      },
+      {
+        "image": "ClownFish_image_17_jpg.rf.30526e374dfff969c7190dbf40ceb23b.jpg",
+        "detections": 2,
+        "confidences": [
+          0.8713,
+          0.8233
+        ],
+        "preproc_ms": 15.45,
+        "infer_ms": 53.4
+      },
+      {
+        "image": "Dwarf-Gourami_original_6-png_a4d546cd-f507-44b9-943e-2c46c6f38ac5_png_jpg.rf.8dd538d39ac6f93105e2f0fa4dd639d3.jpg",
+        "detections": 1,
+        "confidences": [
+          0.9592
+        ],
+        "preproc_ms": 15.28,
+        "infer_ms": 58.06
+      },
+      {
+        "image": "Dwarf-Gourami_original_8-png_73b8d52e-2133-4d11-8251-0a6f0bc554d2_png_jpg.rf.afafc76f78dea628a0016569eacfb84a.jpg",
+        "detections": 1,
+        "confidences": [
+          0.9142
+        ],
+        "preproc_ms": 15.13,
+        "infer_ms": 54.96
+      },
+      {
+        "image": "Paracanthurus-hepatus_jpg.rf.0a6a721d43f03664867dbf55f69b9401.jpg",
+        "detections": 3,
+        "confidences": [
+          0.8262,
+          0.8095,
+          0.3358
+        ],
+        "preproc_ms": 16.45,
+        "infer_ms": 66.48
+      },
+      {
+        "image": "Paracanthurus-hepatus_jpg.rf.862a7d259be0ad3c2b7329038b85da05.jpg",
+        "detections": 0,
+        "confidences": [],
+        "preproc_ms": 13.43,
+        "infer_ms": 52.04
+      },
+      {
+        "image": "Paracanthurus_hepatus_Prague_2011_2_jpg.rf.aaa3046f7f650e32315e7f650d1dbdec.jpg",
+        "detections": 0,
+        "confidences": [],
+        "preproc_ms": 12.65,
+        "infer_ms": 52.2
+      },
+      {
+        "image": "TANG-HIPPO-YELLOW-BELLY-Paracanthurus-hepatus_jpg.rf.004620fa15735560031d60741b3a4664.jpg",
+        "detections": 0,
+        "confidences": [],
+        "preproc_ms": 15.01,
+        "infer_ms": 53.03
+      },
+      {
+        "image": "TANG-HIPPO-YELLOW-BELLY-Paracanthurus-hepatus_jpg.rf.d8cdc4f0675210d392817e01f391b11a.jpg",
+        "detections": 3,
+        "confidences": [
+          0.8153,
+          0.4323,
+          0.3785
+        ],
+        "preproc_ms": 15.01,
+        "infer_ms": 52.9
+      },
+      {
+        "image": "Tang-Blue-Hippo-Paracanthurus-hepatus-1_jpg.rf.022608fcaa4722976e8a105c06e67e86.jpg",
+        "detections": 1,
+        "confidences": [
+          0.8343
+        ],
+        "preproc_ms": 13.2,
+        "infer_ms": 52.68
+      },
+      {
+        "image": "Zebrafish-Not-Green-155-_png_jpg.rf.a27f0152c5dccee80159eb377462bfd0.jpg",
+        "detections": 1,
+        "confidences": [
+          0.9306
+        ],
+        "preproc_ms": 12.48,
+        "infer_ms": 54.69
+      },
+      {
+        "image": "Zebrafish-Not-Green-156-_png_jpg.rf.6b2c930a650de42fb45edfc31497f5a7.jpg",
+        "detections": 1,
+        "confidences": [
+          0.9402
+        ],
+        "preproc_ms": 15.85,
+        "infer_ms": 58.61
+      },
+      {
+        "image": "Zebrafish-Not-Green-170-_png_jpg.rf.95e8d55f762ea9de1451a5d4adebd790.jpg",
+        "detections": 3,
+        "confidences": [
+          0.9016,
+          0.867,
+          0.8148
+        ],
+        "preproc_ms": 17.41,
+        "infer_ms": 62.87
+      },
+      {
+        "image": "Zebrafish-Not-Green-84-_png_jpg.rf.d7b3f19759fc1426e10671c06c8bb7f3.jpg",
+        "detections": 1,
+        "confidences": [
+          0.92
+        ],
+        "preproc_ms": 12.48,
+        "infer_ms": 57.86
+      },
+      {
+        "image": "ZebrasomaFlavescens-489-_jpg.rf.fa30a9ee8f640ec4072010102628877a.jpg",
+        "detections": 1,
+        "confidences": [
+          0.6982
+        ],
+        "preproc_ms": 14.0,
+        "infer_ms": 53.94
+      },
+      {
+        "image": "ZebrasomaFlavescens-492-_jpg.rf.86f8989d40cc05d4ecabd8f16e635961.jpg",
+        "detections": 1,
+        "confidences": [
+          0.5889
+        ],
+        "preproc_ms": 14.15,
+        "infer_ms": 53.46
+      },
+      {
+        "image": "ZebrasomaFlavescens-499-_jpg.rf.ee7376faf1f286c5ed668fa09c0a1347.jpg",
+        "detections": 2,
+        "confidences": [
+          0.4856,
+          0.4657
+        ],
+        "preproc_ms": 15.55,
+        "infer_ms": 54.24
+      },
+      {
+        "image": "batch_1_34_goldfish_16_jpg.rf.73d3b54fcd78397e84ddf0279b677a85.jpg",
+        "detections": 1,
+        "confidences": [
+          0.5982
+        ],
+        "preproc_ms": 15.15,
+        "infer_ms": 53.88
+      },
+      {
+        "image": "batch_1_34_goldfish_20_jpg.rf.23c0122b0663b999cd86d97a8c3b879e.jpg",
+        "detections": 1,
+        "confidences": [
+          0.8978
+        ],
+        "preproc_ms": 15.7,
+        "infer_ms": 52.5
+      },
+      {
+        "image": "batch_1_34_goldfish_24_jpg.rf.be51dc4fca15814ee94d540f4a6357bf.jpg",
+        "detections": 2,
+        "confidences": [
+          0.613,
+          0.2667
+        ],
+        "preproc_ms": 16.31,
+        "infer_ms": 59.28
+      },
+      {
+        "image": "iStock_91240281_SMALL_jpg.rf.0ffce9d63425690f897b1d62c29d6bff.jpg",
+        "detections": 3,
+        "confidences": [
+          0.453,
+          0.4375,
+          0.361
+        ],
+        "preproc_ms": 20.83,
+        "infer_ms": 55.33
+      },
+      {
+        "image": "iStock_91240281_SMALL_jpg.rf.4e7ce2b89ae7b466e0266871db7070af.jpg",
+        "detections": 3,
+        "confidences": [
+          0.7637,
+          0.3595,
+          0.2508
+        ],
+        "preproc_ms": 16.91,
+        "infer_ms": 55.38
+      },
+      {
+        "image": "istockphoto-953181086-612x612_jpeg.rf.cf89b35e5f62362099339c034b25d146.jpg",
+        "detections": 1,
+        "confidences": [
+          0.6019
+        ],
+        "preproc_ms": 16.57,
+        "infer_ms": 60.28
+      },
+      {
+        "image": "moorish_idol_16_jpg.rf.1f2e66058c1cfeb848c2ffb0b10e10ba.jpg",
+        "detections": 1,
+        "confidences": [
+          0.8318
+        ],
+        "preproc_ms": 17.63,
+        "infer_ms": 58.88
+      },
+      {
+        "image": "moorish_idol_22_jpg.rf.04d80678e350fb62d793d33de69a8135.jpg",
+        "detections": 1,
+        "confidences": [
+          0.8485
+        ],
+        "preproc_ms": 17.72,
+        "infer_ms": 58.95
+      },
+      {
+        "image": "moorish_idol_40_jpg.rf.5d04fc8d009e09ed92c06fa67c2be7c1.jpg",
+        "detections": 1,
+        "confidences": [
+          0.7891
+        ],
+        "preproc_ms": 17.1,
+        "infer_ms": 57.45
+      },
+      {
+        "image": "ribboned_sweetlips_120_jpg.rf.b0d8c985ede286dae840225148cb1735.jpg",
+        "detections": 1,
+        "confidences": [
+          0.8853
+        ],
+        "preproc_ms": 16.67,
+        "infer_ms": 63.21
+      },
+      {
+        "image": "ribboned_sweetlips_140_jpg.rf.10c707e9434ec1e61ed3385e81befdfb.jpg",
+        "detections": 1,
+        "confidences": [
+          0.848
+        ],
+        "preproc_ms": 21.06,
+        "infer_ms": 60.02
+      },
+      {
+        "image": "ribboned_sweetlips_73_jpg.rf.53449fd1d172dc7ea2c8d30be55da627.jpg",
+        "detections": 2,
+        "confidences": [
+          0.9301,
+          0.5711
+        ],
+        "preproc_ms": 15.73,
+        "infer_ms": 55.58
+      },
+      {
+        "image": "shutterstock_humbug-damsel4_jpeg.rf.12196da8c19df82cc484de4c8460d30b.jpg",
+        "detections": 1,
+        "confidences": [
+          0.9227
+        ],
+        "preproc_ms": 15.46,
+        "infer_ms": 56.85
+      },
+      {
+        "image": "stock-photo-fish-blue-surgeonfish-paracanthurus-hepatus-or-blue-tang-regal-tang-palette-surgeonfish-1024717213_jpg.rf.46a4240a414373eeaa42ede2ff95e67c.jpg",
+        "detections": 0,
+        "confidences": [],
+        "preproc_ms": 15.22,
+        "infer_ms": 55.47
+      }
+    ]
+  },
+  "gray_world": {
+    "method": "gray_world",
+    "images_evaluated": 40,
+    "total_detections": 65,
+    "images_with_at_least_1_detection": 39,
+    "avg_confidence_all_boxes": 0.6823,
+    "median_confidence": 0.7483,
+    "avg_preproc_ms": 16.54,
+    "avg_infer_ms": 67.56,
+    "avg_total_ms": 84.09,
+    "per_image": [
+      {
+        "image": "10_jpeg.rf.94951c0379fe621911e4e48a35dc44e1.jpg",
+        "detections": 1,
+        "confidences": [
+          0.6955
+        ],
+        "preproc_ms": 13.54,
+        "infer_ms": 51.93
+      },
+      {
+        "image": "13_jpeg.rf.e9aefe712874f442cb303ffecee5025e.jpg",
+        "detections": 1,
+        "confidences": [
+          0.8869
+        ],
+        "preproc_ms": 15.6,
+        "infer_ms": 51.57
+      },
+      {
+        "image": "3-stripe-damsel_jpeg.rf.0dbc05009e67e92d465df6537438cc8c.jpg",
+        "detections": 1,
+        "confidences": [
+          0.9288
+        ],
+        "preproc_ms": 13.96,
+        "infer_ms": 55.97
+      },
+      {
+        "image": "3-striped-damselfish_jpeg.rf.b98f0fb4295dfa60feb74b4062b65458.jpg",
+        "detections": 1,
+        "confidences": [
+          0.9433
+        ],
+        "preproc_ms": 16.29,
+        "infer_ms": 60.82
+      },
+      {
+        "image": "AmphiprionPercula-121-_jpg.rf.db393c029288707d38b91c64f54f5b76.jpg",
+        "detections": 1,
+        "confidences": [
+          0.9186
+        ],
+        "preproc_ms": 22.27,
+        "infer_ms": 68.8
+      },
+      {
+        "image": "Amphiprion_percula_jpeg_jpg.rf.a905a41dc435727a27f36b1ce0adb5bf.jpg",
+        "detections": 1,
+        "confidences": [
+          0.6148
+        ],
+        "preproc_ms": 21.01,
+        "infer_ms": 61.67
+      },
+      {
+        "image": "AngelFish_image_12_jpg.rf.2890871d4666df04bfd6dfcd6ca77ce7.jpg",
+        "detections": 1,
+        "confidences": [
+          0.919
+        ],
+        "preproc_ms": 16.85,
+        "infer_ms": 65.65
+      },
+      {
+        "image": "AngelFish_image_13_jpg.rf.ca64f0168ac171c893555712df9b2c37.jpg",
+        "detections": 2,
+        "confidences": [
+          0.939,
+          0.7498
+        ],
+        "preproc_ms": 25.05,
+        "infer_ms": 122.77
+      },
+      {
+        "image": "ClownFish_image_14_jpg.rf.d241b23b0003683c6b3024be645044f1.jpg",
+        "detections": 1,
+        "confidences": [
+          0.8848
+        ],
+        "preproc_ms": 21.78,
+        "infer_ms": 174.74
+      },
+      {
+        "image": "ClownFish_image_16_jpg.rf.91c3882da1eeb4490a477042216d71b1.jpg",
+        "detections": 4,
+        "confidences": [
+          0.8807,
+          0.7481,
+          0.6987,
+          0.5588
+        ],
+        "preproc_ms": 19.11,
+        "infer_ms": 82.88
+      },
+      {
+        "image": "ClownFish_image_17_jpg.rf.30526e374dfff969c7190dbf40ceb23b.jpg",
+        "detections": 4,
+        "confidences": [
+          0.7899,
+          0.7593,
+          0.4292,
+          0.2565
+        ],
+        "preproc_ms": 16.29,
+        "infer_ms": 65.53
+      },
+      {
+        "image": "Dwarf-Gourami_original_6-png_a4d546cd-f507-44b9-943e-2c46c6f38ac5_png_jpg.rf.8dd538d39ac6f93105e2f0fa4dd639d3.jpg",
+        "detections": 1,
+        "confidences": [
+          0.9616
+        ],
+        "preproc_ms": 16.27,
+        "infer_ms": 63.5
+      },
+      {
+        "image": "Dwarf-Gourami_original_8-png_73b8d52e-2133-4d11-8251-0a6f0bc554d2_png_jpg.rf.afafc76f78dea628a0016569eacfb84a.jpg",
+        "detections": 1,
+        "confidences": [
+          0.8788
+        ],
+        "preproc_ms": 13.19,
+        "infer_ms": 76.46
+      },
+      {
+        "image": "Paracanthurus-hepatus_jpg.rf.0a6a721d43f03664867dbf55f69b9401.jpg",
+        "detections": 3,
+        "confidences": [
+          0.8395,
+          0.8239,
+          0.3719
+        ],
+        "preproc_ms": 20.26,
+        "infer_ms": 76.96
+      },
+      {
+        "image": "Paracanthurus-hepatus_jpg.rf.862a7d259be0ad3c2b7329038b85da05.jpg",
+        "detections": 1,
+        "confidences": [
+          0.4994
+        ],
+        "preproc_ms": 18.79,
+        "infer_ms": 67.76
+      },
+      {
+        "image": "Paracanthurus_hepatus_Prague_2011_2_jpg.rf.aaa3046f7f650e32315e7f650d1dbdec.jpg",
+        "detections": 1,
+        "confidences": [
+          0.8253
+        ],
+        "preproc_ms": 13.87,
+        "infer_ms": 62.7
+      },
+      {
+        "image": "TANG-HIPPO-YELLOW-BELLY-Paracanthurus-hepatus_jpg.rf.004620fa15735560031d60741b3a4664.jpg",
+        "detections": 0,
+        "confidences": [],
+        "preproc_ms": 16.6,
+        "infer_ms": 65.64
+      },
+      {
+        "image": "TANG-HIPPO-YELLOW-BELLY-Paracanthurus-hepatus_jpg.rf.d8cdc4f0675210d392817e01f391b11a.jpg",
+        "detections": 3,
+        "confidences": [
+          0.7706,
+          0.5181,
+          0.3909
+        ],
+        "preproc_ms": 30.11,
+        "infer_ms": 72.93
+      },
+      {
+        "image": "Tang-Blue-Hippo-Paracanthurus-hepatus-1_jpg.rf.022608fcaa4722976e8a105c06e67e86.jpg",
+        "detections": 1,
+        "confidences": [
+          0.861
+        ],
+        "preproc_ms": 24.8,
+        "infer_ms": 67.26
+      },
+      {
+        "image": "Zebrafish-Not-Green-155-_png_jpg.rf.a27f0152c5dccee80159eb377462bfd0.jpg",
+        "detections": 1,
+        "confidences": [
+          0.9125
+        ],
+        "preproc_ms": 18.47,
+        "infer_ms": 85.15
+      },
+      {
+        "image": "Zebrafish-Not-Green-156-_png_jpg.rf.6b2c930a650de42fb45edfc31497f5a7.jpg",
+        "detections": 1,
+        "confidences": [
+          0.9065
+        ],
+        "preproc_ms": 16.23,
+        "infer_ms": 63.73
+      },
+      {
+        "image": "Zebrafish-Not-Green-170-_png_jpg.rf.95e8d55f762ea9de1451a5d4adebd790.jpg",
+        "detections": 3,
+        "confidences": [
+          0.8926,
+          0.8386,
+          0.6971
+        ],
+        "preproc_ms": 15.79,
+        "infer_ms": 65.37
+      },
+      {
+        "image": "Zebrafish-Not-Green-84-_png_jpg.rf.d7b3f19759fc1426e10671c06c8bb7f3.jpg",
+        "detections": 1,
+        "confidences": [
+          0.9042
+        ],
+        "preproc_ms": 14.37,
+        "infer_ms": 63.88
+      },
+      {
+        "image": "ZebrasomaFlavescens-489-_jpg.rf.fa30a9ee8f640ec4072010102628877a.jpg",
+        "detections": 2,
+        "confidences": [
+          0.2593,
+          0.2546
+        ],
+        "preproc_ms": 17.15,
+        "infer_ms": 60.11
+      },
+      {
+        "image": "ZebrasomaFlavescens-492-_jpg.rf.86f8989d40cc05d4ecabd8f16e635961.jpg",
+        "detections": 1,
+        "confidences": [
+          0.8677
+        ],
+        "preproc_ms": 13.52,
+        "infer_ms": 60.1
+      },
+      {
+        "image": "ZebrasomaFlavescens-499-_jpg.rf.ee7376faf1f286c5ed668fa09c0a1347.jpg",
+        "detections": 2,
+        "confidences": [
+          0.7486,
+          0.2798
+        ],
+        "preproc_ms": 12.09,
+        "infer_ms": 58.65
+      },
+      {
+        "image": "batch_1_34_goldfish_16_jpg.rf.73d3b54fcd78397e84ddf0279b677a85.jpg",
+        "detections": 2,
+        "confidences": [
+          0.6863,
+          0.5314
+        ],
+        "preproc_ms": 14.96,
+        "infer_ms": 66.91
+      },
+      {
+        "image": "batch_1_34_goldfish_20_jpg.rf.23c0122b0663b999cd86d97a8c3b879e.jpg",
+        "detections": 3,
+        "confidences": [
+          0.6292,
+          0.407,
+          0.2903
+        ],
+        "preproc_ms": 14.8,
+        "infer_ms": 60.01
+      },
+      {
+        "image": "batch_1_34_goldfish_24_jpg.rf.be51dc4fca15814ee94d540f4a6357bf.jpg",
+        "detections": 1,
+        "confidences": [
+          0.8667
+        ],
+        "preproc_ms": 13.6,
+        "infer_ms": 57.76
+      },
+      {
+        "image": "iStock_91240281_SMALL_jpg.rf.0ffce9d63425690f897b1d62c29d6bff.jpg",
+        "detections": 3,
+        "confidences": [
+          0.661,
+          0.636,
+          0.3942
+        ],
+        "preproc_ms": 13.07,
+        "infer_ms": 56.59
+      },
+      {
+        "image": "iStock_91240281_SMALL_jpg.rf.4e7ce2b89ae7b466e0266871db7070af.jpg",
+        "detections": 3,
+        "confidences": [
+          0.8115,
+          0.7235,
+          0.2785
+        ],
+        "preproc_ms": 13.67,
+        "infer_ms": 55.84
+      },
+      {
+        "image": "istockphoto-953181086-612x612_jpeg.rf.cf89b35e5f62362099339c034b25d146.jpg",
+        "detections": 1,
+        "confidences": [
+          0.7483
+        ],
+        "preproc_ms": 15.44,
+        "infer_ms": 56.76
+      },
+      {
+        "image": "moorish_idol_16_jpg.rf.1f2e66058c1cfeb848c2ffb0b10e10ba.jpg",
+        "detections": 1,
+        "confidences": [
+          0.9041
+        ],
+        "preproc_ms": 12.77,
+        "infer_ms": 61.08
+      },
+      {
+        "image": "moorish_idol_22_jpg.rf.04d80678e350fb62d793d33de69a8135.jpg",
+        "detections": 1,
+        "confidences": [
+          0.8223
+        ],
+        "preproc_ms": 14.84,
+        "infer_ms": 65.09
+      },
+      {
+        "image": "moorish_idol_40_jpg.rf.5d04fc8d009e09ed92c06fa67c2be7c1.jpg",
+        "detections": 2,
+        "confidences": [
+          0.8512,
+          0.6973
+        ],
+        "preproc_ms": 17.02,
+        "infer_ms": 61.77
+      },
+      {
+        "image": "ribboned_sweetlips_120_jpg.rf.b0d8c985ede286dae840225148cb1735.jpg",
+        "detections": 1,
+        "confidences": [
+          0.9057
+        ],
+        "preproc_ms": 13.05,
+        "infer_ms": 60.08
+      },
+      {
+        "image": "ribboned_sweetlips_140_jpg.rf.10c707e9434ec1e61ed3385e81befdfb.jpg",
+        "detections": 2,
+        "confidences": [
+          0.5417,
+          0.3422
+        ],
+        "preproc_ms": 13.08,
+        "infer_ms": 57.04
+      },
+      {
+        "image": "ribboned_sweetlips_73_jpg.rf.53449fd1d172dc7ea2c8d30be55da627.jpg",
+        "detections": 2,
+        "confidences": [
+          0.7851,
+          0.3522
+        ],
+        "preproc_ms": 15.02,
+        "infer_ms": 58.44
+      },
+      {
+        "image": "shutterstock_humbug-damsel4_jpeg.rf.12196da8c19df82cc484de4c8460d30b.jpg",
+        "detections": 2,
+        "confidences": [
+          0.5317,
+          0.5225
+        ],
+        "preproc_ms": 14.12,
+        "infer_ms": 55.48
+      },
+      {
+        "image": "stock-photo-fish-blue-surgeonfish-paracanthurus-hepatus-or-blue-tang-regal-tang-palette-surgeonfish-1024717213_jpg.rf.46a4240a414373eeaa42ede2ff95e67c.jpg",
+        "detections": 1,
+        "confidences": [
+          0.528
+        ],
+        "preproc_ms": 12.75,
+        "infer_ms": 56.9
+      }
+    ]
+  },
+  "fusion": {
+    "method": "fusion",
+    "images_evaluated": 40,
+    "total_detections": 63,
+    "images_with_at_least_1_detection": 40,
+    "avg_confidence_all_boxes": 0.6602,
+    "median_confidence": 0.7571,
+    "avg_preproc_ms": 27.26,
+    "avg_infer_ms": 59.09,
+    "avg_total_ms": 86.35,
+    "per_image": [
+      {
+        "image": "10_jpeg.rf.94951c0379fe621911e4e48a35dc44e1.jpg",
+        "detections": 1,
+        "confidences": [
+          0.662
+        ],
+        "preproc_ms": 27.64,
+        "infer_ms": 64.27
+      },
+      {
+        "image": "13_jpeg.rf.e9aefe712874f442cb303ffecee5025e.jpg",
+        "detections": 1,
+        "confidences": [
+          0.8815
+        ],
+        "preproc_ms": 25.51,
+        "infer_ms": 57.26
+      },
+      {
+        "image": "3-stripe-damsel_jpeg.rf.0dbc05009e67e92d465df6537438cc8c.jpg",
+        "detections": 1,
+        "confidences": [
+          0.9482
+        ],
+        "preproc_ms": 23.68,
+        "infer_ms": 61.96
+      },
+      {
+        "image": "3-striped-damselfish_jpeg.rf.b98f0fb4295dfa60feb74b4062b65458.jpg",
+        "detections": 1,
+        "confidences": [
+          0.9506
+        ],
+        "preproc_ms": 24.29,
+        "infer_ms": 60.78
+      },
+      {
+        "image": "AmphiprionPercula-121-_jpg.rf.db393c029288707d38b91c64f54f5b76.jpg",
+        "detections": 1,
+        "confidences": [
+          0.9279
+        ],
+        "preproc_ms": 29.16,
+        "infer_ms": 63.89
+      },
+      {
+        "image": "Amphiprion_percula_jpeg_jpg.rf.a905a41dc435727a27f36b1ce0adb5bf.jpg",
+        "detections": 1,
+        "confidences": [
+          0.4308
+        ],
+        "preproc_ms": 28.03,
+        "infer_ms": 63.17
+      },
+      {
+        "image": "AngelFish_image_12_jpg.rf.2890871d4666df04bfd6dfcd6ca77ce7.jpg",
+        "detections": 1,
+        "confidences": [
+          0.9277
+        ],
+        "preproc_ms": 29.95,
+        "infer_ms": 72.33
+      },
+      {
+        "image": "AngelFish_image_13_jpg.rf.ca64f0168ac171c893555712df9b2c37.jpg",
+        "detections": 2,
+        "confidences": [
+          0.9357,
+          0.6833
+        ],
+        "preproc_ms": 27.09,
+        "infer_ms": 59.49
+      },
+      {
+        "image": "ClownFish_image_14_jpg.rf.d241b23b0003683c6b3024be645044f1.jpg",
+        "detections": 1,
+        "confidences": [
+          0.8321
+        ],
+        "preproc_ms": 24.91,
+        "infer_ms": 59.75
+      },
+      {
+        "image": "ClownFish_image_16_jpg.rf.91c3882da1eeb4490a477042216d71b1.jpg",
+        "detections": 4,
+        "confidences": [
+          0.8272,
+          0.8268,
+          0.7123,
+          0.5809
+        ],
+        "preproc_ms": 29.17,
+        "infer_ms": 63.66
+      },
+      {
+        "image": "ClownFish_image_17_jpg.rf.30526e374dfff969c7190dbf40ceb23b.jpg",
+        "detections": 4,
+        "confidences": [
+          0.8215,
+          0.7864,
+          0.3509,
+          0.3106
+        ],
+        "preproc_ms": 26.39,
+        "infer_ms": 59.25
+      },
+      {
+        "image": "Dwarf-Gourami_original_6-png_a4d546cd-f507-44b9-943e-2c46c6f38ac5_png_jpg.rf.8dd538d39ac6f93105e2f0fa4dd639d3.jpg",
+        "detections": 1,
+        "confidences": [
+          0.9584
+        ],
+        "preproc_ms": 25.58,
+        "infer_ms": 56.59
+      },
+      {
+        "image": "Dwarf-Gourami_original_8-png_73b8d52e-2133-4d11-8251-0a6f0bc554d2_png_jpg.rf.afafc76f78dea628a0016569eacfb84a.jpg",
+        "detections": 2,
+        "confidences": [
+          0.8929,
+          0.285
+        ],
+        "preproc_ms": 25.74,
+        "infer_ms": 59.64
+      },
+      {
+        "image": "Paracanthurus-hepatus_jpg.rf.0a6a721d43f03664867dbf55f69b9401.jpg",
+        "detections": 3,
+        "confidences": [
+          0.8624,
+          0.7808,
+          0.2803
+        ],
+        "preproc_ms": 39.33,
+        "infer_ms": 59.76
+      },
+      {
+        "image": "Paracanthurus-hepatus_jpg.rf.862a7d259be0ad3c2b7329038b85da05.jpg",
+        "detections": 1,
+        "confidences": [
+          0.334
+        ],
+        "preproc_ms": 25.68,
+        "infer_ms": 57.84
+      },
+      {
+        "image": "Paracanthurus_hepatus_Prague_2011_2_jpg.rf.aaa3046f7f650e32315e7f650d1dbdec.jpg",
+        "detections": 1,
+        "confidences": [
+          0.7223
+        ],
+        "preproc_ms": 26.24,
+        "infer_ms": 55.54
+      },
+      {
+        "image": "TANG-HIPPO-YELLOW-BELLY-Paracanthurus-hepatus_jpg.rf.004620fa15735560031d60741b3a4664.jpg",
+        "detections": 1,
+        "confidences": [
+          0.2809
+        ],
+        "preproc_ms": 20.73,
+        "infer_ms": 56.55
+      },
+      {
+        "image": "TANG-HIPPO-YELLOW-BELLY-Paracanthurus-hepatus_jpg.rf.d8cdc4f0675210d392817e01f391b11a.jpg",
+        "detections": 3,
+        "confidences": [
+          0.7866,
+          0.3964,
+          0.3868
+        ],
+        "preproc_ms": 25.01,
+        "infer_ms": 56.27
+      },
+      {
+        "image": "Tang-Blue-Hippo-Paracanthurus-hepatus-1_jpg.rf.022608fcaa4722976e8a105c06e67e86.jpg",
+        "detections": 1,
+        "confidences": [
+          0.7982
+        ],
+        "preproc_ms": 21.48,
+        "infer_ms": 58.77
+      },
+      {
+        "image": "Zebrafish-Not-Green-155-_png_jpg.rf.a27f0152c5dccee80159eb377462bfd0.jpg",
+        "detections": 1,
+        "confidences": [
+          0.9303
+        ],
+        "preproc_ms": 33.82,
+        "infer_ms": 60.75
+      },
+      {
+        "image": "Zebrafish-Not-Green-156-_png_jpg.rf.6b2c930a650de42fb45edfc31497f5a7.jpg",
+        "detections": 1,
+        "confidences": [
+          0.9355
+        ],
+        "preproc_ms": 24.84,
+        "infer_ms": 58.0
+      },
+      {
+        "image": "Zebrafish-Not-Green-170-_png_jpg.rf.95e8d55f762ea9de1451a5d4adebd790.jpg",
+        "detections": 4,
+        "confidences": [
+          0.9008,
+          0.8703,
+          0.8133,
+          0.2635
+        ],
+        "preproc_ms": 25.33,
+        "infer_ms": 57.85
+      },
+      {
+        "image": "Zebrafish-Not-Green-84-_png_jpg.rf.d7b3f19759fc1426e10671c06c8bb7f3.jpg",
+        "detections": 1,
+        "confidences": [
+          0.9129
+        ],
+        "preproc_ms": 22.01,
+        "infer_ms": 54.48
+      },
+      {
+        "image": "ZebrasomaFlavescens-489-_jpg.rf.fa30a9ee8f640ec4072010102628877a.jpg",
+        "detections": 2,
+        "confidences": [
+          0.3239,
+          0.3203
+        ],
+        "preproc_ms": 26.22,
+        "infer_ms": 56.82
+      },
+      {
+        "image": "ZebrasomaFlavescens-492-_jpg.rf.86f8989d40cc05d4ecabd8f16e635961.jpg",
+        "detections": 1,
+        "confidences": [
+          0.7757
+        ],
+        "preproc_ms": 24.42,
+        "infer_ms": 54.43
+      },
+      {
+        "image": "ZebrasomaFlavescens-499-_jpg.rf.ee7376faf1f286c5ed668fa09c0a1347.jpg",
+        "detections": 2,
+        "confidences": [
+          0.5912,
+          0.3874
+        ],
+        "preproc_ms": 25.35,
+        "infer_ms": 59.73
+      },
+      {
+        "image": "batch_1_34_goldfish_16_jpg.rf.73d3b54fcd78397e84ddf0279b677a85.jpg",
+        "detections": 1,
+        "confidences": [
+          0.5963
+        ],
+        "preproc_ms": 25.56,
+        "infer_ms": 53.73
+      },
+      {
+        "image": "batch_1_34_goldfish_20_jpg.rf.23c0122b0663b999cd86d97a8c3b879e.jpg",
+        "detections": 2,
+        "confidences": [
+          0.8335,
+          0.2759
+        ],
+        "preproc_ms": 25.6,
+        "infer_ms": 55.05
+      },
+      {
+        "image": "batch_1_34_goldfish_24_jpg.rf.be51dc4fca15814ee94d540f4a6357bf.jpg",
+        "detections": 1,
+        "confidences": [
+          0.5073
+        ],
+        "preproc_ms": 27.92,
+        "infer_ms": 55.05
+      },
+      {
+        "image": "iStock_91240281_SMALL_jpg.rf.0ffce9d63425690f897b1d62c29d6bff.jpg",
+        "detections": 3,
+        "confidences": [
+          0.5114,
+          0.4789,
+          0.3637
+        ],
+        "preproc_ms": 27.16,
+        "infer_ms": 54.47
+      },
+      {
+        "image": "iStock_91240281_SMALL_jpg.rf.4e7ce2b89ae7b466e0266871db7070af.jpg",
+        "detections": 3,
+        "confidences": [
+          0.8305,
+          0.5695,
+          0.2929
+        ],
+        "preproc_ms": 26.83,
+        "infer_ms": 56.21
+      },
+      {
+        "image": "istockphoto-953181086-612x612_jpeg.rf.cf89b35e5f62362099339c034b25d146.jpg",
+        "detections": 1,
+        "confidences": [
+          0.6673
+        ],
+        "preproc_ms": 25.77,
+        "infer_ms": 55.71
+      },
+      {
+        "image": "moorish_idol_16_jpg.rf.1f2e66058c1cfeb848c2ffb0b10e10ba.jpg",
+        "detections": 1,
+        "confidences": [
+          0.8651
+        ],
+        "preproc_ms": 26.16,
+        "infer_ms": 69.96
+      },
+      {
+        "image": "moorish_idol_22_jpg.rf.04d80678e350fb62d793d33de69a8135.jpg",
+        "detections": 1,
+        "confidences": [
+          0.7571
+        ],
+        "preproc_ms": 29.31,
+        "infer_ms": 58.09
+      },
+      {
+        "image": "moorish_idol_40_jpg.rf.5d04fc8d009e09ed92c06fa67c2be7c1.jpg",
+        "detections": 1,
+        "confidences": [
+          0.8147
+        ],
+        "preproc_ms": 28.68,
+        "infer_ms": 58.44
+      },
+      {
+        "image": "ribboned_sweetlips_120_jpg.rf.b0d8c985ede286dae840225148cb1735.jpg",
+        "detections": 1,
+        "confidences": [
+          0.9703
+        ],
+        "preproc_ms": 31.16,
+        "infer_ms": 63.06
+      },
+      {
+        "image": "ribboned_sweetlips_140_jpg.rf.10c707e9434ec1e61ed3385e81befdfb.jpg",
+        "detections": 1,
+        "confidences": [
+          0.7009
+        ],
+        "preproc_ms": 33.51,
+        "infer_ms": 59.08
+      },
+      {
+        "image": "ribboned_sweetlips_73_jpg.rf.53449fd1d172dc7ea2c8d30be55da627.jpg",
+        "detections": 2,
+        "confidences": [
+          0.9114,
+          0.3303
+        ],
+        "preproc_ms": 28.48,
+        "infer_ms": 57.09
+      },
+      {
+        "image": "shutterstock_humbug-damsel4_jpeg.rf.12196da8c19df82cc484de4c8460d30b.jpg",
+        "detections": 1,
+        "confidences": [
+          0.8645
+        ],
+        "preproc_ms": 38.36,
+        "infer_ms": 60.12
+      },
+      {
+        "image": "stock-photo-fish-blue-surgeonfish-paracanthurus-hepatus-or-blue-tang-regal-tang-palette-surgeonfish-1024717213_jpg.rf.46a4240a414373eeaa42ede2ff95e67c.jpg",
+        "detections": 1,
+        "confidences": [
+          0.265
+        ],
+        "preproc_ms": 28.11,
+        "infer_ms": 58.78
+      }
+    ]
+  }
+}

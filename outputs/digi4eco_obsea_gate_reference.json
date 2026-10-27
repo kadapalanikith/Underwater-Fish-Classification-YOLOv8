@@ -1,0 +1,71 @@
+{
+  "status": "reference_only_model_not_run",
+  "annotation_file": "external_data\\digi4eco\\extracted\\OBSEA\\annotations.xml",
+  "video_width": 1912,
+  "video_height": 1080,
+  "annotated_start_frame": 0,
+  "annotated_stop_frame": 149,
+  "annotated_frame_count": 150,
+  "track_count": 12,
+  "box_count": 1384,
+  "reference_filter": "outside=0 and occluded=0",
+  "crossing_rule": "centroid crosses gate between consecutive retained boxes; one event per ground-truth track",
+  "gate": {
+    "line_y_fraction": 0.5,
+    "gate_start_x_fraction": 0.05,
+    "gate_end_x_fraction": 0.95,
+    "line_y_pixels": 540.0,
+    "start_x_pixels": 95.60000000000001,
+    "end_x_pixels": 1816.3999999999999
+  },
+  "expected_total_crossings": 6,
+  "crossing_events": [
+    {
+      "track_id": "0",
+      "frame_before": 86,
+      "frame_after": 87,
+      "direction": "up",
+      "crossing_x": 126.93
+    },
+    {
+      "track_id": "1",
+      "frame_before": 12,
+      "frame_after": 13,
+      "direction": "down",
+      "crossing_x": 255.45
+    },
+    {
+      "track_id": "3",
+      "frame_before": 31,
+      "frame_after": 32,
+      "direction": "up",
+      "crossing_x": 185.89
+    },
+    {
+      "track_id": "5",
+      "frame_before": 45,
+      "frame_after": 46,
+      "direction": "up",
+      "crossing_x": 111.88
+    },
+    {
+      "track_id": "9",
+      "frame_before": 80,
+      "frame_after": 81,
+      "direction": "down",
+      "crossing_x": 1581.07
+    },
+    {
+      "track_id": "10",
+      "frame_before": 72,
+      "frame_after": 73,
+      "direction": "down",
+      "crossing_x": 1412.7
+    }
+  ],
+  "limitations": [
+    "This is ground-truth event extraction only; no detector or tracker was run.",
+    "The single-class fish annotations do not support 13-species accuracy evaluation.",
+    "A reference crossing across an annotation gap is based on the consecutive retained visible boxes."
+  ]
+}

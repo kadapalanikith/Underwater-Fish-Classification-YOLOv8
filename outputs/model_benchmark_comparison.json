@@ -1,0 +1,23 @@
+{
+  "device": "cpu",
+  "models": [
+    {
+      "model_name": "YOLOv8n-Fish",
+      "architecture_type": "CNN (CSPDarknet + PAN-FPN)",
+      "parameters": 3013383,
+      "file_size_mb": 5.96,
+      "device": "cpu",
+      "avg_latency_ms": 93.5,
+      "fps": 10.69
+    },
+    {
+      "model_name": "RT-DETR-L",
+      "architecture_type": "Transformer (Hybrid Encoder + Deformable DETR Decoder)",
+      "parameters": 32970476,
+      "file_size_mb": 63.43,
+      "device": "cpu",
+      "avg_latency_ms": 912.77,
+      "fps": 1.1
+    }
+  ]
+}

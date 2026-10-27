@@ -16,7 +16,7 @@ export default function Footer() {
               DeepSea <span style={{ color: '#3F72AF' }}>AI</span>
             </div>
             <p style={{ fontSize: '0.875rem', color: '#9aafcc', lineHeight: 1.7 }}>
-              Real-time underwater fish species classification using YOLOv8 deep learning.
+              Underwater fish detection demo built with YOLOv8, FastAPI, and React.
             </p>
           </div>
           <div>

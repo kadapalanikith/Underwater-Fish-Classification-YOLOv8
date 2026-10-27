@@ -1,0 +1,129 @@
+{
+  "status": "completed_descriptive_real_video_evaluation",
+  "dataset": {
+    "name": "DIGI4ECO Underwater Fish Tracking Dataset, OBSEA sequence",
+    "doi": "10.5281/zenodo.20701225",
+    "license": "CC BY 4.0",
+    "annotation_metadata": {
+      "width": 1912,
+      "height": 1080,
+      "start_frame": 0,
+      "stop_frame": 149,
+      "track_count": 12,
+      "all_box_count": 1384,
+      "visible_unoccluded_box_count": 1341
+    },
+    "video_metadata": {
+      "declared_frame_count": 148,
+      "width": 1912,
+      "height": 1080,
+      "fps": 30.20408163265306
+    },
+    "annotation_boxes_beyond_decodable_video": 14
+  },
+  "inputs": {
+    "video": "D:\\Underwater-Fish-Classification-YOLOv8-master\\Underwater-Fish-Classification-YOLOv8-master\\external_data\\digi4eco\\extracted\\OBSEA\\video.mp4",
+    "video_sha256": "f204115305485f7e5d681eaf41f7a632f9f135833c3b68863f3f3c37eb28408f",
+    "annotations": "D:\\Underwater-Fish-Classification-YOLOv8-master\\Underwater-Fish-Classification-YOLOv8-master\\external_data\\digi4eco\\extracted\\OBSEA\\annotations.xml",
+    "annotations_sha256": "658673a192ab6251c9a7213fc09dfc161f1f2ad1d5b544c4cda4add4903d7dcc",
+    "checkpoint": "D:\\Underwater-Fish-Classification-YOLOv8-master\\Underwater-Fish-Classification-YOLOv8-master\\models\\best.pt",
+    "checkpoint_sha256": "af229161766094f3f002ff301b68001f6bec84492fe4f43c41c9f0838d1a5d23"
+  },
+  "environment": {
+    "python": "3.11.16",
+    "torch": "2.12.0+cpu",
+    "torchvision": "0.27.0+cpu",
+    "ultralytics": "8.4.190",
+    "opencv": "5.0.0",
+    "cuda_available": false,
+    "device_used": "cpu"
+  },
+  "settings": {
+    "confidence": 0.001,
+    "iou": 0.5,
+    "tracker": "bytetrack.yaml",
+    "tracker_thresholds": {
+      "track_high_thresh": 0.25,
+      "track_low_thresh": 0.1,
+      "new_track_thresh": 0.25
+    },
+    "imgsz": 640,
+    "counting_gate": {
+      "start": [
+        0.05,
+        0.5
+      ],
+      "end": [
+        0.95,
+        0.5
+      ]
+    },
+    "crossing_match_tolerance_frames": 2,
+    "box_match_iou_threshold": 0.5,
+    "class_agnostic_reference_matching": true
+  },
+  "runtime": {
+    "total_seconds": 10.1,
+    "milliseconds_per_processed_frame": 68.242
+  },
+  "tracking_result": {
+    "total_frames_processed": 148,
+    "total_fish_counted": 0,
+    "species_counts": {},
+    "crossing_events": [],
+    "active_tracks_tracked": 0,
+    "output_video_path": null
+  },
+  "predicted_track_summary": [],
+  "prediction_summary": {
+    "raw_detections_after_confidence_filter": 450,
+    "raw_detections_without_tracker_id": 450,
+    "mean_raw_detection_confidence": 0.0041,
+    "minimum_raw_detection_confidence": 0.001,
+    "maximum_raw_detection_confidence": 0.0771,
+    "raw_detections_below_tracker_low_threshold": 450,
+    "unique_predicted_track_ids": 0,
+    "tracked_box_observations": 0,
+    "mean_detection_confidence": null
+  },
+  "id_matching": {
+    "iou_match_threshold": 0.5,
+    "reference_visible_unoccluded_boxes": 1327,
+    "predicted_tracked_boxes": 0,
+    "matched_boxes": 0,
+    "box_precision_at_iou_threshold": 0.0,
+    "box_recall_at_iou_threshold": 0.0,
+    "reference_tracks_with_any_match": 0,
+    "reference_track_count": 12,
+    "reference_tracks_with_multiple_predicted_ids": {},
+    "identity_switches_on_consecutive_matched_frames": [],
+    "identity_switch_count": 0,
+    "identity_scope_note": "ID checks use class-agnostic greedy IoU matches; gaps and unmatched frames are not counted as adjacent-frame switches."
+  },
+  "count_comparison": {
+    "reference_crossings": 6,
+    "predicted_crossings": 0,
+    "signed_error_predicted_minus_reference": -6,
+    "absolute_error": 6,
+    "absolute_relative_error": 1.0,
+    "crossing_event_matching": {
+      "frame_tolerance": 2,
+      "reference_event_count": 6,
+      "predicted_event_count": 0,
+      "matched_event_count": 0,
+      "event_precision": 0.0,
+      "event_recall": 0.0,
+      "event_f1": 0.0,
+      "matched_events": []
+    }
+  },
+  "annotated_video": null,
+  "limitations": [
+    "This is one short OBSEA video, not evidence of general tracking performance.",
+    "The model predicts 13 local species classes, while this sequence is annotated as one fish class; box/ID/count matching is class-agnostic.",
+    "Reference boxes marked outside or occluded are excluded from frame-level box matching and gate-crossing extraction.",
+    "The video container has 148 frames while the annotation XML covers frames 0\u2013149; frame annotations beyond the video are excluded from box matching.",
+    "Frame-level ID association uses greedy IoU matching, not TrackEval; MOTA/IDF1/HOTA are not reported.",
+    "No species-level accuracy is computed for this video."
+  ]
+}

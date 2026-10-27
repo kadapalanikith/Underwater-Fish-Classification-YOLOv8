@@ -1,0 +1,2081 @@
+{
+  "_metadata": {
+    "timestamp": "2026-10-27T22:23:27",
+    "script": "scratch/run_dataset_audit.py",
+    "dataset_root": "D:\\Underwater-Fish-Classification-YOLOv8-master\\Underwater-Fish-Classification-YOLOv8-master\\Dataset",
+    "notes": [
+      "This audit inspects the local dataset only; it does not download or modify dataset files.",
+      "Label rows with 5 fields are YOLO detection boxes; rows with more than 5 fields are polygon annotations and are counted separately.",
+      "Exact duplicate detection uses SHA-256 file hashes; source leakage uses Roboflow filename stems before '.rf.'.",
+      "The clean test subset is conservative and is not a guarantee of source independence."
+    ]
+  },
+  "data_yaml": {
+    "path": "D:\\Underwater-Fish-Classification-YOLOv8-master\\Underwater-Fish-Classification-YOLOv8-master\\Dataset\\data.yaml",
+    "raw": "train: ../train/images\nval: ../valid/images\ntest: ../test/images\n\nnc: 13\nnames: ['AngelFish', 'BlueTang', 'ButterflyFish', 'ClownFish', 'GoldFish', 'Gourami', 'MorishIdol', 'PlatyFish', 'RibbonedSweetlips', 'ThreeStripedDamselfish', 'YellowCichlid', 'YellowTang', 'ZebraFish']\n\nroboflow:\n  workspace: zehra-acer\n  project: fish-detection-fztlb\n  version: 5\n  license: CC BY 4.0\n  url: https://universe.roboflow.com/zehra-acer/fish-detection-fztlb/dataset/5",
+    "parsed": {
+      "train": "../train/images",
+      "val": "../valid/images",
+      "test": "../test/images",
+      "nc": 13,
+      "names": [
+        "AngelFish",
+        "BlueTang",
+        "ButterflyFish",
+        "ClownFish",
+        "GoldFish",
+        "Gourami",
+        "MorishIdol",
+        "PlatyFish",
+        "RibbonedSweetlips",
+        "ThreeStripedDamselfish",
+        "YellowCichlid",
+        "YellowTang",
+        "ZebraFish"
+      ],
+      "roboflow": {
+        "workspace": "zehra-acer",
+        "project": "fish-detection-fztlb",
+        "version": 5,
+        "license": "CC BY 4.0",
+        "url": "https://universe.roboflow.com/zehra-acer/fish-detection-fztlb/dataset/5"
+      }
+    },
+    "resolved_split_paths": {
+      "train": {
+        "value": "../train/images",
+        "resolved": "D:\\Underwater-Fish-Classification-YOLOv8-master\\Underwater-Fish-Classification-YOLOv8-master\\train\\images",
+        "exists": false
+      },
+      "val": {
+        "value": "../valid/images",
+        "resolved": "D:\\Underwater-Fish-Classification-YOLOv8-master\\Underwater-Fish-Classification-YOLOv8-master\\valid\\images",
+        "exists": false
+      },
+      "test": {
+        "value": "../test/images",
+        "resolved": "D:\\Underwater-Fish-Classification-YOLOv8-master\\Underwater-Fish-Classification-YOLOv8-master\\test\\images",
+        "exists": false
+      }
+    },
+    "roboflow_readme_expected_images": 8242,
+    "actual_images_total": 8229
+  },
+  "checkpoint": {
+    "path": "D:\\Underwater-Fish-Classification-YOLOv8-master\\Underwater-Fish-Classification-YOLOv8-master\\models\\best.pt",
+    "size_mb": 5.96,
+    "sha256": "af229161766094f3f002ff301b68001f6bec84492fe4f43c41c9f0838d1a5d23",
+    "task": "detect",
+    "num_classes": 13,
+    "names": [
+      "AngelFish",
+      "BlueTang",
+      "ButterflyFish",
+      "ClownFish",
+      "GoldFish",
+      "Gourami",
+      "MorishIdol",
+      "PlatyFish",
+      "RibbonedSweetlips",
+      "ThreeStripedDamselfish",
+      "YellowCichlid",
+      "YellowTang",
+      "ZebraFish"
+    ],
+    "names_match_data_yaml": true,
+    "data_yaml_num_classes": 13,
+    "train_args": {
+      "data": "data.yaml",
+      "imgsz": 640,
+      "epochs": 10,
+      "batch": 16,
+      "model": "yolov8n.pt",
+      "device": null,
+      "pretrained": true
+    }
+  },
+  "splits": {
+    "train": {
+      "images": 6834,
+      "labels": 6834,
+      "missing_labels": 0,
+      "missing_label_examples": [],
+      "unpaired_labels": 0,
+      "unpaired_label_examples": [],
+      "total_label_rows": 14144,
+      "box_rows": 13610,
+      "polygon_rows": 534,
+      "invalid_rows": 0,
+      "invalid_row_examples": [],
+      "converted_instances_total": 14144,
+      "box_class_counts": {
+        "ButterflyFish": 1929,
+        "GoldFish": 1014,
+        "ClownFish": 847,
+        "ZebraFish": 1694,
+        "MorishIdol": 314,
+        "ThreeStripedDamselfish": 170,
+        "BlueTang": 1856,
+        "AngelFish": 554,
+        "PlatyFish": 1172,
+        "YellowTang": 596,
+        "Gourami": 1456,
+        "YellowCichlid": 1484,
+        "RibbonedSweetlips": 524
+      },
+      "polygon_class_counts": {
+        "ThreeStripedDamselfish": 534
+      },
+      "converted_class_counts": {
+        "AngelFish": 554,
+        "BlueTang": 1856,
+        "ButterflyFish": 1929,
+        "ClownFish": 847,
+        "GoldFish": 1014,
+        "Gourami": 1456,
+        "MorishIdol": 314,
+        "PlatyFish": 1172,
+        "RibbonedSweetlips": 524,
+        "ThreeStripedDamselfish": 704,
+        "YellowCichlid": 1484,
+        "YellowTang": 596,
+        "ZebraFish": 1694
+      },
+      "classes_without_instances": [],
+      "files_with_polygon_rows": 406,
+      "files_with_box_rows": 6428,
+      "files_with_mixed_rows": 0,
+      "empty_label_files": 0,
+      "duplicate_box_rows": 0,
+      "polygon_rows_out_of_range": 0,
+      "image_sizes": {
+        "640x640": 6834
+      },
+      "image_modes": {
+        "RGB": 6834
+      },
+      "unreadable_images": []
+    },
+    "valid": {
+      "images": 698,
+      "labels": 698,
+      "missing_labels": 0,
+      "missing_label_examples": [],
+      "unpaired_labels": 0,
+      "unpaired_label_examples": [],
+      "total_label_rows": 1193,
+      "box_rows": 1109,
+      "polygon_rows": 84,
+      "invalid_rows": 0,
+      "invalid_row_examples": [],
+      "converted_instances_total": 1193,
+      "box_class_counts": {
+        "ButterflyFish": 47,
+        "ClownFish": 40,
+        "ThreeStripedDamselfish": 24,
+        "GoldFish": 134,
+        "PlatyFish": 102,
+        "Gourami": 210,
+        "BlueTang": 20,
+        "YellowCichlid": 95,
+        "MorishIdol": 31,
+        "YellowTang": 80,
+        "RibbonedSweetlips": 67,
+        "ZebraFish": 259
+      },
+      "polygon_class_counts": {
+        "ThreeStripedDamselfish": 84
+      },
+      "converted_class_counts": {
+        "AngelFish": 0,
+        "BlueTang": 20,
+        "ButterflyFish": 47,
+        "ClownFish": 40,
+        "GoldFish": 134,
+        "Gourami": 210,
+        "MorishIdol": 31,
+        "PlatyFish": 102,
+        "RibbonedSweetlips": 67,
+        "ThreeStripedDamselfish": 108,
+        "YellowCichlid": 95,
+        "YellowTang": 80,
+        "ZebraFish": 259
+      },
+      "classes_without_instances": [
+        "AngelFish"
+      ],
+      "files_with_polygon_rows": 58,
+      "files_with_box_rows": 640,
+      "files_with_mixed_rows": 0,
+      "empty_label_files": 0,
+      "duplicate_box_rows": 0,
+      "polygon_rows_out_of_range": 0,
+      "image_sizes": {
+        "640x640": 698
+      },
+      "image_modes": {
+        "RGB": 698
+      },
+      "unreadable_images": []
+    },
+    "test": {
+      "images": 697,
+      "labels": 697,
+      "missing_labels": 0,
+      "missing_label_examples": [],
+      "unpaired_labels": 0,
+      "unpaired_label_examples": [],
+      "total_label_rows": 1129,
+      "box_rows": 1100,
+      "polygon_rows": 29,
+      "invalid_rows": 0,
+      "invalid_row_examples": [],
+      "converted_instances_total": 1129,
+      "box_class_counts": {
+        "ClownFish": 136,
+        "ThreeStripedDamselfish": 13,
+        "AngelFish": 227,
+        "GoldFish": 83,
+        "PlatyFish": 76,
+        "Gourami": 102,
+        "BlueTang": 164,
+        "ButterflyFish": 3,
+        "YellowCichlid": 86,
+        "YellowTang": 65,
+        "MorishIdol": 14,
+        "RibbonedSweetlips": 8,
+        "ZebraFish": 123
+      },
+      "polygon_class_counts": {
+        "ThreeStripedDamselfish": 29
+      },
+      "converted_class_counts": {
+        "AngelFish": 227,
+        "BlueTang": 164,
+        "ButterflyFish": 3,
+        "ClownFish": 136,
+        "GoldFish": 83,
+        "Gourami": 102,
+        "MorishIdol": 14,
+        "PlatyFish": 76,
+        "RibbonedSweetlips": 8,
+        "ThreeStripedDamselfish": 42,
+        "YellowCichlid": 86,
+        "YellowTang": 65,
+        "ZebraFish": 123
+      },
+      "classes_without_instances": [],
+      "files_with_polygon_rows": 26,
+      "files_with_box_rows": 671,
+      "files_with_mixed_rows": 0,
+      "empty_label_files": 0,
+      "duplicate_box_rows": 0,
+      "polygon_rows_out_of_range": 0,
+      "image_sizes": {
+        "640x640": 697
+      },
+      "image_modes": {
+        "RGB": 697
+      },
+      "unreadable_images": []
+    }
+  },
+  "leakage": {
+    "exact_duplicate_counts": {
+      "train_vs_valid": 1,
+      "train_vs_test": 33,
+      "valid_vs_test": 0
+    },
+    "exact_duplicate_pairs": [
+      {
+        "hash": "17ebbddee59eb1186e7139f001bd69594ea38d1d459f37bf89480f353424c698",
+        "split_a": "train",
+        "file_a": "images-2023-05-20T172337-114_jpeg_jpg.rf.fe1865e42d932b80b9ea15fa37615984.jpg",
+        "split_b": "valid",
+        "file_b": "ParacanthurusHepatus-246-_jpg.rf.d6939bd69009c04b4da1e63f9cafbc8e.jpg"
+      },
+      {
+        "hash": "168f87989cc4b2519bc6266a8c7a06f30fe22b91f4490886d1f189c417a2dad2",
+        "split_a": "train",
+        "file_a": "AngelFish_image_362_jpg.rf.984009aa0629bb32055282e8a50c6d85.jpg",
+        "split_b": "test",
+        "file_b": "AngelFish_image_69_jpg.rf.ff901a99033b9d1ccc76d41782221ce8.jpg"
+      },
+      {
+        "hash": "184992080b15a2b24c80fc0f18fb608852be7d33a2efa14e58eb0a9f47e2b6a3",
+        "split_a": "train",
+        "file_a": "AngelFish_image_11_jpg.rf.8ce8b4f29873a408fb23bb5bf3a48203.jpg",
+        "split_b": "test",
+        "file_b": "AngelFish_image_216_jpg.rf.dee80c558cd44e37e60db78af0bfef2b.jpg"
+      },
+      {
+        "hash": "2193d053fe1cace0ceb09783afbfac53dddb3cb33de660874e9438683ab34634",
+        "split_a": "train",
+        "file_a": "AngelFish_image_2_jpg.rf.9ec823b665f7c3bcc5ebefe52a579690.jpg",
+        "split_b": "test",
+        "file_b": "AngelFish_image_320_jpg.rf.83e7e32ae0e4000d2e13a2e8f4161dc2.jpg"
+      },
+      {
+        "hash": "3a6363617cbf8fd0ba00eb2233d34b0295198d22cc0b23ff098a02dc90145217",
+        "split_a": "train",
+        "file_a": "AngelFish_image_256_jpg.rf.7eb73cf5a5bcb5b6a840db982e113f25.jpg",
+        "split_b": "test",
+        "file_b": "AngelFish_image_56_jpg.rf.df8c5083ed06b3d800c3f7b5548fb06c.jpg"
+      },
+      {
+        "hash": "4164ca899908ff909fb9614a9950069a45e52f95207aaaec3179795d6db8cd6d",
+        "split_a": "train",
+        "file_a": "AngelFish_image_205_jpg.rf.de1203ddcbe238044a2d54d4c79b2044.jpg",
+        "split_b": "test",
+        "file_b": "AngelFish_image_371_jpg.rf.de810babffdb94f0e15904bb32a10c51.jpg"
+      },
+      {
+        "hash": "42b7527b01f700b6278d886b63140fc67e2df41eaf62173041655826632bbf91",
+        "split_a": "train",
+        "file_a": "AngelFish_image_176_jpg.rf.04d19f0423c8b9c3501cd4c545eb7265.jpg",
+        "split_b": "test",
+        "file_b": "AngelFish_image_306_jpg.rf.996eb9e44de17c53246b92cecef8ba49.jpg"
+      },
+      {
+        "hash": "488c4f041cf0f5d0138389a8d5f58a5d60127ae7bc112d090fc54de311a51bf3",
+        "split_a": "train",
+        "file_a": "AngelFish_image_124_jpg.rf.623a32d9a4ddc0a30d1545036a969345.jpg",
+        "split_b": "test",
+        "file_b": "AngelFish_image_233_jpg.rf.b43a63b5247f9b9ecb6dfd271780e490.jpg"
+      },
+      {
+        "hash": "4b694c5ce038eecd0ef7463b5315872feccfc71a8bc152822be46e848c2b0f3e",
+        "split_a": "train",
+        "file_a": "ButterflyFish_image_202_jpg.rf.e0aba8df6cee1aaad6a99fbd357d3259.jpg",
+        "split_b": "test",
+        "file_b": "ButterflyFish_image_202_jpg.rf.52c70b5ae55a45619f942e441fa61c6e.jpg"
+      },
+      {
+        "hash": "4bd9366e0150747e49088fcb6636434e18b073ad175a45397d3928999fe08d14",
+        "split_a": "train",
+        "file_a": "AngelFish_image_279_jpg.rf.e57007c0dc15390dc58d8d94c602ad53.jpg",
+        "split_b": "test",
+        "file_b": "AngelFish_image_57_jpg.rf.eddfb07436b191a0153a88c9b7b5d8cd.jpg"
+      },
+      {
+        "hash": "5e96c775ad589c9fa930cb385597af7129710aac1d3ddaa4289b691119322a5a",
+        "split_a": "train",
+        "file_a": "AngelFish_image_224_jpg.rf.9f22a667688d3a9f88225d19de82e34a.jpg",
+        "split_b": "test",
+        "file_b": "AngelFish_image_151_jpg.rf.6d5ca0a07fa4950e3f9981d731bd1520.jpg"
+      },
+      {
+        "hash": "6d5a7acf38cc93325da982522ae8c4b19614a6e48a89c0614dc952771773bc25",
+        "split_a": "train",
+        "file_a": "AngelFish_image_318_jpg.rf.e0164e1c4308e6bd2f677b57c185b6a0.jpg",
+        "split_b": "test",
+        "file_b": "AngelFish_image_63_jpg.rf.6a56621a3c79bb3aecebe162b61f213c.jpg"
+      },
+      {
+        "hash": "739a1541709b8543f940cb9809b728bf70936ef9fbc29099dffcdf59664caad3",
+        "split_a": "train",
+        "file_a": "AngelFish_image_342_jpg.rf.6158f98174df39e979b34e65afd04df7.jpg",
+        "split_b": "test",
+        "file_b": "AngelFish_image_352_jpg.rf.a57062020dd3e1aaf43a1bc5b1ff4fd0.jpg"
+      },
+      {
+        "hash": "74b0421fa9623903348c0093cd88546fe038963bdd540dcfb844983f5d0ad237",
+        "split_a": "train",
+        "file_a": "AngelFish_image_254_jpg.rf.1801ab83a9ab89022eed265cc3a7814f.jpg",
+        "split_b": "test",
+        "file_b": "AngelFish_image_49_jpg.rf.05a8f8fa0e10da7f1226348d19b0fefd.jpg"
+      },
+      {
+        "hash": "7a65ab0d80cfaf7569f1f8abc01c1c6c2c110100a92db84fa17c7f4a6cc83731",
+        "split_a": "train",
+        "file_a": "AngelFish_image_130_jpg.rf.88debf7c7fd253752f4aaead90684d5d.jpg",
+        "split_b": "test",
+        "file_b": "AngelFish_image_99_jpg.rf.7e9a611d24e70f8acd2cc436dad77b75.jpg"
+      },
+      {
+        "hash": "986e1c28a136c1e28069891b21c0939054f788549a489d7f7d353ab89f4d9060",
+        "split_a": "train",
+        "file_a": "AngelFish_image_92_jpg.rf.0874e420275426204ee96a08ee775887.jpg",
+        "split_b": "test",
+        "file_b": "AngelFish_image_317_jpg.rf.62f25e2e461926fbc08092b5840dcc47.jpg"
+      },
+      {
+        "hash": "9fb40e8395a64549da332c30493702c2265448f92d9578dda4ae9f2930c909c4",
+        "split_a": "train",
+        "file_a": "AngelFish_image_235_jpg.rf.89932b4b516bc948cd429dc118da052d.jpg",
+        "split_b": "test",
+        "file_b": "AngelFish_image_335_jpg.rf.ac3e1b7c0f88e9ff6137def7ebffac46.jpg"
+      },
+      {
+        "hash": "a31c1bd9a947e43ca55a0a2c89b047eef0947fd46e528122521950fc0f3726e7",
+        "split_a": "train",
+        "file_a": "AngelFish_image_10_jpg.rf.3fb90532f4611398879b1d5a84be295e.jpg",
+        "split_b": "test",
+        "file_b": "AngelFish_image_215_jpg.rf.c9fe5d0353fef7a5582c0e37e29a156d.jpg"
+      },
+      {
+        "hash": "a43bc27f2d98f42142889646e870b888be42babe7ef6e8f99406387829c7e66c",
+        "split_a": "train",
+        "file_a": "AngelFish_image_201_jpg.rf.22f46a83ff39dc226e6c42390b8cd6e1.jpg",
+        "split_b": "test",
+        "file_b": "AngelFish_image_309_jpg.rf.9ca74d3ed4c9a6d1a877c69363dc7be8.jpg"
+      },
+      {
+        "hash": "a9b3afb6847947c6d4bcddeaaeb2d7a69d8cb390d09a8afedce5c63f2b34d5c4",
+        "split_a": "train",
+        "file_a": "AngelFish_image_249_jpg.rf.3a0c9d9bd9e588557a6c6ef33ce3c9e9.jpg",
+        "split_b": "test",
+        "file_b": "AngelFish_image_42_jpg.rf.68c2a77989e5775e18aa5c25e2d19e46.jpg"
+      },
+      {
+        "hash": "b0e3ad97b33448a3a7b564069a7a2b98b9cdff84d6ae158499d5849fd27f076e",
+        "split_a": "train",
+        "file_a": "AngelFish_image_193_jpg.rf.ae5d67e7aa384d6b430807d4533aceb3.jpg",
+        "split_b": "test",
+        "file_b": "AngelFish_image_90_jpg.rf.d4517f0e5833284abfded069271488be.jpg"
+      },
+      {
+        "hash": "b7393955e7fa827f72e09d5ba78bb2645268e337c55573f74b0b5b5d4794de3b",
+        "split_a": "train",
+        "file_a": "AngelFish_image_101_jpg.rf.e0223256b9669098be7b6ce309ce4463.jpg",
+        "split_b": "test",
+        "file_b": "AngelFish_image_206_jpg.rf.d3ea56b5031823409e6cf7f1bd1a90f1.jpg"
+      },
+      {
+        "hash": "bb8aaf67c5feb5d0d279e9708a79ae0849e510c1449deb89b1b5680ccb910600",
+        "split_a": "train",
+        "file_a": "AngelFish_image_43_jpg.rf.281ff55ac1e00519c5fc8ab420bdb194.jpg",
+        "split_b": "test",
+        "file_b": "AngelFish_image_250_jpg.rf.66595748cafe9b72f742d829d39182e9.jpg"
+      },
+      {
+        "hash": "bdadb8976145f053a72261ada73ad1f308094623b64d6c2520be6dd7a9a9fe21",
+        "split_a": "train",
+        "file_a": "AngelFish_image_168_jpg.rf.8b4390b4e96b2cc567c533cd1eaa4670.jpg",
+        "split_b": "test",
+        "file_b": "AngelFish_image_164_jpg.rf.3e365ba7f289db0acc8dfddf41dc755c.jpg"
+      },
+      {
+        "hash": "be4927f35cf83b11ab224926e2743328ba40905ffebc74a8f2039607be040593",
+        "split_a": "train",
+        "file_a": "AngelFish_image_48_jpg.rf.45c53ea335884e12d696c1ca0e0449ea.jpg",
+        "split_b": "test",
+        "file_b": "AngelFish_image_60_jpg.rf.bbe533a28c65cbec89048c4e021e4207.jpg"
+      },
+      {
+        "hash": "c0d2dc174b281a80ee19ce765dbe76e6aef429e83ac6ad7a3605e28ca884412c",
+        "split_a": "train",
+        "file_a": "AngelFish_image_45_jpg.rf.67e3d6d9348b28c09506df726507fcb1.jpg",
+        "split_b": "test",
+        "file_b": "AngelFish_image_13_jpg.rf.ca64f0168ac171c893555712df9b2c37.jpg"
+      },
+      {
+        "hash": "c184e7873b8dbf52b381d8a7cf79a6eea65ec25614ab3956d494589808950c99",
+        "split_a": "train",
+        "file_a": "AngelFish_image_91_jpg.rf.ad52a0ee91c1c2597e3e85ba5cc0915a.jpg",
+        "split_b": "test",
+        "file_b": "AngelFish_image_316_jpg.rf.cbdde08bf46aecd9692d16a296f9d3b0.jpg"
+      },
+      {
+        "hash": "cd03ba1917006db58b02e988c5ae58fb4311b90510aac977cde1ca238abde775",
+        "split_a": "train",
+        "file_a": "AngelFish_image_255_jpg.rf.06b58fdfff7084d498b7ae7ff7cb4c77.jpg",
+        "split_b": "test",
+        "file_b": "AngelFish_image_55_jpg.rf.3f99b3e1d51f6c5551248fa027751c85.jpg"
+      },
+      {
+        "hash": "d955cb5ab058185a4898f1854046e29575d660a61dd1df4c476f0b730d7aba80",
+        "split_a": "train",
+        "file_a": "AngelFish_image_229_jpg.rf.f30ab39bbd2e7b6902a0d544e865a88a.jpg",
+        "split_b": "test",
+        "file_b": "AngelFish_image_305_jpg.rf.c69babd02b887d14565df96e28e7aa78.jpg"
+      },
+      {
+        "hash": "e4e459cd9d9948ddb07f883b03df33eabeefcf781a9c82628b0de98743fa34c3",
+        "split_a": "train",
+        "file_a": "AngelFish_image_258_jpg.rf.a397eab3dcedc2f3b66e7dfe97dc494a.jpg",
+        "split_b": "test",
+        "file_b": "AngelFish_image_58_jpg.rf.07e433fe4d0d23303cb1eb99587cc474.jpg"
+      },
+      {
+        "hash": "e6477f0ebbcb2807e7337d0276e950d65f17cab98645f8196d386f96c2819816",
+        "split_a": "train",
+        "file_a": "AngelFish_image_225_jpg.rf.fbc342ce54d6953ae705f58e3d6e28c4.jpg",
+        "split_b": "test",
+        "file_b": "AngelFish_image_301_jpg.rf.d43f058f9652a69cd14b223216975ec6.jpg"
+      },
+      {
+        "hash": "f50d1f65326320ca06da080e568fc52369ebd7b79678c8de2230c47127778653",
+        "split_a": "train",
+        "file_a": "AngelFish_image_165_jpg.rf.3b9837676600c191ef298d2fdf55893d.jpg",
+        "split_b": "test",
+        "file_b": "AngelFish_image_46_jpg.rf.6c91e8ce5c0570427616480a9b9eb5ff.jpg"
+      },
+      {
+        "hash": "fb449f54090a86ad2ced29eb58c39eba980d960f564ff83f9a066b899df40fa0",
+        "split_a": "train",
+        "file_a": "AngelFish_image_181_jpg.rf.9788e029689e93c0b68d8a08fd267aff.jpg",
+        "split_b": "test",
+        "file_b": "AngelFish_image_334_jpg.rf.5f518584f58420c13cd44915748ae1a0.jpg"
+      },
+      {
+        "hash": "ffb19d2d38875eb22facdb844e5e8ab5f77f17cca8d71fa60af7a3959bf585aa",
+        "split_a": "train",
+        "file_a": "AngelFish_image_310_jpg.rf.5e77ce42c86afee8ccbc2bebe7741bcc.jpg",
+        "split_b": "test",
+        "file_b": "AngelFish_image_47_jpg.rf.83b77241689b6c7efef5bc937151e7d9.jpg"
+      }
+    ],
+    "within_split_duplicate_hashes": {
+      "train": 11,
+      "valid": 0,
+      "test": 18
+    },
+    "source_prefix_overlaps": {
+      "train_vs_valid": {
+        "prefix_count": 308,
+        "prefixes": [
+          "003",
+          "005",
+          "006",
+          "008",
+          "009",
+          "011",
+          "023",
+          "026",
+          "031",
+          "Dwarf-Gourami_original_10-png_41b329cc-dd91-4d1b-8c26-2e84bb0b83e2_png",
+          "Dwarf-Gourami_original_100-png_f3e07078-fcc5-4474-a984-133d77e35850_png",
+          "Dwarf-Gourami_original_102-png_c693f0d4-d757-438b-94c7-435f8c2fd9fa_png",
+          "Dwarf-Gourami_original_104-png_cf29fb46-689f-4e4d-8d8c-e9322805ca6b_png",
+          "Dwarf-Gourami_original_109-png_f661452a-4465-4698-91f4-34eefd735893_png",
+          "Dwarf-Gourami_original_129-png_1461ce4a-e8ae-4ee2-9651-c9e5b27b5648_png",
+          "Dwarf-Gourami_original_134-png_ac9de647-c398-45ab-b8a8-770dd2bc47f0_png",
+          "Dwarf-Gourami_original_135-png_7b965b13-4224-4575-8f68-1eb6f11799f4_png",
+          "Dwarf-Gourami_original_138-png_5dae587b-8800-4b2a-8b24-876cb88f4d95_png",
+          "Dwarf-Gourami_original_138-png_75c6791d-75b2-43bb-81e6-62c3194cef6b_png",
+          "Dwarf-Gourami_original_150-png_30c4150b-0042-4856-adc1-c6a0862fb551_png",
+          "Dwarf-Gourami_original_154-png_19e6207a-bc2b-47b5-95a5-bfbc3843af80_png",
+          "Dwarf-Gourami_original_155-png_7fb9cb6f-9eb2-477e-adb3-db1e1ddddadd_png",
+          "Dwarf-Gourami_original_157-png_630b7757-ace3-42e2-ad93-844ddd5d8f04_png",
+          "Dwarf-Gourami_original_158-png_5888baf8-06b5-4dfe-a47f-72578d8e0266_png",
+          "Dwarf-Gourami_original_159-png_4e2b4e0e-d730-48fc-833a-431455d6b6e6_png",
+          "Dwarf-Gourami_original_163-png_a6e0db40-7bc2-4c5e-a73f-5810b00a3f17_png",
+          "Dwarf-Gourami_original_165-png_15f00145-03fd-497d-aece-14209935e64b_png",
+          "Dwarf-Gourami_original_165-png_58139b1c-0eee-4f47-a3ee-a7f9274a258e_png",
+          "Dwarf-Gourami_original_171-png_8d0e6187-d392-4c5c-87b4-d5af3a8f4563_png",
+          "Dwarf-Gourami_original_177-png_a5c01bba-7701-4b3e-8d5e-1f568af4991e_png",
+          "Dwarf-Gourami_original_184-png_b4f7dd2b-b799-452b-ac95-0806aebb127f_png",
+          "Dwarf-Gourami_original_188-png_5ce517a3-1f32-4557-a1e8-8a331ecbe492_png",
+          "Dwarf-Gourami_original_19-png_ce3628f4-5b9c-4b21-924e-0743956b293c_png",
+          "Dwarf-Gourami_original_22-png_b6e80a29-0a07-41b0-a948-bf1e8bf6f937_png",
+          "Dwarf-Gourami_original_224-png_8f7b2bf9-8bb6-4493-bf76-702b19b3a47e_png",
+          "Dwarf-Gourami_original_227-png_d192f07e-d456-4e70-b815-aed2f5b46247_png",
+          "Dwarf-Gourami_original_228-png_39175bd4-4d91-4391-875a-b769c5d9db66_png",
+          "Dwarf-Gourami_original_24-png_b3de6a3e-fffb-4a42-aedb-48b881d1b648_png",
+          "Dwarf-Gourami_original_24-png_ce3cef6e-0027-44cc-80a8-31a3e3586d66_png",
+          "Dwarf-Gourami_original_243-png_d1a981d6-0dc0-423e-896e-03b2861f713a_png",
+          "Dwarf-Gourami_original_249-png_10c8416c-bd1b-4602-af97-69c2404a2001_png",
+          "Dwarf-Gourami_original_25-png_a629ce38-1c58-4bd5-9b48-44736440d2de_png",
+          "Dwarf-Gourami_original_25-png_e026448a-a5fa-493c-9f88-63519f686aba_png",
+          "Dwarf-Gourami_original_255-png_59d5e554-16b2-4c87-9768-a56ed8c5e30d_png",
+          "Dwarf-Gourami_original_258-png_d9ba8fdb-e4e2-4f17-ad1f-a622f56eedea_png",
+          "Dwarf-Gourami_original_260-png_90e451ba-7fd8-4e7d-90ea-f80584d2522b_png",
+          "Dwarf-Gourami_original_263-png_b7b4f801-6d96-41be-a892-760df31190e4_png",
+          "Dwarf-Gourami_original_270-png_e8e1446b-01e7-4ade-92fd-1c9b33706bdd_png",
+          "Dwarf-Gourami_original_281-png_ba1e24be-1e80-44ea-95c6-4e253d3c94ac_png",
+          "Dwarf-Gourami_original_287-png_3e3fa7a8-fec6-40fe-89fb-ec6148cc50a6_png",
+          "Dwarf-Gourami_original_287-png_e976a572-1e85-4594-b6b5-d2c06c482dc7_png",
+          "Dwarf-Gourami_original_291-png_00fc9160-d542-4f05-94c9-d66e5d4d4157_png",
+          "Dwarf-Gourami_original_294-png_1286ca81-9df4-4065-a136-b22988990958_png",
+          "Dwarf-Gourami_original_294-png_e3014de5-b505-4424-ae25-dd02206d8f8e_png",
+          "Dwarf-Gourami_original_295-png_1e9c79e3-74fc-472e-962a-a65f892f1a5b_png",
+          "Dwarf-Gourami_original_297-png_0b396236-667f-47ff-9e83-72d4b2540804_png",
+          "Dwarf-Gourami_original_3-png_822546da-6b04-4c6e-b8fd-55d49074e69c_png",
+          "Dwarf-Gourami_original_304-png_bff2702e-e2a9-4196-ab47-9cfb0ccef374_png",
+          "Dwarf-Gourami_original_307-png_c8729b5e-7b60-4a76-ab74-f49da3af9cf6_png",
+          "Dwarf-Gourami_original_316-png_0f564c12-c1dd-4bd6-90c8-7de9a65bd00c_png",
+          "Dwarf-Gourami_original_319-png_d55211ae-bcd1-4f5b-989e-114f26902eb5_png",
+          "Dwarf-Gourami_original_319-png_de7a1f90-bb85-41d0-b913-0cece54d2247_png",
+          "Dwarf-Gourami_original_334-png_eb3b0c6d-5bbc-4c95-948a-9b9fc4e3e765_png",
+          "Dwarf-Gourami_original_338-png_5a19da54-6d3d-4916-a41f-6ee800f6cd19_png",
+          "Dwarf-Gourami_original_344-png_580a8a6c-1f1b-49e5-a7a0-4cb9f163912e_png",
+          "Dwarf-Gourami_original_351-png_2ba400b4-7400-4c4c-81bc-f88140de98b7_png",
+          "Dwarf-Gourami_original_356-png_b37cc2db-b99e-4b8f-a90b-ee87e747c603_png",
+          "Dwarf-Gourami_original_357-png_28db9b7e-d36a-478d-b70d-4d2cadb780ea_png",
+          "Dwarf-Gourami_original_357-png_70a0b455-c8f5-44c0-991f-52d975156424_png",
+          "Dwarf-Gourami_original_358-png_5434fc91-c736-4a04-b2b4-f8bd0afe4831_png",
+          "Dwarf-Gourami_original_364-png_bb424279-9400-437b-bee8-54ffbfd76396_png",
+          "Dwarf-Gourami_original_376-png_f492eec2-97c3-4773-9959-32b77a77dd65_png",
+          "Dwarf-Gourami_original_379-png_7413a64f-fe75-4b6b-a9b4-5232dd8d1599_png",
+          "Dwarf-Gourami_original_379-png_fe5b6f86-6277-4ff0-923f-495d98dfe3d8_png",
+          "Dwarf-Gourami_original_385-png_4e508b77-3243-49b1-aeed-3a3035b4fe21_png",
+          "Dwarf-Gourami_original_390-png_951b2c53-f8f4-4eb7-82f2-e115fe4a23a2_png",
+          "Dwarf-Gourami_original_394-png_e8dce8b2-0422-4872-aadc-1f8a1b6f2b39_png",
+          "Dwarf-Gourami_original_396-png_2923ee54-05fd-4236-bb12-e098c616ea52_png",
+          "Dwarf-Gourami_original_400-png_c9da3845-21cc-482b-8ade-22ce1607bdc8_png",
+          "Dwarf-Gourami_original_404-png_d7cbc37a-5970-456f-aefa-11f94745447f_png",
+          "Dwarf-Gourami_original_406-png_8da6bc06-067d-47a8-8cf4-3aea90993a60_png",
+          "Dwarf-Gourami_original_407-png_34977a79-7c15-42a7-b0d8-ba3f2affd687_png",
+          "Dwarf-Gourami_original_408-png_0bf8bbb6-1989-401f-b2b6-500417d2eced_png",
+          "Dwarf-Gourami_original_408-png_cbe7bac0-459c-4bb9-95b8-cf5fd7822ae1_png",
+          "Dwarf-Gourami_original_411-png_8975082d-774a-48ec-8661-51a230936756_png",
+          "Dwarf-Gourami_original_411-png_a8e57a8f-8483-4358-af02-ffacc72dbdd4_png",
+          "Dwarf-Gourami_original_414-png_ff1235fd-4696-4acd-9ee5-07b6861d7413_png",
+          "Dwarf-Gourami_original_425-png_28557aad-d384-48f2-ae11-8c9f69583349_png",
+          "Dwarf-Gourami_original_427-png_4fdaa51f-116e-408a-8bd2-3f5665511a65_png",
+          "Dwarf-Gourami_original_428-png_1cf1fdea-ddf6-48af-ace4-b3ff5039716c_png",
+          "Dwarf-Gourami_original_431-png_a77f3789-a43c-4082-b3ec-43b8f0df95cb_png",
+          "Dwarf-Gourami_original_448-png_d0f29260-b0bc-4772-a97c-4e38b5e462bf_png",
+          "Dwarf-Gourami_original_45-png_7e3a2cb6-7feb-40d5-99ac-ad7112892ea4_png",
+          "Dwarf-Gourami_original_450-png_6e4ceb71-bb53-4313-9d7a-23e81586ea16_png",
+          "Dwarf-Gourami_original_459-png_db9e620b-711c-4aae-8310-31fbf8033047_png",
+          "Dwarf-Gourami_original_46-png_16017e7b-fbdc-4b9e-9cf5-b05630d171dd_png",
+          "Dwarf-Gourami_original_480-png_7710dfd4-0946-4dc6-a202-a906d52f5efe_png",
+          "Dwarf-Gourami_original_482-png_c0f74de1-8516-4adc-aa6a-6d652d5cf1bd_png",
+          "Dwarf-Gourami_original_483-png_b3f48d39-7f8f-43b4-a72c-277510753cbf_png",
+          "Dwarf-Gourami_original_494-png_40b1d503-755d-429c-8ba6-011a4447d395_png",
+          "Dwarf-Gourami_original_50-png_7db13656-5bd1-47c4-bf89-95f2879eb61c_png",
+          "Dwarf-Gourami_original_509-png_43ae1e67-d5b2-4942-ae17-a9be9cdcd08e_png",
+          "Dwarf-Gourami_original_51-png_5560c4d3-0f0f-4655-aa44-0eb298d53a20_png",
+          "Dwarf-Gourami_original_518-png_5d6d52cd-c654-49a4-8505-bae1dd412ef0_png",
+          "Dwarf-Gourami_original_518-png_e0c4c66b-612f-43a6-9abd-01b3a83031ea_png",
+          "Dwarf-Gourami_original_567-png_02896b02-ed03-49ee-af7d-286e73663e3b_png",
+          "Dwarf-Gourami_original_576-png_2aae20fe-98dc-408b-8aca-ace4e4eb08c1_png",
+          "Dwarf-Gourami_original_580-png_c3026ea8-87ec-4643-a6d9-31c9adeb2d69_png",
+          "Dwarf-Gourami_original_581-png_1007b1c2-ad53-4049-b2c6-79d8ec10f977_png",
+          "Dwarf-Gourami_original_582-png_f46c6ec0-20a1-479e-ab40-0a0ca7c2d8f2_png",
+          "Dwarf-Gourami_original_589-png_82fb384f-8abb-4633-b7f6-d69c7c0c4af3_png",
+          "Dwarf-Gourami_original_589-png_bde37987-a270-42c0-832c-16057d7c110d_png",
+          "Dwarf-Gourami_original_59-png_6e95028b-c37e-4f0e-81f8-ffd3adb05510_png",
+          "Dwarf-Gourami_original_602-png_d2eace30-2223-414d-b0c5-86f3bd66b8b9_png",
+          "Dwarf-Gourami_original_643-png_7c5cb4ec-7cbd-477f-afed-bceb16bf2351_png",
+          "Dwarf-Gourami_original_644-png_bd79ba35-2ab0-4cd4-9ce3-4e02319968c3_png",
+          "Dwarf-Gourami_original_66-png_d79d282d-2c13-4aff-b8ad-7f4eff2cecaa_png",
+          "Dwarf-Gourami_original_67-png_45b53682-c570-4022-9402-e6ec5a1d0e3e_png",
+          "Dwarf-Gourami_original_68-png_21d957c2-a97f-4846-ad66-8c2e7eff40cc_png",
+          "Dwarf-Gourami_original_698-png_0d5477ad-054c-460b-aeae-823797444a08_png",
+          "Dwarf-Gourami_original_724-png_bc283898-a4f9-4609-aec2-7704fee80a14_png",
+          "Dwarf-Gourami_original_77-png_12511add-5f21-4e0d-9c6d-17bb5c353cdc_png",
+          "Dwarf-Gourami_original_78-png_3c3e7705-ee56-4691-981e-397797a7af8b_png",
+          "Dwarf-Gourami_original_81-png_818b208c-bc62-4cf1-bae4-daf75ebb0e68_png",
+          "Dwarf-Gourami_original_fishbase-1-jpg_d7f3795c-55a4-4a2a-955f-3f96a0c98e39",
+          "Dwarf-Gourami_original_fishbase-1-jpg_f291026b-9c57-4789-8abd-0f677de22a44",
+          "Dwarf-Gourami_original_gbif-13-png_0da5448d-8205-4a2e-ab91-090b67f8a191_png",
+          "Dwarf-Gourami_original_gbif-15-png_d4e95b1b-ac96-4326-a2eb-2e07e0d50a05_png",
+          "Dwarf-Gourami_original_gbif-3-png_2fb79ccd-fadc-4589-aed4-fdb4d269af6b_png",
+          "Dwarf-Gourami_original_gbif-3-png_47d72320-d099-4412-a58c-261e7629fdc2_png",
+          "Dwarf-Gourami_original_gbif-5-png_fd6ec23e-18d8-493b-aa40-7c15357e730d_png",
+          "Paracanthurus_hepatus_6",
+          "Zebrafish-Green-11-_png",
+          "Zebrafish-Green-13-_png",
+          "Zebrafish-Green-14-_png",
+          "Zebrafish-Green-21-_png",
+          "Zebrafish-Green-22-_png",
+          "Zebrafish-Green-26-_png",
+          "Zebrafish-Green-31-_png",
+          "Zebrafish-Green-32-_png",
+          "Zebrafish-Green-34-_png",
+          "Zebrafish-Green-35-_png",
+          "Zebrafish-Green-37-_png",
+          "Zebrafish-Green-4-_png",
+          "Zebrafish-Green-40-_png",
+          "Zebrafish-Green-41-_png",
+          "Zebrafish-Green-43-_png",
+          "Zebrafish-Green-47-_png",
+          "Zebrafish-Green-6-_png",
+          "Zebrafish-Green-7-_png",
+          "Zebrafish-Not-Green-100-_png",
+          "Zebrafish-Not-Green-102-_png",
+          "Zebrafish-Not-Green-115-_png",
+          "Zebrafish-Not-Green-118-_png",
+          "Zebrafish-Not-Green-120-_png",
+          "Zebrafish-Not-Green-130-_png",
+          "Zebrafish-Not-Green-133-_png",
+          "Zebrafish-Not-Green-135-_png",
+          "Zebrafish-Not-Green-146-_png",
+          "Zebrafish-Not-Green-152-_png",
+          "Zebrafish-Not-Green-157-_png",
+          "Zebrafish-Not-Green-174-_png",
+          "Zebrafish-Not-Green-182-_png",
+          "Zebrafish-Not-Green-186-_png",
+          "Zebrafish-Not-Green-189-_png",
+          "Zebrafish-Not-Green-192-_png",
+          "Zebrafish-Not-Green-196-_png",
+          "Zebrafish-Not-Green-197-_png",
+          "Zebrafish-Not-Green-198-_png",
+          "Zebrafish-Not-Green-202-_png",
+          "Zebrafish-Not-Green-203-_png",
+          "Zebrafish-Not-Green-204-_png",
+          "Zebrafish-Not-Green-211-_png",
+          "Zebrafish-Not-Green-213-_png",
+          "Zebrafish-Not-Green-217-_png",
+          "Zebrafish-Not-Green-220-_png",
+          "Zebrafish-Not-Green-225-_png",
+          "Zebrafish-Not-Green-234-_png",
+          "Zebrafish-Not-Green-235-_png",
+          "Zebrafish-Not-Green-236-_png",
+          "Zebrafish-Not-Green-239-_png",
+          "Zebrafish-Not-Green-242-_png",
+          "Zebrafish-Not-Green-243-_png",
+          "Zebrafish-Not-Green-246-_png",
+          "Zebrafish-Not-Green-247-_png",
+          "Zebrafish-Not-Green-249-_png",
+          "Zebrafish-Not-Green-253-_png",
+          "Zebrafish-Not-Green-257-_png",
+          "Zebrafish-Not-Green-265-_png",
+          "Zebrafish-Not-Green-269-_png",
+          "Zebrafish-Not-Green-274-_png",
+          "Zebrafish-Not-Green-276-_png",
+          "Zebrafish-Not-Green-278-_png",
+          "Zebrafish-Not-Green-285-_png",
+          "Zebrafish-Not-Green-286-_png",
+          "Zebrafish-Not-Green-297-_png",
+          "Zebrafish-Not-Green-298-_png",
+          "Zebrafish-Not-Green-303-_png",
+          "Zebrafish-Not-Green-312-_png",
+          "Zebrafish-Not-Green-314-_png",
+          "Zebrafish-Not-Green-316-_png",
+          "Zebrafish-Not-Green-321-_png",
+          "Zebrafish-Not-Green-322-_png",
+          "Zebrafish-Not-Green-324-_png",
+          "Zebrafish-Not-Green-326-_png",
+          "Zebrafish-Not-Green-330-_png",
+          "Zebrafish-Not-Green-334-_png",
+          "Zebrafish-Not-Green-338-_png",
+          "Zebrafish-Not-Green-340-_png",
+          "Zebrafish-Not-Green-342-_png",
+          "Zebrafish-Not-Green-353-_png",
+          "Zebrafish-Not-Green-361-_png",
+          "Zebrafish-Not-Green-362-_png",
+          "Zebrafish-Not-Green-363-_png",
+          "Zebrafish-Not-Green-364-_png",
+          "Zebrafish-Not-Green-369-_png",
+          "Zebrafish-Not-Green-373-_png",
+          "Zebrafish-Not-Green-375-_png",
+          "Zebrafish-Not-Green-378-_png",
+          "Zebrafish-Not-Green-381-_png",
+          "Zebrafish-Not-Green-382-_png",
+          "Zebrafish-Not-Green-385-_png",
+          "Zebrafish-Not-Green-388-_png",
+          "Zebrafish-Not-Green-389-_png",
+          "Zebrafish-Not-Green-390-_png",
+          "Zebrafish-Not-Green-393-_png",
+          "Zebrafish-Not-Green-396-_png",
+          "Zebrafish-Not-Green-397-_png",
+          "Zebrafish-Not-Green-401-_png",
+          "Zebrafish-Not-Green-402-_png",
+          "Zebrafish-Not-Green-405-_png",
+          "Zebrafish-Not-Green-410-_png",
+          "Zebrafish-Not-Green-421-_png",
+          "Zebrafish-Not-Green-424-_png",
+          "Zebrafish-Not-Green-428-_png",
+          "Zebrafish-Not-Green-429-_png",
+          "Zebrafish-Not-Green-69-_png",
+          "Zebrafish-Not-Green-73-_png",
+          "Zebrafish-Not-Green-74-_png",
+          "Zebrafish-Not-Green-78-_png",
+          "Zebrafish-Not-Green-82-_png",
+          "Zebrafish-Not-Green-87-_png",
+          "Zebrafish-Not-Green-88-_png",
+          "Zebrafish-Not-Green-89-_png",
+          "Zebrafish-Not-Green-90-_png",
+          "batch_1_34_goldfish_10",
+          "batch_1_34_goldfish_14",
+          "batch_1_34_goldfish_25",
+          "batch_1_34_goldfish_flipped_12",
+          "batch_1_34_goldfish_flipped_2",
+          "batch_1_34_goldfish_flipped_26",
+          "batch_1_34_goldfish_flipped_3",
+          "batch_1_34_goldfish_flipped_9",
+          "batch_2_2_goldfish_1",
+          "batch_google_40_molly_15",
+          "batch_google_40_molly_34",
+          "batch_ytvideo_165_molly_100",
+          "batch_ytvideo_165_molly_103",
+          "batch_ytvideo_165_molly_109",
+          "batch_ytvideo_165_molly_111",
+          "batch_ytvideo_165_molly_118",
+          "batch_ytvideo_165_molly_120",
+          "batch_ytvideo_165_molly_124",
+          "batch_ytvideo_165_molly_133",
+          "batch_ytvideo_165_molly_134",
+          "batch_ytvideo_165_molly_153",
+          "batch_ytvideo_165_molly_157",
+          "batch_ytvideo_165_molly_23",
+          "batch_ytvideo_165_molly_25",
+          "batch_ytvideo_165_molly_26",
+          "batch_ytvideo_165_molly_36",
+          "batch_ytvideo_165_molly_37",
+          "batch_ytvideo_165_molly_38",
+          "batch_ytvideo_165_molly_4",
+          "batch_ytvideo_165_molly_6",
+          "batch_ytvideo_165_molly_73",
+          "batch_ytvideo_165_molly_75",
+          "batch_ytvideo_165_molly_86",
+          "batch_ytvideo_165_molly_88",
+          "batch_ytvideo_165_molly_9",
+          "batch_ytvideo_165_molly_91",
+          "batch_ytvideo_165_molly_98",
+          "batch_ytvideo_91_goldfish_17",
+          "batch_ytvideo_91_goldfish_20",
+          "batch_ytvideo_91_goldfish_41",
+          "batch_ytvideo_91_goldfish_56",
+          "batch_ytvideo_91_goldfish_67",
+          "batch_ytvideo_91_goldfish_90",
+          "clown-anemonefish-4",
+          "clown-anemonefish-amphiprion-percula-damselfishes-pomacentridae_12144",
+          "clownfish_in_anemone-scaled",
+          "gbif-1-_png",
+          "gbif-2-_png",
+          "gbif-7-_png",
+          "gbif-9-_png",
+          "gettyimages-2111431-612x612",
+          "videoplayback_mp4-16",
+          "videoplayback_mp4-24",
+          "videoplayback_mp4-30",
+          "videoplayback_mp4-37",
+          "videoplayback_mp4-46",
+          "videoplayback_mp4-55",
+          "youtube-11",
+          "youtube-18",
+          "youtube-19",
+          "youtube-2",
+          "youtube-21",
+          "youtube-29"
+        ],
+        "examples": [
+          {
+            "prefix": "003",
+            "split_a_images": [
+              "003_jpg.rf.20312651f346e7c832a53c26036990be.jpg",
+              "003_jpg.rf.d0d01882626b24024ed7bd381e00af7e.jpg"
+            ],
+            "split_b_images": [
+              "003_jpg.rf.037f10fbd44df0f66b105a1fffade1aa.jpg"
+            ]
+          },
+          {
+            "prefix": "005",
+            "split_a_images": [
+              "005_jpg.rf.aa7b6fb7e2eb3cc32e57eaef6e8a8852.jpg",
+              "005_jpg.rf.e9841c37fffe746f1cf5a2d4cb1a5bac.jpg"
+            ],
+            "split_b_images": [
+              "005_jpg.rf.a20965450c48c8cff33497df44e33430.jpg",
+              "005_jpg.rf.ac1ad1d2550671961054a4678bb22d65.jpg"
+            ]
+          },
+          {
+            "prefix": "006",
+            "split_a_images": [
+              "006_jpg.rf.c597401dfa7420252a29e13218eba83b.jpg",
+              "006_jpg.rf.d4a0c37d05971b4a97fd6862d1959231.jpg"
+            ],
+            "split_b_images": [
+              "006_jpg.rf.0a349a483b4467142cce29a9c9022b06.jpg"
+            ]
+          },
+          {
+            "prefix": "008",
+            "split_a_images": [
+              "008_jpg.rf.205c4a41d8e326bdfe2bd9e94fa1bacd.jpg",
+              "008_jpg.rf.6fa265a7080c2e8beb8cc7b60a6746aa.jpg",
+              "008_jpg.rf.c15e5173aeea79d9d7c07714cd5a3444.jpg",
+              "008_jpg.rf.fca2ee879008bae7569960f5df664216.jpg"
+            ],
+            "split_b_images": [
+              "008_jpg.rf.29ad6e44d97da4b4c10068757c8c3599.jpg"
+            ]
+          },
+          {
+            "prefix": "009",
+            "split_a_images": [
+              "009_jpg.rf.16127751eef04d0926e15485ef8196dd.jpg",
+              "009_jpg.rf.c04effe0cbebad92b67e7d84fd7252a4.jpg"
+            ],
+            "split_b_images": [
+              "009_jpg.rf.30d2a035cc8d823cc14858858e59464f.jpg"
+            ]
+          },
+          {
+            "prefix": "011",
+            "split_a_images": [
+              "011_jpg.rf.1445faefecbce3608c6c849a167d23a3.jpg",
+              "011_jpg.rf.22172f7255916af16a4aaac7372ddcbc.jpg",
+              "011_jpg.rf.2b800fd31c727ea4e29b7e59269276ab.jpg",
+              "011_jpg.rf.682153441cb366ed7c3451a8df38524b.jpg"
+            ],
+            "split_b_images": [
+              "011_jpg.rf.8644749d1218a33cedadadd81d2119de.jpg"
+            ]
+          },
+          {
+            "prefix": "023",
+            "split_a_images": [
+              "023_jpg.rf.2ff3660e83e1755e186abfe8f7986a96.jpg",
+              "023_jpg.rf.709931517cdabf6c142370762dd00f6c.jpg"
+            ],
+            "split_b_images": [
+              "023_jpg.rf.9d6f12ae33c0b67eaf023e2e02b21357.jpg"
+            ]
+          },
+          {
+            "prefix": "026",
+            "split_a_images": [
+              "026_jpg.rf.883d68622f96e5c02643bfbbb583e0dd.jpg",
+              "026_jpg.rf.9fbae94b9871f41017af61c7aa2e747f.jpg"
+            ],
+            "split_b_images": [
+              "026_jpg.rf.e822a54edb8173267f45dd5d447db53a.jpg"
+            ]
+          },
+          {
+            "prefix": "031",
+            "split_a_images": [
+              "031_jpg.rf.26bc5e675fd1611ac32ea0b42956f0db.jpg",
+              "031_jpg.rf.7ec42b199b854259d944c99ea0333c67.jpg",
+              "031_jpg.rf.c6a46633a7deaf6adfcb77f8b3bd7fba.jpg",
+              "031_jpg.rf.d7d4135a82b692d1abc8ee48ab4a6bdd.jpg"
+            ],
+            "split_b_images": [
+              "031_jpg.rf.77e85bed9ede9ff60acda8352f22fd7b.jpg"
+            ]
+          },
+          {
+            "prefix": "Dwarf-Gourami_original_10-png_41b329cc-dd91-4d1b-8c26-2e84bb0b83e2_png",
+            "split_a_images": [
+              "Dwarf-Gourami_original_10-png_41b329cc-dd91-4d1b-8c26-2e84bb0b83e2_png_jpg.rf.352ca0934de5ace266a71cbdc61bc85a.jpg",
+              "Dwarf-Gourami_original_10-png_41b329cc-dd91-4d1b-8c26-2e84bb0b83e2_png_jpg.rf.fa698e999b72dbc313d790da70dce293.jpg"
+            ],
+            "split_b_images": [
+              "Dwarf-Gourami_original_10-png_41b329cc-dd91-4d1b-8c26-2e84bb0b83e2_png_jpg.rf.ca8f3e4c01f8ddecc7fc0485a91d136a.jpg"
+            ]
+          },
+          {
+            "prefix": "Dwarf-Gourami_original_100-png_f3e07078-fcc5-4474-a984-133d77e35850_png",
+            "split_a_images": [
+              "Dwarf-Gourami_original_100-png_f3e07078-fcc5-4474-a984-133d77e35850_png_jpg.rf.1bb3672874492dfd9ecd8b2bc7fafa66.jpg",
+              "Dwarf-Gourami_original_100-png_f3e07078-fcc5-4474-a984-133d77e35850_png_jpg.rf.20510dec6a8df5da18b3389b3a855b4d.jpg"
+            ],
+            "split_b_images": [
+              "Dwarf-Gourami_original_100-png_f3e07078-fcc5-4474-a984-133d77e35850_png_jpg.rf.a0ac4d24a8098cd810df42bf4898f1bf.jpg"
+            ]
+          },
+          {
+            "prefix": "Dwarf-Gourami_original_102-png_c693f0d4-d757-438b-94c7-435f8c2fd9fa_png",
+            "split_a_images": [
+              "Dwarf-Gourami_original_102-png_c693f0d4-d757-438b-94c7-435f8c2fd9fa_png_jpg.rf.7a754836fc4b2c943f95c2f137c792f0.jpg",
+              "Dwarf-Gourami_original_102-png_c693f0d4-d757-438b-94c7-435f8c2fd9fa_png_jpg.rf.7e02114c6ca08d136d9b55dd324ed3bd.jpg"
+            ],
+            "split_b_images": [
+              "Dwarf-Gourami_original_102-png_c693f0d4-d757-438b-94c7-435f8c2fd9fa_png_jpg.rf.3944231d56d857dc7f8f00f4906f31f8.jpg"
+            ]
+          },
+          {
+            "prefix": "Dwarf-Gourami_original_104-png_cf29fb46-689f-4e4d-8d8c-e9322805ca6b_png",
+            "split_a_images": [
+              "Dwarf-Gourami_original_104-png_cf29fb46-689f-4e4d-8d8c-e9322805ca6b_png_jpg.rf.2c8ec39e58fde9d6d2c737d11e3ab1b1.jpg",
+              "Dwarf-Gourami_original_104-png_cf29fb46-689f-4e4d-8d8c-e9322805ca6b_png_jpg.rf.45528c88e4841ed487e932449a5ffef0.jpg"
+            ],
+            "split_b_images": [
+              "Dwarf-Gourami_original_104-png_cf29fb46-689f-4e4d-8d8c-e9322805ca6b_png_jpg.rf.972ef055c5b6c1ed12809d3368b22eef.jpg"
+            ]
+          },
+          {
+            "prefix": "Dwarf-Gourami_original_109-png_f661452a-4465-4698-91f4-34eefd735893_png",
+            "split_a_images": [
+              "Dwarf-Gourami_original_109-png_f661452a-4465-4698-91f4-34eefd735893_png_jpg.rf.0d3c5b86448430179da2b8be98c8ace4.jpg",
+              "Dwarf-Gourami_original_109-png_f661452a-4465-4698-91f4-34eefd735893_png_jpg.rf.5a7e36f375b16c458d201370ce35ecde.jpg"
+            ],
+            "split_b_images": [
+              "Dwarf-Gourami_original_109-png_f661452a-4465-4698-91f4-34eefd735893_png_jpg.rf.f34980d5299cddbe2b633526f9edc902.jpg"
+            ]
+          },
+          {
+            "prefix": "Dwarf-Gourami_original_129-png_1461ce4a-e8ae-4ee2-9651-c9e5b27b5648_png",
+            "split_a_images": [
+              "Dwarf-Gourami_original_129-png_1461ce4a-e8ae-4ee2-9651-c9e5b27b5648_png_jpg.rf.52b981f302f224547972ce73430e937d.jpg",
+              "Dwarf-Gourami_original_129-png_1461ce4a-e8ae-4ee2-9651-c9e5b27b5648_png_jpg.rf.8465aad303c9494a2673fcf3a7f4f972.jpg"
+            ],
+            "split_b_images": [
+              "Dwarf-Gourami_original_129-png_1461ce4a-e8ae-4ee2-9651-c9e5b27b5648_png_jpg.rf.68d97786e6afcf95b36786e80e0437df.jpg"
+            ]
+          },
+          {
+            "prefix": "Dwarf-Gourami_original_134-png_ac9de647-c398-45ab-b8a8-770dd2bc47f0_png",
+            "split_a_images": [
+              "Dwarf-Gourami_original_134-png_ac9de647-c398-45ab-b8a8-770dd2bc47f0_png_jpg.rf.129a9b476f6c90f7d260afa6fbdc24ec.jpg",
+              "Dwarf-Gourami_original_134-png_ac9de647-c398-45ab-b8a8-770dd2bc47f0_png_jpg.rf.926d48fb473456cf6bbd9529d3d18997.jpg"
+            ],
+            "split_b_images": [
+              "Dwarf-Gourami_original_134-png_ac9de647-c398-45ab-b8a8-770dd2bc47f0_png_jpg.rf.cc416edfe042cf0e1db2718c15d68fa5.jpg"
+            ]
+          },
+          {
+            "prefix": "Dwarf-Gourami_original_135-png_7b965b13-4224-4575-8f68-1eb6f11799f4_png",
+            "split_a_images": [
+              "Dwarf-Gourami_original_135-png_7b965b13-4224-4575-8f68-1eb6f11799f4_png_jpg.rf.224369189d533188299b49e83aa26bdb.jpg",
+              "Dwarf-Gourami_original_135-png_7b965b13-4224-4575-8f68-1eb6f11799f4_png_jpg.rf.7ed6e768fef120f3779558887fa036a8.jpg"
+            ],
+            "split_b_images": [
+              "Dwarf-Gourami_original_135-png_7b965b13-4224-4575-8f68-1eb6f11799f4_png_jpg.rf.045a65675c972cfcab6de3c822f07610.jpg"
+            ]
+          },
+          {
+            "prefix": "Dwarf-Gourami_original_138-png_5dae587b-8800-4b2a-8b24-876cb88f4d95_png",
+            "split_a_images": [
+              "Dwarf-Gourami_original_138-png_5dae587b-8800-4b2a-8b24-876cb88f4d95_png_jpg.rf.84fd948bdcc6fc2c44d5023e522c1484.jpg",
+              "Dwarf-Gourami_original_138-png_5dae587b-8800-4b2a-8b24-876cb88f4d95_png_jpg.rf.c601213d3d06947e3edceb36e376eb7a.jpg"
+            ],
+            "split_b_images": [
+              "Dwarf-Gourami_original_138-png_5dae587b-8800-4b2a-8b24-876cb88f4d95_png_jpg.rf.8f589458c57cde62b475c00fed73c6cd.jpg"
+            ]
+          },
+          {
+            "prefix": "Dwarf-Gourami_original_138-png_75c6791d-75b2-43bb-81e6-62c3194cef6b_png",
+            "split_a_images": [
+              "Dwarf-Gourami_original_138-png_75c6791d-75b2-43bb-81e6-62c3194cef6b_png_jpg.rf.005467c7d451c5887d5679b81bc30cf8.jpg",
+              "Dwarf-Gourami_original_138-png_75c6791d-75b2-43bb-81e6-62c3194cef6b_png_jpg.rf.b07d35314fd53573f385f15ada72ce70.jpg"
+            ],
+            "split_b_images": [
+              "Dwarf-Gourami_original_138-png_75c6791d-75b2-43bb-81e6-62c3194cef6b_png_jpg.rf.3f729302746b25f19ccd2e9c427d5a25.jpg"
+            ]
+          },
+          {
+            "prefix": "Dwarf-Gourami_original_150-png_30c4150b-0042-4856-adc1-c6a0862fb551_png",
+            "split_a_images": [
+              "Dwarf-Gourami_original_150-png_30c4150b-0042-4856-adc1-c6a0862fb551_png_jpg.rf.aa8c798cd03ac22fd9ad250278eef7a8.jpg",
+              "Dwarf-Gourami_original_150-png_30c4150b-0042-4856-adc1-c6a0862fb551_png_jpg.rf.cebe63449bcfcd6d62f1814c813c2f84.jpg"
+            ],
+            "split_b_images": [
+              "Dwarf-Gourami_original_150-png_30c4150b-0042-4856-adc1-c6a0862fb551_png_jpg.rf.17b141c27bd044d6c563a224f5e60e9b.jpg"
+            ]
+          }
+        ]
+      },
+      "train_vs_test": {
+        "prefix_count": 202,
+        "prefixes": [
+          "10",
+          "27810124356_df827be192_b",
+          "AngelFish_image_272",
+          "ButterflyFish_image_202",
+          "Dwarf-Gourami_original_111-png_c9177905-6afd-4ba1-8879-9ac6df252042_png",
+          "Dwarf-Gourami_original_116-png_d4ea8257-dc75-424c-9329-67c1128c43a7_png",
+          "Dwarf-Gourami_original_130-png_ddf086a2-7121-4297-ad29-6367ff5df5f7_png",
+          "Dwarf-Gourami_original_132-png_2098a31b-b3c9-4d7b-a9f2-66681749cde3_png",
+          "Dwarf-Gourami_original_139-png_b32fe79e-4ea1-4387-a794-78e37f7547ee_png",
+          "Dwarf-Gourami_original_140-png_2897a6fe-2234-4a84-9f7f-ce734e7851ed_png",
+          "Dwarf-Gourami_original_145-png_94e5c14a-22f4-4571-b45e-c955d69220e4_png",
+          "Dwarf-Gourami_original_160-png_64142878-7e23-40a1-8adc-5aa6f9a360f5_png",
+          "Dwarf-Gourami_original_172-png_664c01bc-af06-4563-ace6-3c3f3116e77a_png",
+          "Dwarf-Gourami_original_180-png_e51ffc47-9395-418b-93e1-2c7b22a485fd_png",
+          "Dwarf-Gourami_original_184-png_096a7516-d167-4bfa-bff3-efebb348ec39_png",
+          "Dwarf-Gourami_original_189-png_7ffcbb05-3bff-429b-9393-8264f1922a5d_png",
+          "Dwarf-Gourami_original_19-png_adf57324-46f8-4098-83d8-cc60e141dc02_png",
+          "Dwarf-Gourami_original_211-png_ba58ffff-92b3-4ceb-8da8-e8980badc478_png",
+          "Dwarf-Gourami_original_219-png_24092dd4-48a5-4dc8-a589-70a590a9c232_png",
+          "Dwarf-Gourami_original_22-png_bdceba3d-ee25-4d24-9d8f-3ad3c91e3389_png",
+          "Dwarf-Gourami_original_227-png_8d8c0f7c-0f41-4f73-9041-798d609ccca6_png",
+          "Dwarf-Gourami_original_253-png_9810f967-7714-48b5-978f-4987a21011b8_png",
+          "Dwarf-Gourami_original_283-png_b3d1949b-a261-4b59-b0a1-bf3134d310ad_png",
+          "Dwarf-Gourami_original_285-png_d8fd2e86-5f21-411e-9509-679c12ace6ce_png",
+          "Dwarf-Gourami_original_314-png_25f85245-f81d-4a5a-bf53-4d053fba066c_png",
+          "Dwarf-Gourami_original_334-png_04b906d9-0ff9-49fc-838d-aeee8d628211_png",
+          "Dwarf-Gourami_original_334-png_9e64cd64-1e4f-4d64-95f1-2b311b7a9244_png",
+          "Dwarf-Gourami_original_337-png_51dd138d-2624-4e2a-9493-fc797ccae343_png",
+          "Dwarf-Gourami_original_357-png_f7e63bb7-d6fb-46ef-9f85-2924ca5cbfe9_png",
+          "Dwarf-Gourami_original_36-png_60256996-349d-45ce-9fe2-eb6caf165ecb_png",
+          "Dwarf-Gourami_original_364-png_dcd8c7ad-bccb-45b4-9b17-03b5a65884bf_png",
+          "Dwarf-Gourami_original_369-png_b41ce77d-4e99-44c6-ae02-219411b45623_png",
+          "Dwarf-Gourami_original_376-png_125c8899-7513-4527-9729-554f700b94ba_png",
+          "Dwarf-Gourami_original_399-png_4b3f59a9-be0c-4bb2-a8e2-896d432977fe_png",
+          "Dwarf-Gourami_original_402-png_ed90a58e-a95d-4b6c-87bc-7b3bcd6f6b10_png",
+          "Dwarf-Gourami_original_404-png_c0f475e0-1eb8-487d-9f9e-834be43a7766_png",
+          "Dwarf-Gourami_original_422-png_59d60fec-b96d-4f09-8eff-7ce250791b5c_png",
+          "Dwarf-Gourami_original_44-png_563d494f-188b-4718-b7cc-f8f9a10e33a5_png",
+          "Dwarf-Gourami_original_443-png_faf37cfc-58a9-4ea8-b44a-8e97c02e851c_png",
+          "Dwarf-Gourami_original_469-png_fefc8ffa-13fd-4297-ad21-b259889044a3_png",
+          "Dwarf-Gourami_original_483-png_9b048ec0-bebc-4756-857d-d6fadc84321a_png",
+          "Dwarf-Gourami_original_508-png_a90db00b-7961-45ee-b57a-3a5395537792_png",
+          "Dwarf-Gourami_original_512-png_092460b9-80c6-45f0-b082-6dc33b8e0068_png",
+          "Dwarf-Gourami_original_523-png_21eb781d-12cf-4466-b4f5-6214bfb4bcf5_png",
+          "Dwarf-Gourami_original_57-png_76754e08-5506-4493-961c-5fd15fa3027d_png",
+          "Dwarf-Gourami_original_581-png_13975190-e0a9-4a7d-a66c-51b0d5d65269_png",
+          "Dwarf-Gourami_original_599-png_6a2b44a4-eeeb-4a96-9eb8-36a6ab52e2c8_png",
+          "Dwarf-Gourami_original_599-png_f99bc219-290a-40b5-8519-6cb6f4bc8ec8_png",
+          "Dwarf-Gourami_original_6-png_a4d546cd-f507-44b9-943e-2c46c6f38ac5_png",
+          "Dwarf-Gourami_original_607-png_9757dca2-775f-4f8a-b1d7-6d278225c7f2_png",
+          "Dwarf-Gourami_original_613-png_f5cb589e-c8c9-4768-abd5-84b1a37a8b63_png",
+          "Dwarf-Gourami_original_616-png_841eb89c-b062-4a5e-9c6d-6954b73c8f33_png",
+          "Dwarf-Gourami_original_697-png_acdf9aec-b27a-45d5-8f63-d3c06fa6d38d_png",
+          "Dwarf-Gourami_original_724-png_5da5594d-119d-48d4-8aab-16f746b8658f_png",
+          "Dwarf-Gourami_original_8-png_73b8d52e-2133-4d11-8251-0a6f0bc554d2_png",
+          "Dwarf-Gourami_original_80-png_4348578b-7ed9-4394-8151-de29b0272e2c_png",
+          "Dwarf-Gourami_original_88-png_7dc99899-0de7-4f49-bae9-396b9c53752a_png",
+          "Dwarf-Gourami_original_9-png_b28d72ab-24c2-48fe-bec9-759f550ef622_png",
+          "Dwarf-Gourami_original_fishbase-2-jpg_f99fc7e3-74af-4252-a75a-a296055c2af5",
+          "Dwarf-Gourami_original_gbif-13-png_c2605b07-ea0e-4b4b-8716-f284eea98d07_png",
+          "Paletten_Doktorfisch_-Paracanthurus_hepatus-_01",
+          "Paracanthurus-hepatus",
+          "Paracanthurus-hepatus-paletten-doktorfisch",
+          "Zebrafish-Green-24-_png",
+          "Zebrafish-Green-3-_png",
+          "Zebrafish-Green-33-_png",
+          "Zebrafish-Green-4-_png",
+          "Zebrafish-Green-46-_png",
+          "Zebrafish-Not-Green-110-_png",
+          "Zebrafish-Not-Green-112-_png",
+          "Zebrafish-Not-Green-130-_png",
+          "Zebrafish-Not-Green-141-_png",
+          "Zebrafish-Not-Green-144-_png",
+          "Zebrafish-Not-Green-154-_png",
+          "Zebrafish-Not-Green-155-_png",
+          "Zebrafish-Not-Green-156-_png",
+          "Zebrafish-Not-Green-170-_png",
+          "Zebrafish-Not-Green-172-_png",
+          "Zebrafish-Not-Green-180-_png",
+          "Zebrafish-Not-Green-189-_png",
+          "Zebrafish-Not-Green-190-_png",
+          "Zebrafish-Not-Green-194-_png",
+          "Zebrafish-Not-Green-202-_png",
+          "Zebrafish-Not-Green-203-_png",
+          "Zebrafish-Not-Green-207-_png",
+          "Zebrafish-Not-Green-219-_png",
+          "Zebrafish-Not-Green-221-_png",
+          "Zebrafish-Not-Green-227-_png",
+          "Zebrafish-Not-Green-238-_png",
+          "Zebrafish-Not-Green-243-_png",
+          "Zebrafish-Not-Green-246-_png",
+          "Zebrafish-Not-Green-249-_png",
+          "Zebrafish-Not-Green-250-_png",
+          "Zebrafish-Not-Green-254-_png",
+          "Zebrafish-Not-Green-265-_png",
+          "Zebrafish-Not-Green-267-_png",
+          "Zebrafish-Not-Green-270-_png",
+          "Zebrafish-Not-Green-275-_png",
+          "Zebrafish-Not-Green-281-_png",
+          "Zebrafish-Not-Green-291-_png",
+          "Zebrafish-Not-Green-298-_png",
+          "Zebrafish-Not-Green-305-_png",
+          "Zebrafish-Not-Green-312-_png",
+          "Zebrafish-Not-Green-324-_png",
+          "Zebrafish-Not-Green-333-_png",
+          "Zebrafish-Not-Green-337-_png",
+          "Zebrafish-Not-Green-340-_png",
+          "Zebrafish-Not-Green-349-_png",
+          "Zebrafish-Not-Green-350-_png",
+          "Zebrafish-Not-Green-353-_png",
+          "Zebrafish-Not-Green-363-_png",
+          "Zebrafish-Not-Green-368-_png",
+          "Zebrafish-Not-Green-370-_png",
+          "Zebrafish-Not-Green-378-_png",
+          "Zebrafish-Not-Green-384-_png",
+          "Zebrafish-Not-Green-386-_png",
+          "Zebrafish-Not-Green-392-_png",
+          "Zebrafish-Not-Green-398-_png",
+          "Zebrafish-Not-Green-399-_png",
+          "Zebrafish-Not-Green-404-_png",
+          "Zebrafish-Not-Green-409-_png",
+          "Zebrafish-Not-Green-411-_png",
+          "Zebrafish-Not-Green-70-_png",
+          "Zebrafish-Not-Green-84-_png",
+          "Zebrafish-Not-Green-86-_png",
+          "Zebrafish-Not-Green-87-_png",
+          "Zebrafish-Not-Green-92-_png",
+          "batch_1_34_goldfish_1",
+          "batch_1_34_goldfish_16",
+          "batch_1_34_goldfish_24",
+          "batch_1_34_goldfish_9",
+          "batch_1_34_goldfish_flipped_13",
+          "batch_1_34_goldfish_flipped_18",
+          "batch_google_40_molly_14",
+          "batch_ytvideo_165_molly_12",
+          "batch_ytvideo_165_molly_125",
+          "batch_ytvideo_165_molly_135",
+          "batch_ytvideo_165_molly_2",
+          "batch_ytvideo_165_molly_28",
+          "batch_ytvideo_165_molly_3",
+          "batch_ytvideo_165_molly_42",
+          "batch_ytvideo_165_molly_45",
+          "batch_ytvideo_165_molly_48",
+          "batch_ytvideo_165_molly_51",
+          "batch_ytvideo_165_molly_95",
+          "batch_ytvideo_91_goldfish_31",
+          "batch_ytvideo_91_goldfish_43",
+          "batch_ytvideo_91_goldfish_50",
+          "batch_ytvideo_91_goldfish_7",
+          "batch_ytvideo_91_goldfish_74",
+          "batch_ytvideo_91_goldfish_78",
+          "batch_ytvideo_91_goldfish_82",
+          "batch_ytvideo_91_goldfish_9",
+          "gbif-12-_png",
+          "gbif-13-_png",
+          "images-2023-05-20T172329-371_jpeg",
+          "images-2023-05-20T172329-643_jpeg",
+          "images-2023-05-20T172329-822_jpeg",
+          "images-2023-05-20T172330-144_jpeg",
+          "images-2023-05-20T172330-931_jpeg",
+          "images-2023-05-20T172330-976_jpeg",
+          "images-2023-05-20T172331-366_jpeg",
+          "images-2023-05-20T172331-943_jpeg",
+          "images-2023-05-20T172331-978_jpeg",
+          "images-2023-05-20T172332-919_jpeg",
+          "images-2023-05-20T172333-742_jpeg",
+          "images-2023-05-20T172334-598_jpeg",
+          "images-2023-05-20T172334-696_jpeg",
+          "images-2023-05-20T172335-381_jpeg",
+          "images-2023-05-20T172336-397_jpeg",
+          "images-2023-05-20T172337-840_jpeg",
+          "images-2023-05-20T172338-367_jpeg",
+          "images-2023-05-20T172338-839_jpeg",
+          "images-2023-05-20T172338-982_jpeg",
+          "images-2023-05-20T172339-428_jpeg",
+          "images-2023-05-20T172339-478_jpeg",
+          "images-2023-05-20T172340-368_jpeg",
+          "images-2023-05-20T172340-482_jpeg",
+          "images-2023-05-20T172340-745_jpeg",
+          "images-2023-05-20T172341-621_jpeg",
+          "images-2023-05-20T172342-770_jpeg",
+          "images-2023-05-20T172344-489_jpeg",
+          "images-24-_jpeg",
+          "images-50-_jpeg",
+          "images-64-_jpeg",
+          "images-66-_jpeg",
+          "images-81-_jpeg",
+          "images-87-_jpeg",
+          "images-89-_jpeg",
+          "images-96-_jpeg",
+          "palette-surgeonfish-paracanthurus-hepatus-on-coral-reef-in-tulamben-F9A57J",
+          "paracanthurus-hepatus-blue-tang-m",
+          "paracanthurus-hepatus-paletten-doktorfisch-gelber-bauch",
+          "videoplayback_mp4-11",
+          "videoplayback_mp4-14",
+          "videoplayback_mp4-22",
+          "videoplayback_mp4-36",
+          "videoplayback_mp4-50",
+          "videoplayback_mp4-52",
+          "videoplayback_mp4-56",
+          "youtube-26",
+          "youtube-6"
+        ],
+        "examples": [
+          {
+            "prefix": "10",
+            "split_a_images": [
+              "10_jpeg.rf.1dd7a9e23a14432d113d4fd094c35e64.jpg",
+              "10_jpeg.rf.f5be1f7d9829914f7005f35be9dee384.jpg"
+            ],
+            "split_b_images": [
+              "10_jpeg.rf.94951c0379fe621911e4e48a35dc44e1.jpg"
+            ]
+          },
+          {
+            "prefix": "27810124356_df827be192_b",
+            "split_a_images": [
+              "27810124356_df827be192_b_jpg.rf.318bd6d73a0e0357443083aa6a7671cb.jpg",
+              "27810124356_df827be192_b_jpg.rf.cfd62ae1f6b140da84d6ca70d6fa80f8.jpg"
+            ],
+            "split_b_images": [
+              "27810124356_df827be192_b_jpg.rf.f00300dea06207e8a40f4bc3de9dd277.jpg"
+            ]
+          },
+          {
+            "prefix": "AngelFish_image_272",
+            "split_a_images": [
+              "AngelFish_image_272_jpg.rf.1ab14c576be11de5f0b8ad5169b3dfa2.jpg",
+              "AngelFish_image_272_jpg.rf.a714a04dcebb18879975227a31d652e4.jpg"
+            ],
+            "split_b_images": [
+              "AngelFish_image_272_jpg.rf.be77b19f32fb06736fca14f697b562c0.jpg"
+            ]
+          },
+          {
+            "prefix": "ButterflyFish_image_202",
+            "split_a_images": [
+              "ButterflyFish_image_202_jpg.rf.6555990213747a256f79e5ceb922301b.jpg",
+              "ButterflyFish_image_202_jpg.rf.e0aba8df6cee1aaad6a99fbd357d3259.jpg"
+            ],
+            "split_b_images": [
+              "ButterflyFish_image_202_jpg.rf.52c70b5ae55a45619f942e441fa61c6e.jpg"
+            ]
+          },
+          {
+            "prefix": "Dwarf-Gourami_original_111-png_c9177905-6afd-4ba1-8879-9ac6df252042_png",
+            "split_a_images": [
+              "Dwarf-Gourami_original_111-png_c9177905-6afd-4ba1-8879-9ac6df252042_png_jpg.rf.80dcf5f328cf82ac091ab9b04f857f96.jpg",
+              "Dwarf-Gourami_original_111-png_c9177905-6afd-4ba1-8879-9ac6df252042_png_jpg.rf.c13d8795030785606957f10a2ae6b888.jpg"
+            ],
+            "split_b_images": [
+              "Dwarf-Gourami_original_111-png_c9177905-6afd-4ba1-8879-9ac6df252042_png_jpg.rf.58f91fdf6f45c35c99fb19ad72146d1a.jpg"
+            ]
+          },
+          {
+            "prefix": "Dwarf-Gourami_original_116-png_d4ea8257-dc75-424c-9329-67c1128c43a7_png",
+            "split_a_images": [
+              "Dwarf-Gourami_original_116-png_d4ea8257-dc75-424c-9329-67c1128c43a7_png_jpg.rf.186bdffc5c0e7130514804eea25efd73.jpg",
+              "Dwarf-Gourami_original_116-png_d4ea8257-dc75-424c-9329-67c1128c43a7_png_jpg.rf.4120682a8c4ef2721ba5f6dbd15f2ead.jpg"
+            ],
+            "split_b_images": [
+              "Dwarf-Gourami_original_116-png_d4ea8257-dc75-424c-9329-67c1128c43a7_png_jpg.rf.589ff30f5be632055a0be2fffb2b3159.jpg"
+            ]
+          },
+          {
+            "prefix": "Dwarf-Gourami_original_130-png_ddf086a2-7121-4297-ad29-6367ff5df5f7_png",
+            "split_a_images": [
+              "Dwarf-Gourami_original_130-png_ddf086a2-7121-4297-ad29-6367ff5df5f7_png_jpg.rf.847a09860ea7d86af1c287cc568d7754.jpg",
+              "Dwarf-Gourami_original_130-png_ddf086a2-7121-4297-ad29-6367ff5df5f7_png_jpg.rf.8bb533e4ffd2f17e7e5e62098d5a1608.jpg"
+            ],
+            "split_b_images": [
+              "Dwarf-Gourami_original_130-png_ddf086a2-7121-4297-ad29-6367ff5df5f7_png_jpg.rf.36b700593d81ddc89fee3d3e0c12f8d9.jpg"
+            ]
+          },
+          {
+            "prefix": "Dwarf-Gourami_original_132-png_2098a31b-b3c9-4d7b-a9f2-66681749cde3_png",
+            "split_a_images": [
+              "Dwarf-Gourami_original_132-png_2098a31b-b3c9-4d7b-a9f2-66681749cde3_png_jpg.rf.59bae0eb7fc9b0aa6992ea19eaf094ba.jpg",
+              "Dwarf-Gourami_original_132-png_2098a31b-b3c9-4d7b-a9f2-66681749cde3_png_jpg.rf.c272b848182004f16554137f737beb60.jpg"
+            ],
+            "split_b_images": [
+              "Dwarf-Gourami_original_132-png_2098a31b-b3c9-4d7b-a9f2-66681749cde3_png_jpg.rf.409fe46fe5f661ec4f29dbd264eeeb1b.jpg"
+            ]
+          },
+          {
+            "prefix": "Dwarf-Gourami_original_139-png_b32fe79e-4ea1-4387-a794-78e37f7547ee_png",
+            "split_a_images": [
+              "Dwarf-Gourami_original_139-png_b32fe79e-4ea1-4387-a794-78e37f7547ee_png_jpg.rf.56dfec7197302b16c0867c8160624bd4.jpg",
+              "Dwarf-Gourami_original_139-png_b32fe79e-4ea1-4387-a794-78e37f7547ee_png_jpg.rf.ace525af9c7d6cc0f13cdff37737e9fe.jpg"
+            ],
+            "split_b_images": [
+              "Dwarf-Gourami_original_139-png_b32fe79e-4ea1-4387-a794-78e37f7547ee_png_jpg.rf.da1b831bc10b7bf2daee930a4d13beeb.jpg"
+            ]
+          },
+          {
+            "prefix": "Dwarf-Gourami_original_140-png_2897a6fe-2234-4a84-9f7f-ce734e7851ed_png",
+            "split_a_images": [
+              "Dwarf-Gourami_original_140-png_2897a6fe-2234-4a84-9f7f-ce734e7851ed_png_jpg.rf.1a1c31c42927660bb489ebacebbad193.jpg",
+              "Dwarf-Gourami_original_140-png_2897a6fe-2234-4a84-9f7f-ce734e7851ed_png_jpg.rf.ccaa0af6f12165aebb872f91af6b4d0d.jpg"
+            ],
+            "split_b_images": [
+              "Dwarf-Gourami_original_140-png_2897a6fe-2234-4a84-9f7f-ce734e7851ed_png_jpg.rf.fd9855107f44238b8e845dbc99b7ccaa.jpg"
+            ]
+          },
+          {
+            "prefix": "Dwarf-Gourami_original_145-png_94e5c14a-22f4-4571-b45e-c955d69220e4_png",
+            "split_a_images": [
+              "Dwarf-Gourami_original_145-png_94e5c14a-22f4-4571-b45e-c955d69220e4_png_jpg.rf.1bc74262c77a95968fe22a9ee44afe8d.jpg",
+              "Dwarf-Gourami_original_145-png_94e5c14a-22f4-4571-b45e-c955d69220e4_png_jpg.rf.5bd2f31fc3bbed29a8bffb5a72ca2c51.jpg"
+            ],
+            "split_b_images": [
+              "Dwarf-Gourami_original_145-png_94e5c14a-22f4-4571-b45e-c955d69220e4_png_jpg.rf.2bb85fdd5937502a254b5becaef3fe0a.jpg"
+            ]
+          },
+          {
+            "prefix": "Dwarf-Gourami_original_160-png_64142878-7e23-40a1-8adc-5aa6f9a360f5_png",
+            "split_a_images": [
+              "Dwarf-Gourami_original_160-png_64142878-7e23-40a1-8adc-5aa6f9a360f5_png_jpg.rf.198e37563d80e2eb9ca85b49ff4f36fd.jpg",
+              "Dwarf-Gourami_original_160-png_64142878-7e23-40a1-8adc-5aa6f9a360f5_png_jpg.rf.3129602b33f60c3a5a791b0a428a1ea5.jpg"
+            ],
+            "split_b_images": [
+              "Dwarf-Gourami_original_160-png_64142878-7e23-40a1-8adc-5aa6f9a360f5_png_jpg.rf.ae9f79205837177699a3044756d5a575.jpg"
+            ]
+          },
+          {
+            "prefix": "Dwarf-Gourami_original_172-png_664c01bc-af06-4563-ace6-3c3f3116e77a_png",
+            "split_a_images": [
+              "Dwarf-Gourami_original_172-png_664c01bc-af06-4563-ace6-3c3f3116e77a_png_jpg.rf.4816f2e3a51fca46da81b067440c125e.jpg",
+              "Dwarf-Gourami_original_172-png_664c01bc-af06-4563-ace6-3c3f3116e77a_png_jpg.rf.e14ccb6671cdc53e87bac618b7f0ac53.jpg"
+            ],
+            "split_b_images": [
+              "Dwarf-Gourami_original_172-png_664c01bc-af06-4563-ace6-3c3f3116e77a_png_jpg.rf.3c88ffa5ac3aad5c4d61feed061b8d77.jpg"
+            ]
+          },
+          {
+            "prefix": "Dwarf-Gourami_original_180-png_e51ffc47-9395-418b-93e1-2c7b22a485fd_png",
+            "split_a_images": [
+              "Dwarf-Gourami_original_180-png_e51ffc47-9395-418b-93e1-2c7b22a485fd_png_jpg.rf.1ac2fa8940e087086ceee1a0dae7de11.jpg",
+              "Dwarf-Gourami_original_180-png_e51ffc47-9395-418b-93e1-2c7b22a485fd_png_jpg.rf.739af9362707fcc8160a6900ba6d9379.jpg"
+            ],
+            "split_b_images": [
+              "Dwarf-Gourami_original_180-png_e51ffc47-9395-418b-93e1-2c7b22a485fd_png_jpg.rf.3d202277c0595804c47c6f9920112c8b.jpg"
+            ]
+          },
+          {
+            "prefix": "Dwarf-Gourami_original_184-png_096a7516-d167-4bfa-bff3-efebb348ec39_png",
+            "split_a_images": [
+              "Dwarf-Gourami_original_184-png_096a7516-d167-4bfa-bff3-efebb348ec39_png_jpg.rf.a2627b1ca52feef0900ff99fc6b9a7c4.jpg",
+              "Dwarf-Gourami_original_184-png_096a7516-d167-4bfa-bff3-efebb348ec39_png_jpg.rf.c54a090dce3417347c6f23bc7f28f2ee.jpg"
+            ],
+            "split_b_images": [
+              "Dwarf-Gourami_original_184-png_096a7516-d167-4bfa-bff3-efebb348ec39_png_jpg.rf.ff231d659e5e07ad1f142fd4ac8fe28c.jpg"
+            ]
+          },
+          {
+            "prefix": "Dwarf-Gourami_original_189-png_7ffcbb05-3bff-429b-9393-8264f1922a5d_png",
+            "split_a_images": [
+              "Dwarf-Gourami_original_189-png_7ffcbb05-3bff-429b-9393-8264f1922a5d_png_jpg.rf.9af33460e1292786b550d5b66adf9290.jpg",
+              "Dwarf-Gourami_original_189-png_7ffcbb05-3bff-429b-9393-8264f1922a5d_png_jpg.rf.a4f51858447dd53804555b770a92610b.jpg"
+            ],
+            "split_b_images": [
+              "Dwarf-Gourami_original_189-png_7ffcbb05-3bff-429b-9393-8264f1922a5d_png_jpg.rf.1ec09b5c1073af1f6f44df5e23d84366.jpg"
+            ]
+          },
+          {
+            "prefix": "Dwarf-Gourami_original_19-png_adf57324-46f8-4098-83d8-cc60e141dc02_png",
+            "split_a_images": [
+              "Dwarf-Gourami_original_19-png_adf57324-46f8-4098-83d8-cc60e141dc02_png_jpg.rf.293d50d0fcfb81dd139fac7f7fd5cfb3.jpg",
+              "Dwarf-Gourami_original_19-png_adf57324-46f8-4098-83d8-cc60e141dc02_png_jpg.rf.452b88a5e2ad74959700943d349d6861.jpg"
+            ],
+            "split_b_images": [
+              "Dwarf-Gourami_original_19-png_adf57324-46f8-4098-83d8-cc60e141dc02_png_jpg.rf.46d201532dbaccec771ec701fb373c05.jpg"
+            ]
+          },
+          {
+            "prefix": "Dwarf-Gourami_original_211-png_ba58ffff-92b3-4ceb-8da8-e8980badc478_png",
+            "split_a_images": [
+              "Dwarf-Gourami_original_211-png_ba58ffff-92b3-4ceb-8da8-e8980badc478_png_jpg.rf.738845b4f0fc3dea82b64a907f5958a3.jpg",
+              "Dwarf-Gourami_original_211-png_ba58ffff-92b3-4ceb-8da8-e8980badc478_png_jpg.rf.fa9d1761dca0025482aa5a6441cfee91.jpg"
+            ],
+            "split_b_images": [
+              "Dwarf-Gourami_original_211-png_ba58ffff-92b3-4ceb-8da8-e8980badc478_png_jpg.rf.3c15b5a4113063dd87fda7689f7e1a69.jpg"
+            ]
+          },
+          {
+            "prefix": "Dwarf-Gourami_original_219-png_24092dd4-48a5-4dc8-a589-70a590a9c232_png",
+            "split_a_images": [
+              "Dwarf-Gourami_original_219-png_24092dd4-48a5-4dc8-a589-70a590a9c232_png_jpg.rf.243ac10a24239aca9496d47e418cddca.jpg",
+              "Dwarf-Gourami_original_219-png_24092dd4-48a5-4dc8-a589-70a590a9c232_png_jpg.rf.fd152854b3fc325c9e026958252c0331.jpg"
+            ],
+            "split_b_images": [
+              "Dwarf-Gourami_original_219-png_24092dd4-48a5-4dc8-a589-70a590a9c232_png_jpg.rf.b05453c43d9155b07d867197efefbca3.jpg"
+            ]
+          },
+          {
+            "prefix": "Dwarf-Gourami_original_22-png_bdceba3d-ee25-4d24-9d8f-3ad3c91e3389_png",
+            "split_a_images": [
+              "Dwarf-Gourami_original_22-png_bdceba3d-ee25-4d24-9d8f-3ad3c91e3389_png_jpg.rf.b458ce40e4e3363dd96457e3c99325b6.jpg",
+              "Dwarf-Gourami_original_22-png_bdceba3d-ee25-4d24-9d8f-3ad3c91e3389_png_jpg.rf.b6862e7fcfe1807034464dbebbebfb04.jpg"
+            ],
+            "split_b_images": [
+              "Dwarf-Gourami_original_22-png_bdceba3d-ee25-4d24-9d8f-3ad3c91e3389_png_jpg.rf.648addf9965fa906294a3f778e2311b5.jpg"
+            ]
+          }
+        ]
+      },
+      "valid_vs_test": {
+        "prefix_count": 69,
+        "prefixes": [
+          "Dwarf-Gourami_original_110-png_83337141-e155-4582-aee1-27ab8571e1d7_png",
+          "Dwarf-Gourami_original_114-png_885d85ef-c5c6-47e0-ae49-7135de57fb5d_png",
+          "Dwarf-Gourami_original_115-png_61aaab93-690b-44ed-9ff2-6c15edf6fa8e_png",
+          "Dwarf-Gourami_original_125-png_84fd3562-3fa9-4318-a380-a6472226f256_png",
+          "Dwarf-Gourami_original_17-png_fb665b64-ac77-414d-9cd1-c72c0ab58710_png",
+          "Dwarf-Gourami_original_180-png_3ba1664c-f775-4f3c-93dc-80ba24cfadf7_png",
+          "Dwarf-Gourami_original_189-png_e7abb3b0-abc9-4db5-ad01-49e6add53d3f_png",
+          "Dwarf-Gourami_original_243-png_6e8d831b-6bb8-4b42-9610-cad41a8625d4_png",
+          "Dwarf-Gourami_original_271-png_dc58a313-a753-4b45-aff8-b116958248d6_png",
+          "Dwarf-Gourami_original_392-png_aac0d21e-89b8-4262-983e-0bbe4d022a35_png",
+          "Dwarf-Gourami_original_408-png_23cb953b-2068-43dd-bc3a-9435d79af762_png",
+          "Dwarf-Gourami_original_440-png_3c9dab40-5b70-4bd4-98dd-6d565c761300_png",
+          "Dwarf-Gourami_original_443-png_a2279ba9-dd3f-4a76-a244-da25b479b6db_png",
+          "Dwarf-Gourami_original_45-png_7a58d95f-9358-4377-bac5-98bfb8e67475_png",
+          "Dwarf-Gourami_original_47-png_df3ead78-44dc-4a7d-a3c1-343222143ee2_png",
+          "Dwarf-Gourami_original_513-png_f0bcad7c-db9f-46c5-9b25-d4f82e318263_png",
+          "Dwarf-Gourami_original_516-png_ef5218c2-d547-41ee-ab3d-ce0def3ff656_png",
+          "Dwarf-Gourami_original_592-png_6152ccea-c7a4-449a-af04-06fa2c5b3900_png",
+          "Dwarf-Gourami_original_603-png_e14e27e3-ad5a-4ded-9091-5795bcb40f51_png",
+          "Dwarf-Gourami_original_606-png_4757fbb8-d280-4b6f-9e1a-7d11704d1dae_png",
+          "Dwarf-Gourami_original_616-png_ade4f458-c205-49b0-9b34-28879198eef4_png",
+          "Dwarf-Gourami_original_620-png_a6ad6ad5-8f66-4b17-b9aa-7a8a543beda3_png",
+          "Dwarf-Gourami_original_79-png_154aa5b2-1a27-43bf-8736-3be6fc24ffdf_png",
+          "Dwarf-Gourami_original_88-png_f3fe91ed-b1ae-4fd1-98d9-975ad1f4a2d0_png",
+          "Dwarf-Gourami_original_gbif-8-png_528c0ce1-ea4c-4bc9-9ba0-67e4fb3d2bb7_png",
+          "Paracanthurus_hepatus_Prague_2011_2",
+          "TANG-HIPPO-YELLOW-BELLY-Paracanthurus-hepatus",
+          "Tang-Blue-Hippo-Paracanthurus-hepatus-1",
+          "Zebrafish-Green-4-_png",
+          "Zebrafish-Not-Green-128-_png",
+          "Zebrafish-Not-Green-130-_png",
+          "Zebrafish-Not-Green-189-_png",
+          "Zebrafish-Not-Green-202-_png",
+          "Zebrafish-Not-Green-203-_png",
+          "Zebrafish-Not-Green-215-_png",
+          "Zebrafish-Not-Green-216-_png",
+          "Zebrafish-Not-Green-243-_png",
+          "Zebrafish-Not-Green-246-_png",
+          "Zebrafish-Not-Green-249-_png",
+          "Zebrafish-Not-Green-265-_png",
+          "Zebrafish-Not-Green-298-_png",
+          "Zebrafish-Not-Green-312-_png",
+          "Zebrafish-Not-Green-324-_png",
+          "Zebrafish-Not-Green-332-_png",
+          "Zebrafish-Not-Green-340-_png",
+          "Zebrafish-Not-Green-353-_png",
+          "Zebrafish-Not-Green-358-_png",
+          "Zebrafish-Not-Green-363-_png",
+          "Zebrafish-Not-Green-378-_png",
+          "Zebrafish-Not-Green-407-_png",
+          "Zebrafish-Not-Green-87-_png",
+          "batch_ytvideo_165_molly_105",
+          "batch_ytvideo_165_molly_122",
+          "batch_ytvideo_165_molly_129",
+          "batch_ytvideo_165_molly_57",
+          "batch_ytvideo_91_goldfish_10",
+          "batch_ytvideo_91_goldfish_13",
+          "batch_ytvideo_91_goldfish_72",
+          "batch_ytvideo_91_goldfish_80",
+          "gbif-4-_png",
+          "images-74-_jpeg",
+          "images-79-_jpeg",
+          "videoplayback_mp4-0",
+          "videoplayback_mp4-13",
+          "videoplayback_mp4-2",
+          "videoplayback_mp4-23",
+          "videoplayback_mp4-25",
+          "youtube-10",
+          "youtube-20"
+        ],
+        "examples": [
+          {
+            "prefix": "Dwarf-Gourami_original_110-png_83337141-e155-4582-aee1-27ab8571e1d7_png",
+            "split_a_images": [
+              "Dwarf-Gourami_original_110-png_83337141-e155-4582-aee1-27ab8571e1d7_png_jpg.rf.851c0b628161a89bfbcd17a54aceaf8a.jpg"
+            ],
+            "split_b_images": [
+              "Dwarf-Gourami_original_110-png_83337141-e155-4582-aee1-27ab8571e1d7_png_jpg.rf.05e191a1f551477219a89cba6138b337.jpg"
+            ]
+          },
+          {
+            "prefix": "Dwarf-Gourami_original_114-png_885d85ef-c5c6-47e0-ae49-7135de57fb5d_png",
+            "split_a_images": [
+              "Dwarf-Gourami_original_114-png_885d85ef-c5c6-47e0-ae49-7135de57fb5d_png_jpg.rf.f32e93f22f7c6fbb8d7c8b48ec3c2659.jpg"
+            ],
+            "split_b_images": [
+              "Dwarf-Gourami_original_114-png_885d85ef-c5c6-47e0-ae49-7135de57fb5d_png_jpg.rf.2ceaa8c1be7fbb19b1d84c056d073b29.jpg"
+            ]
+          },
+          {
+            "prefix": "Dwarf-Gourami_original_115-png_61aaab93-690b-44ed-9ff2-6c15edf6fa8e_png",
+            "split_a_images": [
+              "Dwarf-Gourami_original_115-png_61aaab93-690b-44ed-9ff2-6c15edf6fa8e_png_jpg.rf.0acead49c43a7b33c7ee9d99915dbf7d.jpg"
+            ],
+            "split_b_images": [
+              "Dwarf-Gourami_original_115-png_61aaab93-690b-44ed-9ff2-6c15edf6fa8e_png_jpg.rf.7c0acd8c6f0c83b4962c9b213806802e.jpg"
+            ]
+          },
+          {
+            "prefix": "Dwarf-Gourami_original_125-png_84fd3562-3fa9-4318-a380-a6472226f256_png",
+            "split_a_images": [
+              "Dwarf-Gourami_original_125-png_84fd3562-3fa9-4318-a380-a6472226f256_png_jpg.rf.d762be0c25f6e85326d24a3c72192a12.jpg"
+            ],
+            "split_b_images": [
+              "Dwarf-Gourami_original_125-png_84fd3562-3fa9-4318-a380-a6472226f256_png_jpg.rf.aef8930ffb9dfe7e7a89b8774993f0cb.jpg"
+            ]
+          },
+          {
+            "prefix": "Dwarf-Gourami_original_17-png_fb665b64-ac77-414d-9cd1-c72c0ab58710_png",
+            "split_a_images": [
+              "Dwarf-Gourami_original_17-png_fb665b64-ac77-414d-9cd1-c72c0ab58710_png_jpg.rf.6746e1ba9264f361a1b373cb5e0237ed.jpg"
+            ],
+            "split_b_images": [
+              "Dwarf-Gourami_original_17-png_fb665b64-ac77-414d-9cd1-c72c0ab58710_png_jpg.rf.b1ec98ea81d6ec5720f8732bae5a592b.jpg"
+            ]
+          },
+          {
+            "prefix": "Dwarf-Gourami_original_180-png_3ba1664c-f775-4f3c-93dc-80ba24cfadf7_png",
+            "split_a_images": [
+              "Dwarf-Gourami_original_180-png_3ba1664c-f775-4f3c-93dc-80ba24cfadf7_png_jpg.rf.dc828786e20d2ce1c2886364a88470c3.jpg"
+            ],
+            "split_b_images": [
+              "Dwarf-Gourami_original_180-png_3ba1664c-f775-4f3c-93dc-80ba24cfadf7_png_jpg.rf.be49c838304d049c8036282f241ec7ad.jpg"
+            ]
+          },
+          {
+            "prefix": "Dwarf-Gourami_original_189-png_e7abb3b0-abc9-4db5-ad01-49e6add53d3f_png",
+            "split_a_images": [
+              "Dwarf-Gourami_original_189-png_e7abb3b0-abc9-4db5-ad01-49e6add53d3f_png_jpg.rf.bb247f99f9a388e5810e4fc3f99f4f19.jpg"
+            ],
+            "split_b_images": [
+              "Dwarf-Gourami_original_189-png_e7abb3b0-abc9-4db5-ad01-49e6add53d3f_png_jpg.rf.9b0f77a26ab4507f79585711999fa575.jpg"
+            ]
+          },
+          {
+            "prefix": "Dwarf-Gourami_original_243-png_6e8d831b-6bb8-4b42-9610-cad41a8625d4_png",
+            "split_a_images": [
+              "Dwarf-Gourami_original_243-png_6e8d831b-6bb8-4b42-9610-cad41a8625d4_png_jpg.rf.ed997ae503c1e37214807d25de869f8f.jpg"
+            ],
+            "split_b_images": [
+              "Dwarf-Gourami_original_243-png_6e8d831b-6bb8-4b42-9610-cad41a8625d4_png_jpg.rf.a88f3d852cc363c73b269c7e600a8b6a.jpg"
+            ]
+          },
+          {
+            "prefix": "Dwarf-Gourami_original_271-png_dc58a313-a753-4b45-aff8-b116958248d6_png",
+            "split_a_images": [
+              "Dwarf-Gourami_original_271-png_dc58a313-a753-4b45-aff8-b116958248d6_png_jpg.rf.b9c2152d0dd0c2f9cb1ee7466ae90051.jpg"
+            ],
+            "split_b_images": [
+              "Dwarf-Gourami_original_271-png_dc58a313-a753-4b45-aff8-b116958248d6_png_jpg.rf.06c02a2985d0914e0d101319aa813e0c.jpg"
+            ]
+          },
+          {
+            "prefix": "Dwarf-Gourami_original_392-png_aac0d21e-89b8-4262-983e-0bbe4d022a35_png",
+            "split_a_images": [
+              "Dwarf-Gourami_original_392-png_aac0d21e-89b8-4262-983e-0bbe4d022a35_png_jpg.rf.7e3156860f1f7e5b4682768b41466a7d.jpg"
+            ],
+            "split_b_images": [
+              "Dwarf-Gourami_original_392-png_aac0d21e-89b8-4262-983e-0bbe4d022a35_png_jpg.rf.469de3af3443bb1bab15a7fdcd70a4ea.jpg"
+            ]
+          },
+          {
+            "prefix": "Dwarf-Gourami_original_408-png_23cb953b-2068-43dd-bc3a-9435d79af762_png",
+            "split_a_images": [
+              "Dwarf-Gourami_original_408-png_23cb953b-2068-43dd-bc3a-9435d79af762_png_jpg.rf.3e6acd2b66433ec5ab595b84dd001a30.jpg"
+            ],
+            "split_b_images": [
+              "Dwarf-Gourami_original_408-png_23cb953b-2068-43dd-bc3a-9435d79af762_png_jpg.rf.8424e94d65b59019d6f9c0fd6ce815e2.jpg"
+            ]
+          },
+          {
+            "prefix": "Dwarf-Gourami_original_440-png_3c9dab40-5b70-4bd4-98dd-6d565c761300_png",
+            "split_a_images": [
+              "Dwarf-Gourami_original_440-png_3c9dab40-5b70-4bd4-98dd-6d565c761300_png_jpg.rf.38a6553f5066d04bc25f198ad9340efc.jpg"
+            ],
+            "split_b_images": [
+              "Dwarf-Gourami_original_440-png_3c9dab40-5b70-4bd4-98dd-6d565c761300_png_jpg.rf.a821e649ee44fe75bee564aa00fe085a.jpg"
+            ]
+          },
+          {
+            "prefix": "Dwarf-Gourami_original_443-png_a2279ba9-dd3f-4a76-a244-da25b479b6db_png",
+            "split_a_images": [
+              "Dwarf-Gourami_original_443-png_a2279ba9-dd3f-4a76-a244-da25b479b6db_png_jpg.rf.041a582799f1cf4a7f4910919745ccde.jpg"
+            ],
+            "split_b_images": [
+              "Dwarf-Gourami_original_443-png_a2279ba9-dd3f-4a76-a244-da25b479b6db_png_jpg.rf.f98e8dea8ef4ab8ff16d679b3c21a851.jpg"
+            ]
+          },
+          {
+            "prefix": "Dwarf-Gourami_original_45-png_7a58d95f-9358-4377-bac5-98bfb8e67475_png",
+            "split_a_images": [
+              "Dwarf-Gourami_original_45-png_7a58d95f-9358-4377-bac5-98bfb8e67475_png_jpg.rf.c809c677175dacab94da060900687160.jpg"
+            ],
+            "split_b_images": [
+              "Dwarf-Gourami_original_45-png_7a58d95f-9358-4377-bac5-98bfb8e67475_png_jpg.rf.b3368fa26d0ae4fca4d257c25febc1be.jpg"
+            ]
+          },
+          {
+            "prefix": "Dwarf-Gourami_original_47-png_df3ead78-44dc-4a7d-a3c1-343222143ee2_png",
+            "split_a_images": [
+              "Dwarf-Gourami_original_47-png_df3ead78-44dc-4a7d-a3c1-343222143ee2_png_jpg.rf.dba5917f1f321156b9e4ffcd37602541.jpg"
+            ],
+            "split_b_images": [
+              "Dwarf-Gourami_original_47-png_df3ead78-44dc-4a7d-a3c1-343222143ee2_png_jpg.rf.bc6c644188c0dd96ecc425e37a209b92.jpg"
+            ]
+          },
+          {
+            "prefix": "Dwarf-Gourami_original_513-png_f0bcad7c-db9f-46c5-9b25-d4f82e318263_png",
+            "split_a_images": [
+              "Dwarf-Gourami_original_513-png_f0bcad7c-db9f-46c5-9b25-d4f82e318263_png_jpg.rf.ca9413f6f2e88d80eb7fa41c706232f3.jpg"
+            ],
+            "split_b_images": [
+              "Dwarf-Gourami_original_513-png_f0bcad7c-db9f-46c5-9b25-d4f82e318263_png_jpg.rf.bd64bbaf36371d080baeddb5649cb912.jpg"
+            ]
+          },
+          {
+            "prefix": "Dwarf-Gourami_original_516-png_ef5218c2-d547-41ee-ab3d-ce0def3ff656_png",
+            "split_a_images": [
+              "Dwarf-Gourami_original_516-png_ef5218c2-d547-41ee-ab3d-ce0def3ff656_png_jpg.rf.624f1ab10c794a4b32d88ea9896b8b5c.jpg"
+            ],
+            "split_b_images": [
+              "Dwarf-Gourami_original_516-png_ef5218c2-d547-41ee-ab3d-ce0def3ff656_png_jpg.rf.0eb6c3f826b1fc19dff1d2ec0da70365.jpg"
+            ]
+          },
+          {
+            "prefix": "Dwarf-Gourami_original_592-png_6152ccea-c7a4-449a-af04-06fa2c5b3900_png",
+            "split_a_images": [
+              "Dwarf-Gourami_original_592-png_6152ccea-c7a4-449a-af04-06fa2c5b3900_png_jpg.rf.493bbbbd41b5d99ceaa3b5cde5a918e3.jpg"
+            ],
+            "split_b_images": [
+              "Dwarf-Gourami_original_592-png_6152ccea-c7a4-449a-af04-06fa2c5b3900_png_jpg.rf.315d6f42ea8ab8602e3df0bbf15043d8.jpg"
+            ]
+          },
+          {
+            "prefix": "Dwarf-Gourami_original_603-png_e14e27e3-ad5a-4ded-9091-5795bcb40f51_png",
+            "split_a_images": [
+              "Dwarf-Gourami_original_603-png_e14e27e3-ad5a-4ded-9091-5795bcb40f51_png_jpg.rf.9397bbaf70ed86043633b3e3bf287566.jpg"
+            ],
+            "split_b_images": [
+              "Dwarf-Gourami_original_603-png_e14e27e3-ad5a-4ded-9091-5795bcb40f51_png_jpg.rf.194527f8caf483043435eddbe68913c3.jpg"
+            ]
+          },
+          {
+            "prefix": "Dwarf-Gourami_original_606-png_4757fbb8-d280-4b6f-9e1a-7d11704d1dae_png",
+            "split_a_images": [
+              "Dwarf-Gourami_original_606-png_4757fbb8-d280-4b6f-9e1a-7d11704d1dae_png_jpg.rf.9579fa89bce0fc32421d446370038bd7.jpg"
+            ],
+            "split_b_images": [
+              "Dwarf-Gourami_original_606-png_4757fbb8-d280-4b6f-9e1a-7d11704d1dae_png_jpg.rf.65f5f33529dbb24174202818b2844cba.jpg"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "clean_test_candidate": {
+    "test_images": 697,
+    "excluded_images": 298,
+    "clean_images": 399,
+    "excluded_by_reason": {
+      "source_prefix_train": 212,
+      "exact_duplicate_train": 34,
+      "source_prefix_valid": 70
+    },
+    "excluded_examples": [
+      {
+        "file": "10_jpeg.rf.94951c0379fe621911e4e48a35dc44e1.jpg",
+        "prefix": "10",
+        "reasons": [
+          "source_prefix_train"
+        ]
+      },
+      {
+        "file": "27810124356_df827be192_b_jpg.rf.f00300dea06207e8a40f4bc3de9dd277.jpg",
+        "prefix": "27810124356_df827be192_b",
+        "reasons": [
+          "source_prefix_train"
+        ]
+      },
+      {
+        "file": "AngelFish_image_13_jpg.rf.ca64f0168ac171c893555712df9b2c37.jpg",
+        "prefix": "AngelFish_image_13",
+        "reasons": [
+          "exact_duplicate_train"
+        ]
+      },
+      {
+        "file": "AngelFish_image_151_jpg.rf.6d5ca0a07fa4950e3f9981d731bd1520.jpg",
+        "prefix": "AngelFish_image_151",
+        "reasons": [
+          "exact_duplicate_train"
+        ]
+      },
+      {
+        "file": "AngelFish_image_164_jpg.rf.3e365ba7f289db0acc8dfddf41dc755c.jpg",
+        "prefix": "AngelFish_image_164",
+        "reasons": [
+          "exact_duplicate_train"
+        ]
+      },
+      {
+        "file": "AngelFish_image_180_jpg.rf.902e7ec04f4e28123af1e21d284ad4b0.jpg",
+        "prefix": "AngelFish_image_180",
+        "reasons": [
+          "exact_duplicate_train"
+        ]
+      },
+      {
+        "file": "AngelFish_image_206_jpg.rf.d3ea56b5031823409e6cf7f1bd1a90f1.jpg",
+        "prefix": "AngelFish_image_206",
+        "reasons": [
+          "exact_duplicate_train"
+        ]
+      },
+      {
+        "file": "AngelFish_image_215_jpg.rf.c9fe5d0353fef7a5582c0e37e29a156d.jpg",
+        "prefix": "AngelFish_image_215",
+        "reasons": [
+          "exact_duplicate_train"
+        ]
+      },
+      {
+        "file": "AngelFish_image_216_jpg.rf.dee80c558cd44e37e60db78af0bfef2b.jpg",
+        "prefix": "AngelFish_image_216",
+        "reasons": [
+          "exact_duplicate_train"
+        ]
+      },
+      {
+        "file": "AngelFish_image_233_jpg.rf.b43a63b5247f9b9ecb6dfd271780e490.jpg",
+        "prefix": "AngelFish_image_233",
+        "reasons": [
+          "exact_duplicate_train"
+        ]
+      },
+      {
+        "file": "AngelFish_image_250_jpg.rf.66595748cafe9b72f742d829d39182e9.jpg",
+        "prefix": "AngelFish_image_250",
+        "reasons": [
+          "exact_duplicate_train"
+        ]
+      },
+      {
+        "file": "AngelFish_image_272_jpg.rf.be77b19f32fb06736fca14f697b562c0.jpg",
+        "prefix": "AngelFish_image_272",
+        "reasons": [
+          "source_prefix_train"
+        ]
+      },
+      {
+        "file": "AngelFish_image_301_jpg.rf.d43f058f9652a69cd14b223216975ec6.jpg",
+        "prefix": "AngelFish_image_301",
+        "reasons": [
+          "exact_duplicate_train"
+        ]
+      },
+      {
+        "file": "AngelFish_image_305_jpg.rf.c69babd02b887d14565df96e28e7aa78.jpg",
+        "prefix": "AngelFish_image_305",
+        "reasons": [
+          "exact_duplicate_train"
+        ]
+      },
+      {
+        "file": "AngelFish_image_306_jpg.rf.996eb9e44de17c53246b92cecef8ba49.jpg",
+        "prefix": "AngelFish_image_306",
+        "reasons": [
+          "exact_duplicate_train"
+        ]
+      },
+      {
+        "file": "AngelFish_image_309_jpg.rf.9ca74d3ed4c9a6d1a877c69363dc7be8.jpg",
+        "prefix": "AngelFish_image_309",
+        "reasons": [
+          "exact_duplicate_train"
+        ]
+      },
+      {
+        "file": "AngelFish_image_316_jpg.rf.cbdde08bf46aecd9692d16a296f9d3b0.jpg",
+        "prefix": "AngelFish_image_316",
+        "reasons": [
+          "exact_duplicate_train"
+        ]
+      },
+      {
+        "file": "AngelFish_image_317_jpg.rf.62f25e2e461926fbc08092b5840dcc47.jpg",
+        "prefix": "AngelFish_image_317",
+        "reasons": [
+          "exact_duplicate_train"
+        ]
+      },
+      {
+        "file": "AngelFish_image_320_jpg.rf.83e7e32ae0e4000d2e13a2e8f4161dc2.jpg",
+        "prefix": "AngelFish_image_320",
+        "reasons": [
+          "exact_duplicate_train"
+        ]
+      },
+      {
+        "file": "AngelFish_image_334_jpg.rf.5f518584f58420c13cd44915748ae1a0.jpg",
+        "prefix": "AngelFish_image_334",
+        "reasons": [
+          "exact_duplicate_train"
+        ]
+      },
+      {
+        "file": "AngelFish_image_335_jpg.rf.ac3e1b7c0f88e9ff6137def7ebffac46.jpg",
+        "prefix": "AngelFish_image_335",
+        "reasons": [
+          "exact_duplicate_train"
+        ]
+      },
+      {
+        "file": "AngelFish_image_352_jpg.rf.a57062020dd3e1aaf43a1bc5b1ff4fd0.jpg",
+        "prefix": "AngelFish_image_352",
+        "reasons": [
+          "exact_duplicate_train"
+        ]
+      },
+      {
+        "file": "AngelFish_image_371_jpg.rf.de810babffdb94f0e15904bb32a10c51.jpg",
+        "prefix": "AngelFish_image_371",
+        "reasons": [
+          "exact_duplicate_train"
+        ]
+      },
+      {
+        "file": "AngelFish_image_42_jpg.rf.68c2a77989e5775e18aa5c25e2d19e46.jpg",
+        "prefix": "AngelFish_image_42",
+        "reasons": [
+          "exact_duplicate_train"
+        ]
+      },
+      {
+        "file": "AngelFish_image_46_jpg.rf.6c91e8ce5c0570427616480a9b9eb5ff.jpg",
+        "prefix": "AngelFish_image_46",
+        "reasons": [
+          "exact_duplicate_train"
+        ]
+      },
+      {
+        "file": "AngelFish_image_47_jpg.rf.83b77241689b6c7efef5bc937151e7d9.jpg",
+        "prefix": "AngelFish_image_47",
+        "reasons": [
+          "exact_duplicate_train"
+        ]
+      },
+      {
+        "file": "AngelFish_image_49_jpg.rf.05a8f8fa0e10da7f1226348d19b0fefd.jpg",
+        "prefix": "AngelFish_image_49",
+        "reasons": [
+          "exact_duplicate_train"
+        ]
+      },
+      {
+        "file": "AngelFish_image_55_jpg.rf.3f99b3e1d51f6c5551248fa027751c85.jpg",
+        "prefix": "AngelFish_image_55",
+        "reasons": [
+          "exact_duplicate_train"
+        ]
+      },
+      {
+        "file": "AngelFish_image_56_jpg.rf.df8c5083ed06b3d800c3f7b5548fb06c.jpg",
+        "prefix": "AngelFish_image_56",
+        "reasons": [
+          "exact_duplicate_train"
+        ]
+      },
+      {
+        "file": "AngelFish_image_57_jpg.rf.eddfb07436b191a0153a88c9b7b5d8cd.jpg",
+        "prefix": "AngelFish_image_57",
+        "reasons": [
+          "exact_duplicate_train"
+        ]
+      }
+    ],
+    "clean_instances_total": 639,
+    "clean_polygon_derived_boxes": 23,
+    "clean_class_counts": {
+      "AngelFish": 173,
+      "BlueTang": 50,
+      "ButterflyFish": 2,
+      "ClownFish": 128,
+      "GoldFish": 20,
+      "Gourami": 10,
+      "MorishIdol": 14,
+      "PlatyFish": 43,
+      "RibbonedSweetlips": 8,
+      "ThreeStripedDamselfish": 36,
+      "YellowCichlid": 86,
+      "YellowTang": 65,
+      "ZebraFish": 4
+    },
+    "clean_classes_without_instances": []
+  },
+  "test_sample": {
+    "path": "D:\\Underwater-Fish-Classification-YOLOv8-master\\Underwater-Fish-Classification-YOLOv8-master\\test_sample",
+    "images": 40,
+    "labels": 0,
+    "labels_directory_exists": false,
+    "exact_duplicate_with_dataset": 39,
+    "exact_duplicate_examples": [
+      "10_jpeg.rf.94951c0379fe621911e4e48a35dc44e1.jpg",
+      "13_jpeg.rf.e9aefe712874f442cb303ffecee5025e.jpg",
+      "3-stripe-damsel_jpeg.rf.0dbc05009e67e92d465df6537438cc8c.jpg",
+      "3-striped-damselfish_jpeg.rf.b98f0fb4295dfa60feb74b4062b65458.jpg",
+      "Amphiprion_percula_jpeg_jpg.rf.a905a41dc435727a27f36b1ce0adb5bf.jpg",
+      "AmphiprionPercula-121-_jpg.rf.db393c029288707d38b91c64f54f5b76.jpg",
+      "AngelFish_image_12_jpg.rf.2890871d4666df04bfd6dfcd6ca77ce7.jpg",
+      "AngelFish_image_13_jpg.rf.ca64f0168ac171c893555712df9b2c37.jpg",
+      "batch_1_34_goldfish_16_jpg.rf.73d3b54fcd78397e84ddf0279b677a85.jpg",
+      "batch_1_34_goldfish_20_jpg.rf.23c0122b0663b999cd86d97a8c3b879e.jpg",
+      "batch_1_34_goldfish_24_jpg.rf.be51dc4fca15814ee94d540f4a6357bf.jpg",
+      "ClownFish_image_14_jpg.rf.d241b23b0003683c6b3024be645044f1.jpg",
+      "ClownFish_image_16_jpg.rf.91c3882da1eeb4490a477042216d71b1.jpg",
+      "ClownFish_image_17_jpg.rf.30526e374dfff969c7190dbf40ceb23b.jpg",
+      "Dwarf-Gourami_original_6-png_a4d546cd-f507-44b9-943e-2c46c6f38ac5_png_jpg.rf.8dd538d39ac6f93105e2f0fa4dd639d3.jpg",
+      "Dwarf-Gourami_original_8-png_73b8d52e-2133-4d11-8251-0a6f0bc554d2_png_jpg.rf.afafc76f78dea628a0016569eacfb84a.jpg",
+      "iStock_91240281_SMALL_jpg.rf.0ffce9d63425690f897b1d62c29d6bff.jpg",
+      "iStock_91240281_SMALL_jpg.rf.4e7ce2b89ae7b466e0266871db7070af.jpg",
+      "istockphoto-953181086-612x612_jpeg.rf.cf89b35e5f62362099339c034b25d146.jpg",
+      "moorish_idol_16_jpg.rf.1f2e66058c1cfeb848c2ffb0b10e10ba.jpg"
+    ],
+    "source_prefix_overlap_with_dataset": 39,
+    "source_prefix_overlap_examples": [
+      {
+        "file": "10_jpeg.rf.94951c0379fe621911e4e48a35dc44e1.jpg",
+        "prefix": "10"
+      },
+      {
+        "file": "13_jpeg.rf.e9aefe712874f442cb303ffecee5025e.jpg",
+        "prefix": "13"
+      },
+      {
+        "file": "3-stripe-damsel_jpeg.rf.0dbc05009e67e92d465df6537438cc8c.jpg",
+        "prefix": "3-stripe-damsel"
+      },
+      {
+        "file": "3-striped-damselfish_jpeg.rf.b98f0fb4295dfa60feb74b4062b65458.jpg",
+        "prefix": "3-striped-damselfish"
+      },
+      {
+        "file": "Amphiprion_percula_jpeg_jpg.rf.a905a41dc435727a27f36b1ce0adb5bf.jpg",
+        "prefix": "Amphiprion_percula_jpeg"
+      },
+      {
+        "file": "AmphiprionPercula-121-_jpg.rf.db393c029288707d38b91c64f54f5b76.jpg",
+        "prefix": "AmphiprionPercula-121-"
+      },
+      {
+        "file": "AngelFish_image_12_jpg.rf.2890871d4666df04bfd6dfcd6ca77ce7.jpg",
+        "prefix": "AngelFish_image_12"
+      },
+      {
+        "file": "AngelFish_image_13_jpg.rf.ca64f0168ac171c893555712df9b2c37.jpg",
+        "prefix": "AngelFish_image_13"
+      },
+      {
+        "file": "batch_1_34_goldfish_16_jpg.rf.73d3b54fcd78397e84ddf0279b677a85.jpg",
+        "prefix": "batch_1_34_goldfish_16"
+      },
+      {
+        "file": "batch_1_34_goldfish_20_jpg.rf.23c0122b0663b999cd86d97a8c3b879e.jpg",
+        "prefix": "batch_1_34_goldfish_20"
+      },
+      {
+        "file": "batch_1_34_goldfish_24_jpg.rf.be51dc4fca15814ee94d540f4a6357bf.jpg",
+        "prefix": "batch_1_34_goldfish_24"
+      },
+      {
+        "file": "ClownFish_image_14_jpg.rf.d241b23b0003683c6b3024be645044f1.jpg",
+        "prefix": "ClownFish_image_14"
+      },
+      {
+        "file": "ClownFish_image_16_jpg.rf.91c3882da1eeb4490a477042216d71b1.jpg",
+        "prefix": "ClownFish_image_16"
+      },
+      {
+        "file": "ClownFish_image_17_jpg.rf.30526e374dfff969c7190dbf40ceb23b.jpg",
+        "prefix": "ClownFish_image_17"
+      },
+      {
+        "file": "Dwarf-Gourami_original_6-png_a4d546cd-f507-44b9-943e-2c46c6f38ac5_png_jpg.rf.8dd538d39ac6f93105e2f0fa4dd639d3.jpg",
+        "prefix": "Dwarf-Gourami_original_6-png_a4d546cd-f507-44b9-943e-2c46c6f38ac5_png"
+      },
+      {
+        "file": "Dwarf-Gourami_original_8-png_73b8d52e-2133-4d11-8251-0a6f0bc554d2_png_jpg.rf.afafc76f78dea628a0016569eacfb84a.jpg",
+        "prefix": "Dwarf-Gourami_original_8-png_73b8d52e-2133-4d11-8251-0a6f0bc554d2_png"
+      },
+      {
+        "file": "iStock_91240281_SMALL_jpg.rf.0ffce9d63425690f897b1d62c29d6bff.jpg",
+        "prefix": "iStock_91240281_SMALL"
+      },
+      {
+        "file": "iStock_91240281_SMALL_jpg.rf.4e7ce2b89ae7b466e0266871db7070af.jpg",
+        "prefix": "iStock_91240281_SMALL"
+      },
+      {
+        "file": "istockphoto-953181086-612x612_jpeg.rf.cf89b35e5f62362099339c034b25d146.jpg",
+        "prefix": "istockphoto-953181086-612x612"
+      },
+      {
+        "file": "moorish_idol_16_jpg.rf.1f2e66058c1cfeb848c2ffb0b10e10ba.jpg",
+        "prefix": "moorish_idol_16"
+      }
+    ],
+    "is_independent_annotated_dataset": false
+  },
+  "videos": {
+    "video_files_found": [],
+    "real_fish_video_available": false
+  }
+}

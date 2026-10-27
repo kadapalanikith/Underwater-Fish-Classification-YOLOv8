@@ -181,7 +181,7 @@ export default function ContactPage() {
             <h2 style={{ color: '#fff', fontSize: '1.6rem' }}>Academic Affiliation</h2>
           </div>
           <p style={{ color: '#9aafcc', maxWidth: '500px', margin: '0 auto', fontSize: '0.95rem', lineHeight: 1.7 }}>
-            This project is affiliated with the Department of Computer Science &amp; Engineering and is targeting IEEE publication in the domain of marine AI and computer vision.
+            This is an academic project demonstration. Publication or peer review in marine AI and computer vision has not been verified.
           </p>
         </div>
       </section>

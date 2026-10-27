@@ -11,4 +11,4 @@ client/dist
 .DS_Store
 dataset
 notebooks
-test_sample
+qualitative_samples

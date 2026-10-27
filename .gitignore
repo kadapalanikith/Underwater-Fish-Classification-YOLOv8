@@ -18,7 +18,7 @@ datasets/
 data/
 outputs/
 /Dataset/
-/test_sample/
+/qualitative_samples/
 /external_data/
 !/external_data/
 /external_data/*

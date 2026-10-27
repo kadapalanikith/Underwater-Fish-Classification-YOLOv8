@@ -126,7 +126,7 @@ Unknown until the pilot. Do not extrapolate from COCO benchmarks or from CPU lat
 - GPU OOM at batch 1 / 512 px: stop and report configuration options.
 - No approved `yolov8n.pt`: do not run Tier 1; use Tier 2 only with its limitation.
 - Data leakage or class mismatch: stop and inspect before training.
-- Missing `test_clean` or `test_full` labels: do not substitute `test_sample`.
+- Missing `test_clean` or `test_full` labels: do not substitute `qualitative_samples`.
 - Any request to report RT-DETR as fish-accurate without fine-tuning: refuse and explain that the existing checkpoint is COCO-pretrained.
 
 ## Approval gates

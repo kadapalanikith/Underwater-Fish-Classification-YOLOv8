@@ -96,7 +96,7 @@ The RT-DETR timing numbers compare inference runtimes for checkpoints trained fo
 3. A fair RT-DETR accuracy study requires fish fine-tuning, a verified compatible GPU environment, and a matched evaluation protocol. No such training has been run.
 4. The DIGI4ECO clip is from the same OBSEA domain as the external image evaluation. The video decodes to 148 frames although annotations cover 150; 14 boxes beyond the clip were excluded. The tested model produced no track IDs and missed all six crossings. Threshold or tracker tuning must use separate development footage before a new held-out video is used for evaluation.
 5. The environment lacks a Python lock file; exact dependency recreation is not guaranteed.
-6. A heuristic credential-pattern scan of the release branch's staged files and available Git history found no matches. This is not an exhaustive audit for every secret format or every remote history state.
+6. Earlier tracked notebook history contained a hard-coded Kaggle credential. The current notebook files are sanitized, but the credential remains in earlier Git history and should be revoked. No history rewrite was performed as part of this project organization.
 7. Existing metrics are saved artifacts described by their provenance. They have not all been rerun in this manuscript preparation pass.
 
 ## 6. Conclusion
@@ -113,7 +113,7 @@ The project provides a fish-detection application and documented local, enhancem
 | Enhancement accuracy | `scratch/run_enhancement_accuracy.py`, `outputs/enhancement_accuracy_test_clean.json` |
 | OBSEA evaluation | `scratch/run_obsea_evaluation.py`, `outputs/obsea_evaluation.json` |
 | Timing-only benchmark | `scratch/run_latency_benchmark.py`, `outputs/latency_yolov8_vs_rtdetr.json` |
-| Current project status and commands | `readme.md`, `docs/agent-handoff.md` |
+| Current project status and commands | `../README.md`, `agent-handoff.md` |
 
 The command recorded for the Python suite is `python -m pytest tests -v`. The project handoff records 57 passing tests in 11.30 seconds in its `.venv`; that run was reported on 2026-10-28 and is not a new execution performed while drafting this manuscript. The Codex audit shell could not reproduce it: its `.venv` points to a missing Python 3.11 executable, while system Python 3.14.7 stopped collection with two `cv2` import errors (14 items collected; no tests ran). The handoff also records a passing Vite build and route smoke check. Re-run these commands in the target clone before release.
 

@@ -1,6 +1,6 @@
 # Shared repository instructions
 
-This file is the canonical project guidance for any coding agent working in this repository. Read it together with `readme.md` and `docs/agent-handoff.md` before making changes. Provider-specific entry files should point here rather than maintain competing project rules.
+This file is the canonical project guidance for any coding agent working in this repository. Read it together with `README.md` and `docs/agent-handoff.md` before making changes. Provider-specific entry files should point here rather than maintain competing project rules.
 
 ## Project facts and evidence
 
@@ -14,9 +14,10 @@ This file is the canonical project guidance for any coding agent working in this
 - A user-approved CC BY 4.0 DIGI4ECO archive is under `external_data/digi4eco/` (DOI `10.5281/zenodo.20701225`). Only its OBSEA video and CVAT annotations were extracted. Ground truth has 12 tracks and 1,384 boxes through frame 149; the video decodes to 148 frames, so 14 trailing visible boxes were excluded. In isolated `.venv-video`, confidence 0.25 produced zero detections; confidence 0.001 produced 450 raw boxes, all below ByteTrack's 0.1 low threshold. Both runs produced zero IDs/counts against six reference crossings. This is a negative tracker result, not tracking validation success; see `docs/video-tracking-validation.md`.
 - `outputs/latency_yolov8_vs_rtdetr.json` is a timing-only comparison. `models/rtdetr-l.pt` is a COCO-pretrained 80-class checkpoint, not fish fine-tuned; its detections are not fish-species predictions. No RT-DETR fish training or accuracy evaluation has been run.
 - `docs/rtdetr-finetune-plan.md` and `scratch/run_rtdetr_finetune.py` define an opt-in RT-DETR plan. The script does nothing by default; pilot, train, and evaluate require `--execute`. Do not run them without approval.
-- `test_sample/` is not an independent cross-domain dataset and has no ground-truth annotations in this workspace. It is 39/40 exact duplicates of Dataset images.
+- `qualitative_samples/` is not an independent cross-domain dataset and has no ground-truth annotations in this workspace. It is 39/40 exact duplicates of Dataset images.
 - The tracking smoke-test script uses synthetic rectangles. A separate real-video evaluation ran on DIGI4ECO OBSEA, but the detector produced no IDs or crossings at confidence 0.25 or 0.001; see the README and video protocol. Do not describe that negative result as successful tracking validation.
 - PDFs under `client/public/research/` are preserved artifacts, not evidence of publication or peer review.
+- Current notebooks use environment variables for Kaggle access. Earlier notebook revisions in Git history contained a hard-coded Kaggle credential; the current copies are sanitized, but the old key must be revoked because sanitizing a later commit does not erase history.
 - Dataset validator: `src/data/validator.py` parses 5-field detection boxes and >5-field polygons, converts polygons to enclosing boxes, and reports `box_rows`, `polygon_rows`, and `converted_polygon_boxes`. Focused tests cover valid polygons, malformed rows, out-of-bounds polygons, and class IDs. The evaluation pipeline still uses `scratch/eval_common.py` for derived dataset preparation.
 
 ## Change practices
@@ -44,7 +45,9 @@ This file is the canonical project guidance for any coding agent working in this
 - `outputs/` - recorded JSON artifacts and derived datasets
 - `docs/` - audit handoff, RT-DETR plan, video-tracking protocol, project map, and research-paper draft
 - `tests/` - Python tests, including FastAPI integration tests
-- `notebooks/` - original training notebooks
+- `notebooks/training/` - named Colab training notebooks; use runtime environment variables for Kaggle credentials
+- `notebooks/README.md` - notebook index and credential setup guidance
+- `docs/` - project, code, deployment, research, and experiment documentation
 
 ## Commands and environment
 
@@ -56,7 +59,7 @@ python -m pytest tests -v
 
 Current OpenCode run on 2026-10-28: the local `.venv` (Python 3.11.9) collected and passed **57 tests in 11.30 s** with `torch 2.14.1+cu126`, `ultralytics 8.4.190`, `opencv-python 5.0.0`, `fastapi 0.162.0`, and `httpx 0.28.1`. The run emitted Starlette/httpx deprecation, pytest fixture deprecation, and PyTorch sm_120 warnings. The suite includes API integration tests; the video test uses synthetic frames. Passing tests validate code paths and schemas, not fish-detection accuracy. Re-run successfully before claiming current pass status; do not install dependencies without user approval. No Python environment lock file is present.
 
-The current audit created `.venv-video` with explicit user approval for real-video processing. In the Git checkout, `YOLO_CONFIG_DIR=.cache/ultralytics-video .venv-video\Scripts\python.exe -m pytest tests -v --ignore=tests/test_api.py` passed **52 tests in 7.05 s** (one pytest fixture deprecation warning). The full suite could not collect because FastAPI is absent from this video-only environment. The original `.venv` still points to a missing Python 3.11 executable; system Python 3.14.7 previously stopped collection because `cv2` was missing. Do not install additional dependencies without user approval.
+The current audit created `.venv-video` with explicit user approval for real-video processing. In the Git checkout, `YOLO_CONFIG_DIR=.cache/ultralytics-video .venv-video\Scripts\python.exe -m pytest tests -v --ignore=tests/test_api.py` passed **52 tests in 8.30 s** (one pytest fixture deprecation warning). The full suite could not collect because FastAPI is absent from this video-only environment. The original `.venv` still points to a missing Python 3.11 executable; system Python 3.14.7 previously stopped collection because `cv2` was missing. Do not install additional dependencies without user approval.
 
 Frontend dependencies are in `client/package.json` with `client/package-lock.json`. If `client/node_modules` is present, do not reinstall packages unnecessarily. Check the available scripts in `client/package.json` before running a build or lint command. From `client/`, `npm run build` and `npm run check:routes` both passed in the current recheck with Vite 8.0.2; no lint script is defined. The route check is an SSR smoke test, not a browser end-to-end test.
 
@@ -64,4 +67,4 @@ For GPU work, inspect the installed Python/PyTorch/CUDA/GPU combination first. T
 
 ## Completion notes
 
-When handing work back, summarize changed files, commands actually run, their results, and any remaining blockers. For experiments, report the checkpoint, image/data set, device, parameters, and output path when known. Keep claims consistent with `readme.md` and `docs/agent-handoff.md`.
+When handing work back, summarize changed files, commands actually run, their results, and any remaining blockers. For experiments, report the checkpoint, image/data set, device, parameters, and output path when known. Keep claims consistent with `README.md` and `docs/agent-handoff.md`.

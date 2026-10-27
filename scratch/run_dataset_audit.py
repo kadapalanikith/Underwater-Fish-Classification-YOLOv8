@@ -296,8 +296,8 @@ def checkpoint_analysis(data_yaml_info):
     }
 
 
-def test_sample_analysis(leakage):
-    sample_dir = ROOT / "test_sample"
+def qualitative_samples_analysis(leakage):
+    sample_dir = ROOT / "qualitative_samples"
     images = sorted(
         path for path in sample_dir.glob("*") if path.suffix.lower() in IMAGE_EXTENSIONS
     )
@@ -336,7 +336,7 @@ def video_analysis():
         ROOT / "docs",
         ROOT / "scratch",
         ROOT / "server",
-        ROOT / "test_sample",
+        ROOT / "qualitative_samples",
         ROOT / "outputs",
     ]
     videos = []
@@ -357,7 +357,7 @@ def main():
     data_yaml_info = data_yaml_analysis()
     checkpoint_info = checkpoint_analysis(data_yaml_info)
     clean_test = clean_test_analysis(leakage)
-    sample_info = test_sample_analysis(leakage)
+    sample_info = qualitative_samples_analysis(leakage)
     videos = video_analysis()
 
     report = {
@@ -381,7 +381,7 @@ def main():
             if key not in ("hashes", "prefixes")
         },
         "clean_test_candidate": clean_test,
-        "test_sample": sample_info,
+        "qualitative_samples": sample_info,
         "videos": videos,
     }
     output_path = OUTPUTS / "dataset_audit.json"
@@ -414,7 +414,7 @@ def main():
             "instances": clean_test["clean_instances_total"],
             "classes_without_instances": clean_test["clean_classes_without_instances"],
         },
-        "test_sample": {
+        "qualitative_samples": {
             "images": sample_info["images"],
             "labels": sample_info["labels"],
             "exact_duplicate_with_dataset": sample_info["exact_duplicate_with_dataset"],

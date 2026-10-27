@@ -67,6 +67,8 @@ def load_audit_summary():
         return None
     with open(path, "r", encoding="utf-8") as handle:
         audit = json.load(handle)
+    # Accept the old key because saved audit JSON is preserved as provenance.
+    sample_summary = audit.get("qualitative_samples", audit.get("test_sample"))
     return {
         "path": str(path),
         "splits": {
@@ -87,7 +89,7 @@ def load_audit_summary():
             key: value["prefix_count"]
             for key, value in audit["leakage"]["source_prefix_overlaps"].items()
         },
-        "test_sample": audit["test_sample"],
+        "qualitative_samples": sample_summary,
         "videos": audit["videos"],
     }
 

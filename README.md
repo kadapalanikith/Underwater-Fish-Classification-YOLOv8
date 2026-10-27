@@ -8,6 +8,8 @@ Project guidance is centralized in [`AGENTS.md`](AGENTS.md). Codex and Antigravi
 
 See [`docs/project-map.md`](docs/project-map.md) for the folder map, file-naming conventions, and rules for preserving experiment artifacts. The evidence-based manuscript draft is [`docs/research-paper.md`](docs/research-paper.md); it is not peer reviewed or published.
 
+Project documentation is organized under `docs/`: [`project-explanation.md`](docs/project-explanation.md), [`code-walkthrough.md`](docs/code-walkthrough.md), and [`deployment-guide.md`](docs/deployment-guide.md). The Colab workflows and secure Kaggle setup are indexed in [`notebooks/README.md`](notebooks/README.md).
+
 Multiple agents can work on the project. The original source-export folder lacked `.git`; this audit was published from a separate Git clone on `audit/research-validation-release`. In any checkout, verify Git status and coordinate file ownership before parallel edits.
 
 ## Current verification (2026-10-28)
@@ -15,11 +17,11 @@ Multiple agents can work on the project. The original source-export folder lacke
 - The recorded OpenCode run on 2026-10-28 used Python 3.11.9 with `torch 2.14.1+cu126`, `ultralytics 8.4.190`, `opencv-python 5.0.0`, `fastapi 0.162.0`, and `httpx 0.28.1`.
 - That OpenCode run collected and passed **57 tests in 11.30 s**. It included eight API integration tests and 14 uncertainty tests, with Starlette/httpx deprecation, pytest fixture, and PyTorch sm_120 warnings. Passing tests validate code paths and schemas, not fish-detection accuracy.
 - The OpenCode frontend run passed `npm run build` with Vite 8.0.2 in 715 ms. `npm run check:routes` rendered `/`, `/demo`, `/research`, and `/contact` without errors. The route check is an SSR smoke test, not a browser end-to-end test.
-- In the current audit shell, `.venv\Scripts\python.exe` cannot launch because its configured Python 3.11.9 executable is missing. Available system Python is 3.14.7 and lacks `cv2`, `torch`, and `ultralytics`; the recorded Python results above were not reproduced in this shell. No dependencies were installed.
+- In the original audit shell, `.venv\Scripts\python.exe` could not launch because its configured Python 3.11.9 executable was missing. A separate `.venv-video` was later created with approval to run the real-video experiment. That environment passes 52 non-API tests; FastAPI is absent, so the full suite is not verified there.
 - The current system-Python attempt `python -m pytest tests -v` collected 14 items but stopped with 2 collection errors (`ModuleNotFoundError: No module named 'cv2'`); no tests ran in that attempt. This is separate from, and does not erase, the recorded OpenCode pass above.
 - GPU probe: `torch.cuda.is_available()` is `True` for the RTX 5050 Laptop GPU (8,151 MiB, compute capability 12.0, driver 610.74), but `torch 2.14.1+cu126` has no sm_120 kernels. A minimal GPU tensor operation fails with `cudaErrorNoKernelImageForDevice`, so `get_optimal_device()` falls back to CPU. The installed build suggests CUDA 13.0/13.2/13.4 wheels. No GPU inference, training, or PyTorch reinstall was performed.
 - An earlier attempt to launch the configured Python 3.11 executable failed; system Python 3.14.7 stopped collection because `cv2` was missing. The current `.venv` result above supersedes those failures.
-- The original source export had no `.git`; the separate release clone has Git history. A heuristic credential-pattern scan of the release branch and available history found no matches, but it is not exhaustive.
+- The current notebook copies use environment variables and contain no hard-coded Kaggle credential. An earlier tracked notebook revision in Git history did contain one; revoke/rotate that key because sanitizing the latest files does not erase history.
 - The approved CC BY 4.0 OBSEA image dataset and DIGI4ECO tracking dataset are present. DIGI4ECO was downloaded with user approval, checksum-verified, and only its OBSEA video and annotations were extracted. An isolated CPU environment was approved for the real-video run; the tested checkpoint produced no track IDs. No model was trained.
 
 ## Dataset and evaluation protocol
@@ -33,7 +35,7 @@ Multiple agents can work on the project. The original source-export folder lacke
   - 212 test images share a train source stem; 202 distinct prefixes.
   - 70 test images share a valid source stem; 69 distinct prefixes.
   - `test_clean` excludes 298 test images and is conservative, not proof of source independence.
-- `test_sample` contains 40 images and no labels; 39 of 40 are exact duplicates of Dataset images. It is not an independent cross-domain dataset.
+- `qualitative_samples` contains 40 images and no labels; 39 of 40 are exact duplicates of Dataset images. It is not an independent cross-domain dataset.
 
 ## Held-out evaluation
 
@@ -79,7 +81,7 @@ Paired image-bootstrap deltas, left minus right:
 
 "Supported" requires the paired interval to exclude zero and the Holm-adjusted p value to be below 0.05 across three methods and two metrics. CLAHE was approximately neutral. Gray-world and fusion did not improve accuracy; their mAP@50-95 degradations remained supported after correction. The comparison uses one checkpoint, one leakage-filtered subset, and CPU inference. Artifact: `outputs/enhancement_accuracy_test_clean.json`; paired summaries are in `outputs/bootstrap_uncertainty.json`.
 
-The older 40-image `test_sample` audit remains a counts/confidence/timing observation, not an accuracy measurement. No labels exist for those images.
+The older 40-image `qualitative_samples` audit remains a counts/confidence/timing observation, not an accuracy measurement. No labels exist for those images.
 
 ## OBSEA independent-domain check (new, 2026-10-28)
 
@@ -132,8 +134,9 @@ This is a timing comparison, not an accuracy comparison. The RT-DETR checkpoint 
 - `models/rtdetr-l.pt` exists (66,511,432 bytes) and loads as an RT-DETR-L checkpoint. It is pretrained on COCO, not fish fine-tuned.
 - Dataset audit: 8,229 images (6,834 train / 698 valid / 697 test), all 640x640 RGB and readable. After polygon conversion the instance totals are 14,144 train / 1,193 valid / 1,129 test. All 13 classes are present; AngelFish has 0 validation instances. The Roboflow README's 8,242-image count does not match the 8,229 files present.
 - `src/data/validator.py` parses 5-field boxes and >5-field polygons, converts polygons to enclosing boxes, and reports `box_rows`, `polygon_rows`, and `converted_polygon_boxes`; focused tests cover valid polygons, malformed rows, out-of-bounds polygons, and class IDs. On the local dataset it reports 14,144 / 1,193 / 1,129 instances with 0 invalid rows and 0 out-of-bounds boxes.
-- `test_sample` contains 40 images and no labels; 39 of 40 are exact duplicates of Dataset images. It is not independent cross-domain evidence.
-- `scratch/run_enhancement_audit.py` evaluates a fixed, alphabetically sorted set of 40 `test_sample/*.jpg` images with the same YOLO checkpoint, confidence threshold 0.25, and four enhancement modes. Saved counts/confidence/latency are qualitative inference observations only.
+- `qualitative_samples` contains 40 images and no labels; 39 of 40 are exact duplicates of Dataset images. It is not independent cross-domain evidence.
+- The directory was renamed from `test_sample` to make clear that it is not a held-out test set. Existing JSON results retain the old directory label as historical provenance; the result files were not rewritten.
+- `scratch/run_enhancement_audit.py` evaluates a fixed, alphabetically sorted set of 40 `qualitative_samples/*.jpg` images with the same YOLO checkpoint, confidence threshold 0.25, and four enhancement modes. Saved counts/confidence/latency are qualitative inference observations only.
 
 | Method | Images with detections | Detection boxes | Mean box confidence | Mean preprocess ms | Mean inference ms | Mean total ms |
 |---|---:|---:|---:|---:|---:|---:|
@@ -155,7 +158,7 @@ Timings are from the saved CPU run and may vary with machine load/cache. Higher 
 - The OBSEA result is preliminary: one external dataset, one checkpoint, zero-shot, class-agnostic, and no species mapping. It should not be merged with local 13-class metrics.
 - The enhancement comparison is preliminary: one checkpoint, one 399-image subset, CPU inference, and low-support classes. Only the mAP@50-95 degradations for gray-world and fusion survived Holm correction; no enhancement method showed a supported improvement.
 - `scratch/run_model_benchmark.py` performs forward inference with `models/best.pt` and pretrained `models/rtdetr-l.pt` on a single all-zero image, with warmup and ten timed runs. It does not use a fish evaluation set or compare accuracy. The saved CPU timings are YOLOv8n-Fish: 3,013,383 parameters, 5.96 MB, 93.50 ms (10.69 FPS); RT-DETR-L: 32,970,476 parameters, 63.43 MB, 912.77 ms (1.10 FPS). This is a latency/resource benchmark only.
-- `scratch/run_cross_domain.py` labels `test_sample` as a target domain, but `src/evaluation/cross_domain.py` simply runs inference on those same 40 sample images. There is no independent target dataset or ground truth in that artifact. It is same-distribution qualitative inference, not cross-domain generalization evidence.
+- `scratch/run_cross_domain.py` labels `qualitative_samples` as a target domain, but `src/evaluation/cross_domain.py` simply runs inference on those same 40 sample images. There is no independent target dataset or ground truth in that artifact. It is same-distribution qualitative inference, not cross-domain generalization evidence.
 - `scratch/run_video_tracking_smoketest.py` creates synthetic colored rectangles, not fish, and checks only that processing returns the expected fields and frame count. It does not validate fish detection or real-video ID accuracy.
 - A real annotated video run is saved, but the tested checkpoint produced no IDs or crossings. Tracking/counting remains unsuccessful for this checkpoint and configuration; see the tracking protocol and JSON artifacts.
 - The frontend route check is an SSR smoke test, not a browser end-to-end test. No visual regression or accessibility audit was performed.
@@ -167,7 +170,7 @@ Timings are from the saved CPU run and may vary with machine load/cache. Higher 
 - **Video:** real video and ground-truth annotations were processed, but the checkpoint produced zero track IDs at confidence 0.25 and 0.001. It missed all six reference crossings. No successful persistent-ID result or MOTA/IDF1/HOTA score is available. Current evidence and failure interpretation are in `docs/video-tracking-validation.md`.
 - **Universal independent-domain validation:** OBSEA is one external Mediterranean dataset. No second labeled domain, habitat, or geography was evaluated. Do not describe OBSEA as proof of universal generalization.
 - **Source independence:** `test_clean` is leakage-filtered but still shares source-level provenance with training data. The source-stem cluster bootstrap is a sensitivity analysis, not proof of independence.
-- **Git/secrets:** the original source export lacked `.git`; the audited changes were pushed on `audit/research-validation-release`. A heuristic credential-pattern scan of staged files and available history found no matches, but this is not an exhaustive guarantee for every secret format or remote history state.
+- **Git/secrets:** the original source export lacked `.git`; the audited changes were pushed on `audit/research-validation-release`. Current notebook files no longer contain the hard-coded Kaggle credential, but an earlier revision remains in Git history. Revoke/rotate that key; no history rewrite was performed.
 - **Research PDFs:** `client/public/research/RE_Paper.pdf`, `client/public/research/sample_paper.pdf`, and `client/src/assets/RE_Paper.pdf` are preserved artifacts. No evidence in this workspace establishes peer review or publication.
 - **Environment reproducibility:** root and server dependency files use broad lower bounds and do not pin a reproducible environment. No Python lockfile is present.
 - **Statistical scope:** confidence intervals are implemented for the saved local evaluations, but not for OBSEA, RT-DETR, real-video tracking, or enhancement latency. No multiple-comparison correction was applied outside the enhancement mAP comparisons.
@@ -175,7 +178,7 @@ Timings are from the saved CPU run and may vary with machine load/cache. Higher 
 ## Experiment artifacts
 
 - `scratch/eval_common.py` - shared label parsing/conversion, derived-dataset preparation, and Ultralytics evaluation helpers.
-- `scratch/run_dataset_audit.py`, `outputs/dataset_audit.json` - dataset counts, formats, duplicate hashes, source-stem overlaps, image integrity, checkpoint compatibility, and `test_sample` audit.
+- `scratch/run_dataset_audit.py`, `outputs/dataset_audit.json` - dataset counts, formats, duplicate hashes, source-stem overlaps, image integrity, checkpoint compatibility, and `qualitative_samples` audit.
 - `scratch/run_heldout_evaluation.py`, `outputs/heldout_yolov8_metrics.json` - `test_full`, `test_clean`, and `valid_full` re-evaluation.
 - `src/evaluation/uncertainty.py`, `scratch/run_bootstrap_uncertainty.py`, `tests/test_uncertainty.py` - image/cluster bootstrap, paired deltas, Holm correction, and tests.
 - `outputs/bootstrap_uncertainty.json`, `outputs/uncertainty_stats/` - saved intervals and exact per-image validation stats.
@@ -188,7 +191,7 @@ Timings are from the saved CPU run and may vary with machine load/cache. Higher 
 - `scratch/run_model_benchmark.py`, `outputs/model_benchmark_comparison.json` - zero-image latency/resource benchmark.
 - `scratch/run_enhancement_audit.py`, `outputs/enhancement_audit.json` - fixed 40-image enhancement inference run.
 - `outputs/enhancement_benchmark.json` - earlier aggregate enhancement run; do not mix its timings with the newer audit.
-- `scratch/run_cross_domain.py`, `outputs/cross_domain_evaluation.json` - same-distribution `test_sample` inference, not OOD evaluation.
+- `scratch/run_cross_domain.py`, `outputs/cross_domain_evaluation.json` - same-distribution `qualitative_samples` inference, not OOD evaluation.
 - `scratch/run_video_tracking_smoketest.py` - synthetic-video smoke test only.
 - `docs/video-tracking-validation.md` - real-video protocol and executed negative result; the tested checkpoint produced no IDs or crossings at the two reported confidence settings.
 
@@ -200,7 +203,7 @@ From the repository root:
 .\.venv\Scripts\python.exe -m pytest tests -v
 ```
 
-Historical OpenCode result: 57 passed in 11.30 s. Latest branch check in the isolated video environment: 52 passed, 1 warning, using `--ignore=tests/test_api.py`; the full suite could not collect because FastAPI is absent from that environment. The focused API tests therefore need a complete project environment. The suite's synthetic tracking tests validate code paths, not fish accuracy.
+Historical OpenCode result: 57 passed in 11.30 s. Latest branch check in the isolated video environment: 52 passed in 7.49 s with 1 warning, using `--ignore=tests/test_api.py`; the full suite could not collect because FastAPI is absent from that environment. The focused API tests therefore need a complete project environment. The suite's synthetic tracking tests validate code paths, not fish accuracy.
 
 From `client/`:
 
@@ -221,4 +224,4 @@ RT-DETR data preparation is available without training:
 
 Do not run `--train`, `--pilot`, or `--evaluate` without reviewing `docs/rtdetr-finetune-plan.md` and obtaining approval for the separate GPU environment.
 
-No large datasets beyond the approved OBSEA download, no training jobs, and no package installations were started in this pass. Existing checkpoints, notebooks, dataset files, `test_sample` images, PDFs, and saved JSON outputs were preserved. New derived datasets and evaluation artifacts were written under `outputs/`, and new scripts/docs under `scratch/` and `docs/`.
+No large datasets beyond the approved OBSEA download, no training jobs, and no package installations were started in this pass. Existing checkpoints, notebooks, dataset files, `qualitative_samples` images, PDFs, and saved JSON outputs were preserved. New derived datasets and evaluation artifacts were written under `outputs/`, and new scripts/docs under `scratch/` and `docs/`.

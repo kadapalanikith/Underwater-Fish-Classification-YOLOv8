@@ -12,7 +12,7 @@ enhancer = UnderwaterEnhancer()
 
 evaluator = CrossDomainEvaluator(
     model=model,
-    target_images_dir="test_sample",
+    target_images_dir="qualitative_samples",
     source_domain_name="Kaggle/Roboflow Curated Tank & Aquarium Domain",
     target_domain_name="Challenging Wild Underwater Imagery (Green/Blue Attenuation & Corals)"
 )

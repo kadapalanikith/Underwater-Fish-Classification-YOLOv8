@@ -1,6 +1,6 @@
 # Agent handoff: current repository state
 
-This is a short orientation for any agent joining the project. Read [`AGENTS.md`](../AGENTS.md) for durable rules and [`readme.md`](../readme.md) for the audit report and experiment values.
+This is a short orientation for any agent joining the project. Read [`AGENTS.md`](../AGENTS.md) for durable rules and [`README.md`](../README.md) for the audit report and experiment values.
 
 ## State at handoff (2026-10-28)
 
@@ -8,9 +8,10 @@ This is a short orientation for any agent joining the project. Read [`AGENTS.md`
 
 - Branch `audit/research-validation-release` contains the audited implementation, docs, tests, and compact JSON evidence artifacts; it was pushed to the project GitHub repository. Datasets, videos, checkpoints, environments, and build output were excluded.
 - `npm run build` passed with Vite 8.0.2 in 778 ms. `npm run check:routes` rendered `/`, `/demo`, `/research`, and `/contact`.
-- In the isolated `.venv-video`, with a project-local Ultralytics config directory, `python -m pytest tests -v --ignore=tests/test_api.py` passed 52 tests in 7.05 s. The full suite could not collect because FastAPI is missing from this video-only environment; no extra dependency was installed.
-- A heuristic credential-pattern scan of staged files and available Git history found no matches. This is not a guarantee that every possible secret format is absent.
+- In the isolated `.venv-video`, with a project-local Ultralytics config directory, `python -m pytest tests -v --ignore=tests/test_api.py` passed 52 tests in 8.30 s. The full suite could not collect because FastAPI is missing from this video-only environment; no extra dependency was installed.
+- The current notebook files were inspected and sanitized; their Kaggle config is built from runtime environment variables. A hard-coded Kaggle credential was found in the earlier notebook versions in Git history. Revoke/rotate that key: renaming and sanitizing the files does not remove the historical value. Do not rewrite shared history without explicit owner coordination.
 - The real-video tracker processed 148 decoded frames; confidence 0.25 yielded zero detections and IDs. Confidence 0.001 yielded 450 raw boxes, all below ByteTrack's 0.1 low threshold. Both settings missed all six annotated crossings.
+- Organization changes: Colab notebooks now live under `notebooks/training/` with descriptive names and safe Kaggle credential setup; root guides moved under `docs/`; the unlabeled `test_sample/` folder is now `qualitative_samples/`; Vite's tracked dependency cache was removed and ignored. Historical result JSON was preserved unchanged.
 
 - Existing implementation preserved: FastAPI, React/Vite, YOLOv8 fish checkpoint, preprocessing methods, an RT-DETR timing benchmark, cross-domain helper, and video tracking code.
 - Current verification: `.venv` Python 3.11.9; `python -m pytest tests -v` passed **57 tests in 11.30 s**. Warnings: Starlette/httpx deprecation, pytest class-fixture deprecation, and PyTorch sm_120. Tests validate code paths/schemas, not fish accuracy.
@@ -28,7 +29,7 @@ This is a short orientation for any agent joining the project. Read [`AGENTS.md`
 - `test_clean`: 399 / 639; P 0.809, R 0.803, mAP@50 0.841, mAP@50-95 0.636. Leakage-filtered, not source-independent.
 - Leakage counts: 34 test images exact-match train (33 distinct hashes); 212 share a train source stem (202 distinct prefixes); 70 share a valid source stem (69 distinct prefixes); test_clean excludes 298 images.
 - Historical notebook log remains P 0.865, R 0.874, mAP@50 0.908, mAP@50-95 0.666 (12/13 classes). Keep separate from new evaluations.
-- `test_sample` has no labels; 39/40 images are exact duplicates of Dataset images. It is not independent cross-domain evidence.
+- `qualitative_samples` has no labels; 39/40 images are exact duplicates of Dataset images. It is not independent cross-domain evidence.
 
 ## Bootstrap uncertainty (completed)
 
@@ -65,7 +66,7 @@ This is a short orientation for any agent joining the project. Read [`AGENTS.md`
 
 - `models/rtdetr-l.pt`: COCO-pretrained, 80 classes, 32,970,476 parameters, 66,511,432 bytes, SHA-256 `6de60b10d4bc566f00cda0f5b4d64afe4b66d48dc9695d2171effb7859d8e73f`.
 - `outputs/latency_yolov8_vs_rtdetr.json` remains timing-only: YOLOv8 60.74 ms, RT-DETR 706.32 ms mean inference on 30 CPU images.
-- Fair-comparison plan: `docs/rtdetr-finetune-plan.md`.
+- Fair-comparison plan: `rtdetr-finetune-plan.md`.
 - Opt-in script: `scratch/run_rtdetr_finetune.py`. Default invocation does nothing; `--pilot`, `--train`, and `--evaluate` require `--execute`.
 - Prepared data: `outputs/derived/rtdetr_fish_train` (6,834 images/labels), `outputs/derived/rtdetr_fish_valid` (698/698), `outputs/derived/rtdetr_fish/data.yaml`.
 - No RT-DETR install, training, or fish-accuracy evaluation was run. Do not claim a comparison.
@@ -79,16 +80,16 @@ This is a short orientation for any agent joining the project. Read [`AGENTS.md`
 
 ## Remaining blockers
 
-1. Real-video tracking was run on the approved CC BY 4.0 DIGI4ECO OBSEA clip in `.venv-video`. The video decodes to 148 frames while annotations span 150; 14 boxes beyond the video were excluded, leaving 1,327 reference boxes. Ground truth has 12 tracks and 6 gate crossings. At confidence 0.25, inference yielded zero detections/IDs/counts. At 0.001 it yielded 450 raw low-confidence detections (mean confidence 0.0041), all below ByteTrack's 0.1 low threshold, thus still zero IDs/counts. Count error was six (100%) in both runs. The run validates pipeline execution and exposes a model/tracker failure; it does not validate persistent IDs. See `docs/video-tracking-validation.md` and `external_data/digi4eco/README.md`.
+1. Real-video tracking was run on the approved CC BY 4.0 DIGI4ECO OBSEA clip in `.venv-video`. The video decodes to 148 frames while annotations span 150; 14 boxes beyond the video were excluded, leaving 1,327 reference boxes. Ground truth has 12 tracks and 6 gate crossings. At confidence 0.25, inference yielded zero detections/IDs/counts. At 0.001 it yielded 450 raw low-confidence detections (mean confidence 0.0041), all below ByteTrack's 0.1 low threshold, thus still zero IDs/counts. Count error was six (100%) in both runs. The run validates pipeline execution and exposes a model/tracker failure; it does not validate persistent IDs. See `video-tracking-validation.md` and [`../external_data/digi4eco/README.md`](../external_data/digi4eco/README.md).
 2. Fair RT-DETR accuracy: requires approval to create a separate CUDA 13.x environment, pass a GPU tensor gate, run a one-epoch pilot, then approve a full run.
 3. Universal cross-domain claim: only OBSEA was evaluated; another labeled domain would be needed.
 4. Source-independent local test: leakage-filtered subset is not proof of independence.
 5. Git/secrets: no `.git`; no tracked-history audit or secret scan is possible here.
-6. Research manuscript: `docs/research-paper.md` is a draft based on saved evidence, explicitly not peer reviewed or published.
+6. Research manuscript: `research-paper.md` is a draft based on saved evidence, explicitly not peer reviewed or published.
 
 ## Before taking a task
 
-1. Check `AGENTS.md`, `readme.md`, and the exact target files.
+1. Check `AGENTS.md`, `README.md`, and the exact target files.
 2. Keep new findings separate from historical saved results; record checkpoint hash, dataset, device, settings, and output path.
 3. Preserve user artifacts and limit changes to the request.
 4. Coordinate file ownership; do not assume Git isolation.

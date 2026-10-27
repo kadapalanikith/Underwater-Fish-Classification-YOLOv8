@@ -41,8 +41,8 @@ def sample_pil_image():
 
 
 @pytest.fixture(scope="session")
-def test_sample_images():
-    root = Path(__file__).resolve().parent.parent / "test_sample"
+def qualitative_sample_images():
+    root = Path(__file__).resolve().parent.parent / "qualitative_samples"
     return sorted(root.glob("*.jpg"))
 
 
@@ -87,10 +87,10 @@ class TestEnhancement:
         _, meta = enhancer.enhance(sample_image_rgb, method="fusion")
         assert meta["latency_ms"] >= 0
 
-    def test_real_test_images(self, enhancer, test_sample_images):
-        if not test_sample_images:
-            pytest.skip("No test_sample images found")
-        img_path = str(test_sample_images[0])
+    def test_real_sample_images(self, enhancer, qualitative_sample_images):
+        if not qualitative_sample_images:
+            pytest.skip("No qualitative_samples images found")
+        img_path = str(qualitative_sample_images[0])
         out, meta = enhancer.enhance(img_path, method="fusion")
         assert out is not None
         assert isinstance(out, np.ndarray)
@@ -165,18 +165,18 @@ class TestDatasetValidator:
         assert result["out_of_bounds_boxes"] == 1
         assert result["invalid_annotations_count"] == 4
 
-    def test_file_hash_consistency(self, test_sample_images):
-        if not test_sample_images:
-            pytest.skip("No test_sample images found")
-        h1 = DatasetValidator.compute_file_hash(test_sample_images[0])
-        h2 = DatasetValidator.compute_file_hash(test_sample_images[0])
+    def test_file_hash_consistency(self, qualitative_sample_images):
+        if not qualitative_sample_images:
+            pytest.skip("No qualitative_samples images found")
+        h1 = DatasetValidator.compute_file_hash(qualitative_sample_images[0])
+        h2 = DatasetValidator.compute_file_hash(qualitative_sample_images[0])
         assert h1 == h2, "Same file must produce identical hash"
 
-    def test_different_files_different_hashes(self, test_sample_images):
-        if len(test_sample_images) < 2:
+    def test_different_files_different_hashes(self, qualitative_sample_images):
+        if len(qualitative_sample_images) < 2:
             pytest.skip("Need at least 2 test images")
-        h1 = DatasetValidator.compute_file_hash(test_sample_images[0])
-        h2 = DatasetValidator.compute_file_hash(test_sample_images[1])
+        h1 = DatasetValidator.compute_file_hash(qualitative_sample_images[0])
+        h2 = DatasetValidator.compute_file_hash(qualitative_sample_images[1])
         assert h1 != h2, "Different image files should have different hashes"
 
 
@@ -269,12 +269,12 @@ class TestInference:
         assert annotated.shape[0] == 480
         assert annotated.shape[1] == 640
 
-    def test_real_test_image_prediction(self, loaded_model, test_sample_images):
-        if not test_sample_images:
+    def test_qualitative_sample_prediction(self, loaded_model, qualitative_sample_images):
+        if not qualitative_sample_images:
             pytest.skip("No test sample images available")
         device = get_optimal_device()
         import cv2
-        img_bgr = cv2.imread(str(test_sample_images[0]))
+        img_bgr = cv2.imread(str(qualitative_sample_images[0]))
         img_rgb = cv2.cvtColor(img_bgr, cv2.COLOR_BGR2RGB)
         results = loaded_model.predict(img_rgb, conf=0.25, verbose=False, device=device)
         assert results is not None
@@ -286,14 +286,14 @@ class TestInference:
 # ─── Enhancement + Detection Integration Tests ───────────────────────────────
 
 class TestEnhancementPipeline:
-    def test_full_pipeline_raw_to_output(self, test_sample_images):
-        if not test_sample_images:
-            pytest.skip("No test_sample images")
+    def test_full_pipeline_raw_to_output(self, qualitative_sample_images):
+        if not qualitative_sample_images:
+            pytest.skip("No qualitative_samples images")
         from ultralytics import YOLO
         device = get_optimal_device()
         model = YOLO(str(Path(__file__).resolve().parent.parent / "models" / "best.pt"))
         enh = UnderwaterEnhancer()
-        enhanced_rgb, _ = enh.enhance(str(test_sample_images[0]), method="fusion")
+        enhanced_rgb, _ = enh.enhance(str(qualitative_sample_images[0]), method="fusion")
         results = model.predict(enhanced_rgb, conf=0.25, verbose=False, device=device)
         assert results is not None
 

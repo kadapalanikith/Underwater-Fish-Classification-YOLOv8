@@ -27,7 +27,7 @@ def client():
 
 
 def _image_bytes() -> bytes:
-    sample = sorted((ROOT / "test_sample").glob("*.jpg"))
+    sample = sorted((ROOT / "qualitative_samples").glob("*.jpg"))
     if sample:
         return sample[0].read_bytes()
     image = np.zeros((320, 320, 3), dtype=np.uint8)

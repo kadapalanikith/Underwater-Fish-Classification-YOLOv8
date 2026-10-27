@@ -1,6 +1,6 @@
 """
 Definitive Enhancement Benchmark
-Runs all 4 enhancement methods on a fixed, sorted set of test_sample images.
+Runs all 4 enhancement methods on a fixed, sorted set of qualitative_samples images.
 Records per-image detection counts, per-image confidence list, processing time.
 Explicitly flags the absence of ground-truth labels and marks this as a
 qualitative inference benchmark, NOT an accuracy comparison.
@@ -15,7 +15,7 @@ from ultralytics import YOLO
 import numpy as np
 
 # Fixed, reproducible image order
-images = sorted(glob.glob('test_sample/*.jpg'))
+images = sorted(glob.glob('qualitative_samples/*.jpg'))
 assert len(images) == 40, f"Expected 40 images, got {len(images)}"
 
 device = get_optimal_device()
@@ -24,14 +24,14 @@ enhancer = UnderwaterEnhancer()
 
 # Verify no ground-truth labels exist for these images
 has_ground_truth = any(
-    os.path.exists(p.replace('test_sample/', 'test_sample/labels/').replace('.jpg', '.txt'))
+    os.path.exists(p.replace('qualitative_samples/', 'qualitative_samples/labels/').replace('.jpg', '.txt'))
     for p in images
 )
 
 results = {
     "_metadata": {
         "timestamp": time.strftime('%Y-%m-%dT%H:%M:%S'),
-        "image_set": "test_sample (40 fixed images, sorted alphabetically)",
+        "image_set": "qualitative_samples (40 fixed images, sorted alphabetically)",
         "image_set_source": "Roboflow .rf. naming — same Kaggle/Roboflow distribution as training data",
         "model": "models/best.pt (YOLOv8n, trained on this dataset)",
         "ground_truth_labels_available": has_ground_truth,
@@ -98,5 +98,5 @@ with open('outputs/enhancement_audit.json', 'w', encoding='utf-8') as f:
     json.dump(results, f, indent=2)
 
 print("\nSaved to outputs/enhancement_audit.json")
-print("\n[AUDIT NOTE] No ground-truth labels found for test_sample images.")
+print("\n[AUDIT NOTE] No ground-truth labels found for qualitative_samples images.")
 print("All results reflect inference counts only — not validated accuracy.")
